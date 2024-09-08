@@ -1,13 +1,55 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Polaroid from '../components/polaroid/Polaroid.astro';
-import hideThePain from '../assets/hide_the_pain.jpeg';
+import gAndI from '../assets/g_and_i.jpeg';
 import Title from '../components/title/Title.astro';
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
   <div class='flex flex-col mt-16 lg:mt-24 font-montserrat px-8 items-center'>
-    <Title text='yay' />
-    <Polaroid src={hideThePain} text='Yay you are coming!' />
+    <Title text='yay!' />
+    <Polaroid src={gAndI} />
+    <div
+      class='uppercase tracking-[0.25em] text-white font-bold mt-12 text-center'
+    >
+      WE’RE SO HAPPY YOU’RE COMING
+    </div>
+    <div class='font-montserrat text-xl text-white mt-8 max-w-2xl text-center'>
+      In the meantime, keep an eye on your <strong>email</strong> as we’ll be
+      sending out updates there shortly!
+    </div>
   </div>
 </Layout>
+
+<script>
+  import confetti from 'canvas-confetti';
+
+  var duration = 15 * 1000;
+  var animationEnd = Date.now() + duration;
+  var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+  function randomInRange(min: number, max: number) {
+    return Math.random() * (max - min) + min;
+  }
+
+  var interval = setInterval(function () {
+    var timeLeft = animationEnd - Date.now();
+
+    if (timeLeft <= 0) {
+      return clearInterval(interval);
+    }
+
+    var particleCount = 50 * (timeLeft / duration);
+    // since particles fall down, start a bit higher than random
+    confetti({
+      ...defaults,
+      particleCount,
+      origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+    });
+    confetti({
+      ...defaults,
+      particleCount,
+      origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+    });
+  }, 250);
+</script>
