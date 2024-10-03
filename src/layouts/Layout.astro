@@ -5,9 +5,10 @@ import { ViewTransitions } from 'astro:transitions';
 interface Props {
   title: string;
   noNav?: boolean;
+  noHeader?: boolean;
 }
 
-const { noNav, title } = Astro.props;
+const { noNav, noHeader, title } = Astro.props;
 ---
 
 <!doctype html>
@@ -31,7 +32,7 @@ const { noNav, title } = Astro.props;
     <ViewTransitions />
   </head>
   <body>
-    {!noNav && <Nav />}
+    {!noNav && <Nav noHeader={noHeader} />}
     <slot />
     <style is:global>
       @font-face {

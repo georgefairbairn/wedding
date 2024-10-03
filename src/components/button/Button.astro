@@ -1,29 +1,45 @@
 ---
 const { href, text, classes, onClick, type } = Astro.props;
 
-const allClasses = [
-  'text-white',
+const backClasses = [
   'bg-custom-green',
-  'text-3xl',
+  'rounded',
+  'w-fit',
+  'outline-offset-4',
+  'select-none'
+].join(' ');
+
+const frontClasses = [
+  'block',
+  'bg-white',
   'py-3',
   'px-16',
-  'border-4',
-  'border-white',
-  'rounded-lg',
-  'font-balmy',
-  'drop-shadow-xl',
-  'hover:scale-105',
-  'hover:transition',
-  classes
+  'rounded',
+  '-translate-y-1',
+  '-translate-x-1',
+  'hover:-translate-y-2',
+  'hover:-translate-x-2',
+  'active:-translate-y-0',
+  'active:-translate-x-0',
+  'font-montserrat',
+  'font-bold',
+  'text-3xl',
+  'tracking-[0.14em]',
+  'uppercase',
+  'text-custom-green',
+  'will-change-transform',
+  'transition-transform',
 ].join(' ');
 ---
 
 {
   href ? (
-    <a href={href} class={allClasses}>
-      {text}
+    <a href={href} class={backClasses}>
+      <span class={frontClasses}>{text}</span>
     </a>
   ) : (
-    <button class={allClasses} onclick={onClick} type={type}>{text}</button>
+    <button class={backClasses} onclick={onClick} type={type}>
+      <span class={frontClasses}>{text}</span>
+    </button>
   )
 }

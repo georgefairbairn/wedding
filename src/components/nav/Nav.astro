@@ -1,5 +1,7 @@
 ---
 import NavLink from '../nav-link/NavLink.astro';
+
+const { noHeader } = Astro.props;
 ---
 
 <div
@@ -8,30 +10,37 @@ import NavLink from '../nav-link/NavLink.astro';
 >
 </div>
 
-<div class='w-full mt-8 relative flex justify-center'>
+<div class='w-full relative flex justify-center'>
   <button
     id='hamburgerBtn'
-    class='absolute grid grid-cols-1 w-6 z-10 top-4 left-6 md:top-8 md:left-16'
+    class='absolute grid grid-cols-1 w-6 z-10 top-4 mt-8 left-6 md:top-8 md:left-16'
     type='button'
   >
     <div class='h-1 w-full mb-1 bg-white rounded'></div>
     <div class='h-1 w-full mb-1 bg-white rounded'></div>
     <div class='h-1 w-full bg-white rounded'></div>
   </button>
-  <NavLink href='/home'>
-    <div class='flex flex-col items-center font-normal'>
-      <div class='text-custom-green font-balmy text-7xl tracking-normal'>
-        George
-      </div>
-      <div class='flex items-start justify-end -m-2.5'>
-        <span class='font-white font-sacramento text-7xl mr-4 text-white'
-          >&</span
-        ><span class='text-custom-green font-balmy text-7xl tracking-normal'
-          >Izzy</span
-        >
-      </div>
-    </div>
-  </NavLink>
+  {
+    !noHeader && (
+      <NavLink href='/home'>
+        <div class='flex flex-col items-center font-normal'>
+          <div class='text-custom-green font-balmy text-7xl tracking-normal'>
+            George
+          </div>
+          <div class='flex items-start justify-end -m-2.5'>
+            <>
+              <span class='font-white font-sacramento text-7xl mr-4 text-white'>
+                &
+              </span>
+              <span class='text-custom-green font-balmy text-7xl tracking-normal'>
+                Izzy
+              </span>
+            </>
+          </div>
+        </div>
+      </NavLink>
+    )
+  }
 </div>
 
 <nav
