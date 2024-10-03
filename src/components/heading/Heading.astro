@@ -1,10 +1,9 @@
 ---
-const { heading, text } = Astro.props;
+const { text } = Astro.props;
 ---
 
 <div class='flex flex-col items-center'>
-  <p class='text-2xl mb-4'>{heading}</p>
-  <p class='font-balmyScript text-white text-3xl tracking-[0.25em]'>
+  <h2 class='font-montserrat font-bold uppercase text-white text-2xl tracking-[0.25em]'>
     {text}
-  </p>
+  </h2>
 </div>

@@ -6,6 +6,7 @@ import What3Words from '../components/what3words/What3Words.astro';
 import Heading from '../components/heading/Heading.astro';
 import Address from '../components/address/Address.astro';
 import Title from '../components/title/Title.astro';
+import Accommodation from '../components/accommodation/Accommodation.astro';
 
 const hotels = [
   {
@@ -135,7 +136,6 @@ const bAndBs = [
       <Polaroid
         isVideo
         src='https://www.bignorpark.co.uk/wp-content/uploads/2022/05/Bignorpark-Video-A-001_720.mp4'
-        text='Bignor Park'
       />
     </div>
     <div class='px-8'>
@@ -158,12 +158,12 @@ const bAndBs = [
       class='flex flex-col items-center font-montserrat text-white text-xl tracking-[0.25em] font-bold'
     >
       <div class='w-1/2 mt-16'>
-        <What3Words />
+        <Heading text='what3words' />
       </div>
       <a
         href='https://what3words.com/diner.snapper.releasing'
         target='_blank'
-        class='mt-8 text-sm lg:text-base underline underline-offset-4'
+        class='mt-4 text-3xl md:text-xl underline underline-offset-4 font-balmy text-custom-green tracking-normal'
         >///diner.snapper.releasing
       </a>
     </div>
@@ -171,53 +171,35 @@ const bAndBs = [
       <Divider />
     </div>
     <div class='text-center px-8'>
-      <Heading heading='🏩' text='where to stay' />
+      <Heading text='where to stay' />
     </div>
     <div
-      class='grid grid-cols-4 items-center w-full font-montserrat mt-12 text-white gap-6 lg:text-base lg:px-8'
+      class='flex flex-col items-start md:grid md:grid-cols-2 w-full font-montserrat mt-12 text-white gap-6 md:text-base md:px-8'
     >
       <div class='col-span-2 tracking-[0.25em] font-bold text-base'>HOTELS</div>
-      <div class='flex justify-center text-2xl'>📍</div>
-      <div class='flex justify-center text-2xl'>🚕</div>
       {
-        hotels.map((hotel) => (
-          <>
-            <div class='col-span-2 tracking-[0.25em] underline underline-offset-2 text-sm'>
-              <a href={hotel.link} target='_blank'>
-                {hotel.name}
-              </a>
-            </div>
-            <div class='flex justify-center tracking-[0.25em] text-center text-sm'>
-              {hotel.distance}
-            </div>
-            <div class='flex justify-center tracking-[0.25em] text-center text-sm'>
-              {hotel.journey}
-            </div>
-          </>
+        hotels.map(({ link, name, distance, journey }) => (
+          <Accommodation
+            name={name}
+            link={link}
+            distance={distance}
+            journey={journey}
+          />
         ))
       }
     </div>
     <div
-      class='grid grid-cols-4 items-center w-full font-montserrat mt-12 text-white gap-6 text-xs lg:text-base lg:px-8'
+      class='flex flex-col items-start md:grid md:grid-cols-2 w-full font-montserrat mt-12 text-white gap-6 md:text-base md:px-8'
     >
       <div class='col-span-2 tracking-[0.25em] font-bold text-base'>B&B'S</div>
-      <div class='flex justify-center text-2xl'>📍</div>
-      <div class='flex justify-center text-2xl'>🚕</div>
       {
-        bAndBs.map((bAndb) => (
-          <>
-            <div class='col-span-2 tracking-[0.25em] underline underline-offset-2 text-sm'>
-              <a href={bAndb.link} target='_blank'>
-                {bAndb.name}
-              </a>
-            </div>
-            <div class='flex justify-center tracking-[0.25em] text-center text-sm'>
-              {bAndb.distance}
-            </div>
-            <div class='flex justify-center tracking-[0.25em] text-center text-sm'>
-              {bAndb.journey}
-            </div>
-          </>
+        bAndBs.map(({ link, name, distance, journey }) => (
+          <Accommodation
+            name={name}
+            link={link}
+            distance={distance}
+            journey={journey}
+          />
         ))
       }
     </div>
