@@ -23,7 +23,7 @@ const { noHeader } = Astro.props;
   {
     !noHeader && (
       <NavLink href='/home'>
-        <div class='flex flex-col items-center font-normal'>
+        <div class='flex flex-col items-center font-normal mt-10'>
           <div class='text-custom-green font-balmy text-7xl tracking-normal'>
             George
           </div>
@@ -45,12 +45,14 @@ const { noHeader } = Astro.props;
 
 <nav
   id='mobileNav'
-  class='fixed top-0 left-0 w-60 h-full pt-16 bg-custom-green z-20 -translate-x-60 transition-all duration-300'
+  class='fixed top-0 left-0 w-72 h-full pt-16 bg-custom-green z-20 -translate-x-72 transition-all duration-300'
 >
+  <NavLink href='/home' className='mt-12'>home</NavLink>
+  <NavLink href='/rsvp' className='mt-12'>rsvp</NavLink>
   <NavLink href='/venue' className='mt-12'>venue</NavLink>
   <NavLink href='/schedule' className='mt-12'>schedule</NavLink>
-  <NavLink href='/registry' className='mt-12'>gift registry</NavLink>
-  <NavLink href='/rsvp' className='mt-12'>rsvp</NavLink>
+  <NavLink href='/the-day-after' className='mt-12'>the day after</NavLink>
+  <NavLink href='/gifts' className='mt-12'>gifts</NavLink>
   <NavLink href='/faq' className='mt-12'>faq</NavLink>
   <button
     id='closeBtn'
@@ -67,7 +69,7 @@ const { noHeader } = Astro.props;
     const hamburgerBtn = document.getElementById('hamburgerBtn');
 
     const toggleClasses = () => {
-      mobileNav?.classList.toggle('-translate-x-60');
+      mobileNav?.classList.toggle('-translate-x-72');
       overlay?.classList.toggle('opacity-0');
       overlay?.classList.toggle('pointer-events-none');
     };
