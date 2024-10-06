@@ -6,31 +6,52 @@ import Layout from '../layouts/Layout.astro';
 import Champagne from '../components/sketches/Champagne.astro';
 import DiscoBall from '../components/sketches/DiscoBall.astro';
 import Cake from '../components/sketches/Cake.astro';
+import Clock from '../components/sketches/Clock.astro';
+import Rings from '../components/sketches/Rings.astro';
+import Spaghetti from '../components/sketches/Spaghetti.astro';
+import Pizza from '../components/sketches/Pizza.astro';
+import Car from '../components/sketches/Car.astro';
 
-const scheduleItems = [
-  { time: '12.15 PM', text: 'GUESTS ARRIVE', sketch: Champagne },
-  { time: '1 PM', text: 'CEREMONY', sketch: Champagne },
-  { time: '1.45 PM', text: 'DRINKS RECEPTION', sketch: Champagne },
-  { time: '4 PM', text: 'ITALIAN FEAST', sketch: Champagne },
+const scheduleItems: {
+  time: string;
+  text: string;
+  sketch: any;
+  props?: any;
+  width?: string;
+}[] = [
+  {
+    time: '12.15 PM',
+    text: 'GUESTS ARRIVE',
+    sketch: Clock,
+    props: { style: 'width: 100%; height: auto; margin-bottom: 1rem;' }
+  },
+  { time: '1 PM', text: 'CEREMONY', sketch: Rings, width: '10rem' },
+  {
+    time: '1.45 PM',
+    text: 'DRINKS RECEPTION',
+    sketch: Champagne,
+    props: { style: 'width: 100%; height: auto; margin-bottom: 1rem;' }
+  },
+  { time: '4 PM', text: 'ITALIAN FEAST', sketch: Spaghetti },
   { time: '6.15 PM', text: 'WEDDING CAKE & GELATO', sketch: Cake },
   { time: '7 PM', text: 'PARTY STARTS', sketch: DiscoBall },
-  { time: '9.30 PM', text: 'LATE NIGHT MUNCHIES', sketch: Champagne },
-  { time: '11.30 PM', text: 'TAXIS', sketch: Champagne }
+  { time: '9.30 PM', text: 'LATE NIGHT MUNCHIES', sketch: Pizza },
+  { time: '11.30 PM', text: 'TAXIS', sketch: Car }
 ];
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
-  <div class='flex flex-col items-center mt-16'>
-    <Title text='schedule' />
+  <div class='flex flex-col items-center mt-16 mb-24'>
+    <Title text='schedule' className='mb-24' />
     <>
       {
-        scheduleItems.map(({ time, text, sketch: Sketch }, i) => (
+        scheduleItems.map(({ time, text, sketch: Sketch, width }, i) => (
           <>
-            <ScheduleItem time={time} text={text}>
+            <ScheduleItem time={time} text={text} width={width}>
               <Sketch />
             </ScheduleItem>
             {i !== scheduleItems.length - 1 && (
-              <div class='px-8'>
+              <div class='p-8'>
                 <Divider />
               </div>
             )}

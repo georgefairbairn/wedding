@@ -1,9 +1,9 @@
 ---
-const { time, text } = Astro.props;
+const { time, text, width = '8rem' } = Astro.props;
 ---
 
 <div class='flex flex-col font-montserrat text-white items-center'>
-  <div class="max-w-[8rem]">
+  <div class={`max-w-[${width}]`}>
     <slot />
   </div>
   <p class='text-xl tracking-[0.25em] font-bold mb-8 mt-0'>
