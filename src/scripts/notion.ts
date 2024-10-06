@@ -87,13 +87,6 @@ export async function submitRsvp({
   specialRequirements: string;
 }) {
   try {
-    // const page = await notion.databases.retrieve({
-    //   database_id: import.meta.env.NOTION_RSVP_DATABASE_ID
-    // });
-    // console.log(page);
-
-    // return;
-
     const response = await notion.pages.create({
       parent: { database_id: import.meta.env.NOTION_RSVP_DATABASE_ID },
       properties: {
