@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Title from '../components/title/Title.astro';
-import Divider from '../components/divider/Divider.astro';
 import Button from '../components/button/Button.astro';
 import { submitRsvp } from '../scripts/notion';
 import type { Coming, DietaryRequirement } from '../utilities/types';
@@ -166,32 +165,4 @@ if (Astro.request.method === 'POST') {
   </div>
 </Layout>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const comingRadios = document.querySelectorAll(
-      'input[name="coming"]'
-    ) as NodeListOf<HTMLInputElement>;
-    const additionalFields = document.getElementById(
-      'additionalFields'
-    ) as HTMLInputElement;
-
-    comingRadios.forEach((radio) => {
-      radio.addEventListener('change', (event) => {
-        const eventTarget = event?.target as HTMLInputElement;
-        if (eventTarget?.value === 'No') {
-          additionalFields.style.display = 'none';
-        } else {
-          additionalFields.style.display = 'block';
-        }
-      });
-    });
-
-    // Initial check for pre-selected values
-    const selectedComing = document.querySelector(
-      'input[name="coming"]:checked'
-    ) as HTMLInputElement;
-    if (selectedComing && selectedComing.value === 'No') {
-      additionalFields.style.display = 'none';
-    }
-  });
-</script>
+<script src="../scripts/rsvp.ts"></script>
