@@ -26,7 +26,22 @@ const faq = await getFaqs();
                     <summary class='uppercase tracking-[0.25em] text-white text-sm'>
                       {q.question}
                     </summary>
-                    <p class='text-white mt-4 font-bold'>{q.answer}</p>
+                    <p class='text-white mt-4 font-bold'>
+                      {typeof q.answer === 'string'
+                        ? q.answer
+                        : q.answer.map((text) => {
+                            return !!text.href ? (
+                              <a
+                                class='underline underline-offset-2'
+                                href={text.href}
+                              >
+                                {text.content}
+                              </a>
+                            ) : (
+                              text.content
+                            );
+                          })}
+                    </p>
                   </details>
                 ))}
               </div>

@@ -1,10 +1,17 @@
 import { Client } from '@notionhq/client';
 import type { Coming, DietaryRequirement } from '../utilities/types';
 
+interface A {
+  content: string;
+  href: string | null;
+}
+
 interface QA {
   question: string;
-  answer: string;
+  answer: A[];
 }
+
+type FAQ = { type: 'answer'; text: A[] } | { type: string; text: string };
 
 type Result = {
   [key: string]: QA[];
@@ -20,35 +27,38 @@ export async function getFaqs(): Promise<Result> {
     block_id: page.id
   });
 
-  let faq: { type: string; text: string }[] = blocks.results.reduce(
-    (acc: any, curr: any) => {
-      // category
-      if (curr?.type === 'heading_2') {
-        acc.push({
-          type: 'category',
-          text: curr.heading_2.rich_text[0].plain_text
-        });
-        // question
-      } else if (curr?.type === 'heading_3') {
-        acc.push({
-          type: 'question',
-          text: curr.heading_3.rich_text[0].plain_text
-        });
-        // answer
-      } else if (
-        curr?.type === 'paragraph' &&
-        !!curr.paragraph?.rich_text.length
-      ) {
-        acc.push({
-          type: 'answer',
-          text: curr.paragraph?.rich_text[0]?.plain_text
-        });
-      }
+  let faq: FAQ[] = blocks.results.reduce((acc: any, curr: any) => {
+    // category
+    if (curr?.type === 'heading_2') {
+      acc.push({
+        type: 'category',
+        text: curr.heading_2.rich_text[0].plain_text
+      });
+      // question
+    } else if (curr?.type === 'heading_3') {
+      acc.push({
+        type: 'question',
+        text: curr.heading_3.rich_text[0].plain_text
+      });
+      // answer
+    } else if (
+      curr?.type === 'paragraph' &&
+      !!curr.paragraph?.rich_text.length
+    ) {
+      const textItems = curr.paragraph?.rich_text.map((item: any) => {
+        return {
+          content: item.plain_text,
+          href: item.href
+        };
+      });
+      acc.push({
+        type: 'answer',
+        text: textItems
+      });
+    }
 
-      return acc;
-    },
-    []
-  );
+    return acc;
+  }, []);
 
   const result: Result = {};
   let currentCategory = '';
@@ -56,15 +66,17 @@ export async function getFaqs(): Promise<Result> {
 
   faq.forEach((item) => {
     if (item.type === 'category') {
-      currentCategory = item.text;
+      currentCategory = item.text as string;
       result[currentCategory] = [];
     } else if (item.type === 'question') {
-      lastQuestion = { question: item.text, answer: '' };
+      lastQuestion = { question: item.text as string, answer: [] };
       if (currentCategory) {
         result[currentCategory].push(lastQuestion);
       }
     } else if (item.type === 'answer' && lastQuestion) {
-      lastQuestion.answer = item.text;
+      if (Array.isArray(item.text)) {
+        lastQuestion.answer = lastQuestion.answer.concat(item.text);
+      }
     }
   });
 
