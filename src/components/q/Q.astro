@@ -1,0 +1,10 @@
+---
+const { question } = Astro.props;
+---
+
+<details class='mt-8 cursor-pointer'>
+  <summary class='uppercase tracking-[0.25em] text-white text-sm font-bold'>
+    {question}
+  </summary>
+  <slot />
+</details>

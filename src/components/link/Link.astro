@@ -1,0 +1,5 @@
+---
+const { href, preventNewTab = false } = Astro.props;
+---
+
+<a class='underline underline-offset-2' href={href} target={preventNewTab ? '_self' : '_blank'}><slot /></a>
