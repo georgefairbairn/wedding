@@ -1,3 +1,7 @@
+import nodemailer from 'nodemailer';
+import mjml2html from 'mjml';
+import fs from 'fs';
+import path from 'path';
 import { Client } from '@notionhq/client';
 import type { Coming, DietaryRequirement } from '../utilities/types';
 
@@ -18,6 +22,17 @@ type Result = {
 };
 
 const notion = new Client({ auth: import.meta.env.NOTION_INTEGRATION_SECRET });
+
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: import.meta.env.EMAIL_USERNAME,
+    pass: import.meta.env.EMAIL_PASSWORD
+  }
+});
 
 export async function getFaqs(): Promise<Result> {
   const page = await notion.pages.retrieve({
@@ -81,6 +96,30 @@ export async function getFaqs(): Promise<Result> {
   });
 
   return result;
+}
+
+function compileEmailTemplate(
+  templateName: string,
+  variables: Record<string, string>
+) {
+  const templatePath = `src/emails/${templateName}.mjml`;
+  let template = fs.readFileSync(templatePath, 'utf8');
+
+  // Replace placeholders with actual values
+  Object.keys(variables).forEach((key) => {
+    const regex = new RegExp(`{{${key}}}`, 'g');
+    template = template.replace(regex, variables[key]);
+  });
+
+  // Compile MJML to HTML
+  const { html, errors } = mjml2html(template);
+
+  if (errors && errors.length > 0) {
+    console.error('MJML compilation errors:', errors);
+    throw new Error('Failed to compile MJML template');
+  }
+
+  return html;
 }
 
 export async function submitRsvp({
@@ -160,6 +199,36 @@ export async function submitRsvp({
         }
       }
     });
+
+    if (coming === 'Yes') {
+      // Compile email template
+      const htmlContent = compileEmailTemplate('rsvp', {
+        name,
+        dietaryRequirement,
+        allergies,
+        songChoice,
+        specialRequirements
+      });
+
+      // Send confirmation email
+      const mailOptions = {
+        from: process.env.EMAIL_USERNAME,
+        to: email,
+        subject: 'Thanks for RSVP’ing!',
+        html: htmlContent
+      };
+
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.error('Error sending email:', error);
+          // Handle error accordingly
+        } else {
+          console.log('Email sent:', info.response);
+          // Handle success accordingly
+        }
+      });
+    }
+
     return response;
   } catch (error) {
     console.error('Error creating page:', error);
