@@ -11,13 +11,14 @@ import Spaghetti from '../components/sketches/Spaghetti.astro';
 import Microphone from '../components/sketches/Microphone.astro';
 import SOS from '../components/sketches/SOS.astro';
 
-let errors = { name: '', coming: '', dietary: '' };
+let errors = { name: '', email: '', coming: '', dietary: '' };
 
 if (Astro.request.method === 'POST') {
   try {
     const data = await Astro.request.formData();
     const formData = Object.fromEntries(data);
     const name = formData.name as string;
+    const email = formData.email as string;
     const coming = formData.coming as Coming;
     const dietaryRequirement = formData.dietary as DietaryRequirement;
     const allergies = formData.allergies as string;
@@ -32,6 +33,10 @@ if (Astro.request.method === 'POST') {
       errors.name = 'Please enter your name.';
     }
 
+    if (!formData.email) {
+      errors.email = 'Please enter your email address.';
+    }
+
     if (!formData.coming) {
       errors.coming = 'Please select if you can make it.';
     }
@@ -42,14 +47,19 @@ if (Astro.request.method === 'POST') {
 
     // If no errors, save the response in Notion
     if (!errors.name && !errors.coming && !errors.dietary) {
-      await submitRsvp({
+      const res = await submitRsvp({
         name,
+        email,
         coming,
         dietaryRequirement,
         allergies,
         songChoice,
         specialRequirements
       });
+
+      if (res && res.id) {
+        // Send email confirming RSVP details
+      }
 
       return Astro.redirect(coming === 'Yes' ? '/yay' : '/boo');
     }
@@ -70,6 +80,9 @@ if (Astro.request.method === 'POST') {
           <Name />
         </div>
         <Input id='name' name='name' label='YOUR NAME' required />
+        <div class='flex flex-col w-full mt-20'>
+          <Input id='email' name='email' label='EMAIL ADDRESS' type='email' required />
+        </div>
       </div>
 
       <div class='flex flex-col mt-20'>
@@ -165,4 +178,4 @@ if (Astro.request.method === 'POST') {
   </div>
 </Layout>
 
-<script src="../scripts/rsvp.ts"></script>
+<script src='../scripts/rsvp.ts'></script>

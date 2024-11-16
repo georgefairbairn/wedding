@@ -85,6 +85,7 @@ export async function getFaqs(): Promise<Result> {
 
 export async function submitRsvp({
   name,
+  email,
   coming,
   dietaryRequirement,
   allergies,
@@ -92,6 +93,7 @@ export async function submitRsvp({
   specialRequirements
 }: {
   name: string;
+  email: string;
   coming: Coming;
   dietaryRequirement: DietaryRequirement;
   allergies: string;
@@ -110,6 +112,9 @@ export async function submitRsvp({
               }
             }
           ]
+        },
+        ['Email Address']: {
+          email: email
         },
         Coming: {
           select: {
