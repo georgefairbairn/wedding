@@ -1,6 +1,3 @@
-import sgMail from '@sendgrid/mail';
-import mjml2html from 'mjml';
-import fs from 'fs';
 import { Client } from '@notionhq/client';
 import type { Coming, DietaryRequirement } from '../utilities/types';
 
@@ -21,7 +18,6 @@ type Result = {
 };
 
 const notion = new Client({ auth: import.meta.env.NOTION_INTEGRATION_SECRET });
-sgMail.setApiKey(import.meta.env.SENDGRID_API_KEY);
 
 export async function getFaqs(): Promise<Result> {
   const page = await notion.pages.retrieve({
@@ -85,30 +81,6 @@ export async function getFaqs(): Promise<Result> {
   });
 
   return result;
-}
-
-function compileEmailTemplate(
-  templateName: string,
-  variables: Record<string, string>
-) {
-  const templatePath = `src/emails/${templateName}.mjml`;
-  let template = fs.readFileSync(templatePath, 'utf8');
-
-  // Replace placeholders with actual values
-  Object.keys(variables).forEach((key) => {
-    const regex = new RegExp(`{{${key}}}`, 'g');
-    template = template.replace(regex, variables[key]);
-  });
-
-  // Compile MJML to HTML
-  const { html, errors } = mjml2html(template);
-
-  if (errors && errors.length > 0) {
-    console.error('MJML compilation errors:', errors);
-    throw new Error('Failed to compile MJML template');
-  }
-
-  return html;
 }
 
 export async function submitRsvp({
@@ -188,25 +160,6 @@ export async function submitRsvp({
         }
       }
     });
-
-    if (coming === 'Yes') {
-      // Compile email template
-      const htmlContent = compileEmailTemplate('rsvp', {
-        name,
-        dietaryRequirement,
-        allergies,
-        songChoice,
-        specialRequirements
-      });
-
-      // Send confirmation email
-      sgMail.send({
-        to: email,
-        from: import.meta.env.EMAIL_USERNAME,
-        subject: 'Thanks for RSVP’ing!',
-        html: htmlContent
-      });
-    }
 
     return response;
   } catch (error) {

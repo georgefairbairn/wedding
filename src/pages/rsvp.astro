@@ -10,6 +10,7 @@ import Radio from '../components/input/Radio.astro';
 import Spaghetti from '../components/sketches/Spaghetti.astro';
 import Microphone from '../components/sketches/Microphone.astro';
 import SOS from '../components/sketches/SOS.astro';
+import { sendEmail } from '../scripts/email';
 
 let errors = { name: '', email: '', coming: '', dietary: '' };
 
@@ -47,7 +48,7 @@ if (Astro.request.method === 'POST') {
 
     // If no errors, save the response in Notion
     if (!errors.name && !errors.coming && !errors.dietary) {
-      await submitRsvp({
+      const res = await submitRsvp({
         name,
         email,
         coming,
@@ -56,6 +57,18 @@ if (Astro.request.method === 'POST') {
         songChoice,
         specialRequirements
       });
+
+      if (res && res.id && coming === 'Yes') {
+        // Send email confirming RSVP details
+        await sendEmail({
+          name,
+          email,
+          dietaryRequirement,
+          allergies,
+          songChoice,
+          specialRequirements
+        });
+      }
 
       return Astro.redirect(coming === 'Yes' ? '/yay' : '/boo');
     }
