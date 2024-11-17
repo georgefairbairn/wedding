@@ -36,12 +36,10 @@
         <mj-text
           align="center"
           font-size="18px"
-          text-transform="uppercase"
-          letter-spacing="4px"
           line-height="28px"
           color="#FFFFFF"
           font-family="Montserrat"
-          >BELOW IS CONFIRMATION OF YOUR RSVP RESPONSES</mj-text
+          >Below is confirmation of your RSVP responses:</mj-text
         >
       </mj-column>
     </mj-section>
@@ -69,8 +67,6 @@
           align="center"
           font-size="18px"
           line-height="28px"
-          text-transform="uppercase"
-          letter-spacing="4px"
           color="#FFFFFF"
           font-family="Montserrat"
           >{{name}}</mj-text
@@ -101,8 +97,6 @@
           align="center"
           font-size="18px"
           line-height="28px"
-          text-transform="uppercase"
-          letter-spacing="4px"
           color="#FFFFFF"
           font-family="Montserrat"
           >{{dietaryRequirement}}</mj-text
@@ -127,8 +121,6 @@
           align="center"
           font-size="18px"
           line-height="28px"
-          text-transform="uppercase"
-          letter-spacing="4px"
           color="#FFFFFF"
           font-family="Montserrat"
           >{{allergies}}</mj-text
@@ -159,8 +151,6 @@
           align="center"
           font-size="18px"
           line-height="28px"
-          text-transform="uppercase"
-          letter-spacing="4px"
           color="#FFFFFF"
           font-family="Montserrat"
           >{{songChoice}}</mj-text
@@ -180,8 +170,6 @@
           align="center"
           font-size="18px"
           line-height="28px"
-          text-transform="uppercase"
-          letter-spacing="4px"
           font-weight="bold"
           color="#FFFFFF"
           font-family="Montserrat"
@@ -191,8 +179,6 @@
           align="center"
           font-size="18px"
           line-height="28px"
-          text-transform="uppercase"
-          letter-spacing="4px"
           color="#FFFFFF"
           font-family="Montserrat"
           >{{specialRequirements}}</mj-text
