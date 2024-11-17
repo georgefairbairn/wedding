@@ -9,6 +9,7 @@ function compileEmailTemplate(
   variables: Record<string, string>
 ) {
   let template = templates[templateName];
+  console.log(variables);
 
   if (!template) {
     throw new Error(`Template ${templateName} not found`);
@@ -27,9 +28,9 @@ export async function sendEmail({
   name,
   email,
   dietaryRequirement,
-  allergies = 'None',
-  songChoice = 'None',
-  specialRequirements = 'None'
+  allergies,
+  songChoice,
+  specialRequirements
 }: {
   name: string;
   email: string;
@@ -42,10 +43,10 @@ export async function sendEmail({
     // Compile email template
     const htmlContent = compileEmailTemplate('rsvp', {
       name,
-      dietaryRequirement,
-      allergies,
-      songChoice,
-      specialRequirements
+      dietaryRequirement: dietaryRequirement || 'None',
+      allergies: allergies || 'None',
+      songChoice: songChoice || 'None',
+      specialRequirements: specialRequirements || 'None'
     });
 
     // Send confirmation email
@@ -55,7 +56,6 @@ export async function sendEmail({
       subject: 'Thanks for RSVP’ing!',
       html: htmlContent
     });
-    console.log({ res });
   } catch (error) {
     console.error(`Error sending email: ${error}`);
   }
