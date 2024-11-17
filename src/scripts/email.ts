@@ -1,7 +1,7 @@
 import sgMail from '@sendgrid/mail';
 import mjml2html from 'mjml';
 import fs from 'fs';
-import type { Coming, DietaryRequirement } from '../utilities/types';
+import type { DietaryRequirement } from '../utilities/types';
 
 sgMail.setApiKey(import.meta.env.SENDGRID_API_KEY);
 
@@ -55,7 +55,7 @@ export async function sendEmail({
     });
 
     // Send confirmation email
-    const res = await sgMail.send({
+    await sgMail.send({
       to: email,
       from: import.meta.env.EMAIL_USERNAME,
       subject: 'Thanks for RSVP’ing!',
