@@ -2,7 +2,7 @@ import arches from '../assets/arches.jpg';
 import cave from '../assets/cave.jpg';
 import japan from '../assets/japan.jpg';
 import olympics from '../assets/olympics.jpg';
-import oslo from '../assets/oslo.jpg';
+import oslo from '../assets/oslo.jpeg';
 import panorama from '../assets/panorama.jpg';
 import plane from '../assets/plane.jpg';
 import surfing from '../assets/surfing.jpg';

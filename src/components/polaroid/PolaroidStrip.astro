@@ -12,7 +12,7 @@ const { images, classes }: Props = Astro.props;
 
 <div class={`bg-white pt-1 px-1 md:px-2 pb-8 md:pb-12 shadow-2xl max-w-[16rem] ${classes ? ` ${classes}` : ''}`}>
   {
-    images.map((image, i) => {
+    images.map((image) => {
       return (
         <div
           class={`h-[200px] flex-none overflow-hidden box-border my-1 md:my-2`}
