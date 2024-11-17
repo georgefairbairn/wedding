@@ -9,7 +9,9 @@ function compileEmailTemplate(
   templateName: string,
   variables: Record<string, string>
 ) {
-  const templatePath = `src/emails/${templateName}.mjml`;
+  const isDev = import.meta.env.MODE === 'development';
+  const basePath = isDev ? 'src/emails' : 'dist/emails';
+  const templatePath = `${basePath}/${templateName}.mjml`;
   let template = fs.readFileSync(templatePath, 'utf8');
 
   // Replace placeholders with actual values
