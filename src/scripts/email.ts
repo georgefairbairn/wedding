@@ -9,7 +9,6 @@ function compileEmailTemplate(
   variables: Record<string, string>
 ) {
   let template = templates[templateName];
-  console.log(variables);
 
   if (!template) {
     throw new Error(`Template ${templateName} not found`);
