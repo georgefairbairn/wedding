@@ -161,7 +161,7 @@ const taxis = [
       <Heading text='where to stay' />
     </div>
     <div
-      class='flex flex-col items-start md:grid md:grid-cols-2 w-full font-montserrat mt-12 text-white gap-6 md:text-base px-4 md:px-8'
+      class='flex flex-col items-start md:grid md:grid-cols-2 w-full font-montserrat mt-12 text-white gap-6 md:text-base px-4 md:px-8 max-w-5xl'
     >
       <div class='col-span-2'>
         <Header>Hotels</Header>
@@ -191,7 +191,7 @@ const taxis = [
       }
     </div>
     <div
-      class='flex flex-col items-start md:grid md:grid-cols-2 w-full font-montserrat mt-12 text-white gap-6 md:text-base px-4 md:px-8'
+      class='flex flex-col items-start md:grid md:grid-cols-2 w-full font-montserrat mt-6 md:mt-12 text-white gap-6 md:text-base px-4 md:px-8 max-w-5xl'
     >
       <div class='col-span-2'>
         <Header>B&B’s</Header>
@@ -213,49 +213,49 @@ const taxis = [
     <div class='px-8'>
       <Divider />
     </div>
-    <div class='px-4 md:px-8'>
-      <div class='text-center px-8'>
-        <Heading text='how to get there' />
+    <div class='text-center px-8'>
+      <Heading text='how to get there' />
+    </div>
+    <div
+      class='flex flex-col items-start md:grid md:grid-cols-2 w-full font-montserrat mt-6 md:mt-12 text-white gap-6 md:text-base px-4 md:px-8 max-w-5xl'
+    >
+      <div class='col-span-2 w-full mt-16'>
+        <Header>By Car</Header>
+        <p class='font-montserrat text-white mt-4'>
+          Bignor Park Estate is easily accessible by car, with plenty of free
+          parking available on-site.
+        </p>
+        <p class='font-montserrat text-white mt-4'>
+          Please note, all cars must be moved by 10am latest the following
+          morning). Simply follow the signs to the car park upon arrival.
+        </p>
       </div>
-      <div class='w-full flex flex-col items-center'>
-        <div class='max-w-3xl w-full mt-16'>
-          <Header>By Car</Header>
-          <p class='font-montserrat text-white mt-4'>
-            Bignor Park Estate is easily accessible by car, with plenty of free
-            parking available on-site.
-          </p>
-          <p class='font-montserrat text-white mt-4'>
-            Please note, all cars must be moved by 10am latest the following
-            morning). Simply follow the signs to the car park upon arrival.
-          </p>
-        </div>
 
-        <div class='max-w-3xl w-full mt-16'>
-          <Header>By Train</Header>
-          <p class='font-montserrat text-white mt-4'>
-            The closest train stations are Pulborough (~10 minutes by taxi) and
-            Arundel (~20 minutes by taxi). Both stations have regular services
-            from London Victoria and the surrounding areas.
-          </p>
-        </div>
+      <div class='col-span-2 w-full mt-16'>
+        <Header>By Train</Header>
+        <p class='font-montserrat text-white mt-4'>
+          The closest train stations are Pulborough (~10 minutes by taxi) and
+          Arundel (~20 minutes by taxi). Both stations have regular services
+          from London Victoria and the surrounding areas.
+        </p>
+      </div>
 
-        <div class='max-w-3xl w-full mt-16'>
-          <Header>By Taxi</Header>
-          <p class='font-montserrat text-white mt-4'>
-            For those arriving by train, or leaving cars at your accommodation
-            first, we recommend pre-booking a local taxi to take you to the
-            venue. You will also need to book a taxi for the end of the night.
-            Here are a few recommended local taxi companies:
-          </p>
-          <div
-            class='flex flex-col items-start md:grid md:grid-cols-2 w-full font-montserrat mt-12 text-white gap-6 md:text-base'
-          >
-            {
-              taxis.map(({ link, name, phone }) => (
-                <Taxi name={name} link={link} phone={phone} />
-              ))
-            }
-          </div>
+      <div class='col-span-2 w-full mt-16'>
+        <Header>By Taxi</Header>
+        <p class='font-montserrat text-white mt-4'>
+          For those arriving by train, or leaving cars at your accommodation
+          first, we recommend pre-booking a local taxi to take you to the venue.
+          You will also need to book a taxi for the end of the night. Here are a
+          few recommended local taxi companies:
+        </p>
+        <div
+          class='flex flex-col items-start md:grid md:grid-cols-2 w-full font-montserrat mt-12 text-white gap-6 md:text-base'
+        >
+          {
+            taxis.map(({ link, name, phone }) => (
+              <Taxi name={name} link={link} phone={phone} />
+            ))
+          }
         </div>
       </div>
     </div>
