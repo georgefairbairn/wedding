@@ -47,7 +47,7 @@ if (Astro.request.method === 'POST') {
 
     // If no errors, save the response in Notion
     if (!errors.name && !errors.coming && !errors.dietary) {
-      const res = await submitRsvp({
+      await submitRsvp({
         name,
         email,
         coming,
@@ -56,10 +56,6 @@ if (Astro.request.method === 'POST') {
         songChoice,
         specialRequirements
       });
-
-      if (res && res.id) {
-        // Send email confirming RSVP details
-      }
 
       return Astro.redirect(coming === 'Yes' ? '/yay' : '/boo');
     }

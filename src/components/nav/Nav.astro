@@ -22,7 +22,7 @@ const { noHeader } = Astro.props;
   </button>
   {
     !noHeader && (
-      <NavLink href='/home'>
+      <NavLink href='/'>
         <div class='flex flex-col items-center font-normal mt-10'>
           <div class='text-custom-green font-balmy text-7xl tracking-normal'>
             George
@@ -47,7 +47,7 @@ const { noHeader } = Astro.props;
   id='mobileNav'
   class='fixed top-0 left-0 w-72 h-full pt-16 bg-custom-green z-20 -translate-x-72 transition-all duration-300'
 >
-  <NavLink href='/home' className='mt-12'>home</NavLink>
+  <NavLink href='/' className='mt-12'>home</NavLink>
   <NavLink href='/rsvp' className='mt-12'>rsvp</NavLink>
   <NavLink href='/travel-and-accommodation' className='mt-12'>travel and accommodation</NavLink>
   <NavLink href='/schedule' className='mt-12'>schedule</NavLink>

@@ -231,6 +231,5 @@ export async function submitRsvp({
     return response;
   } catch (error) {
     console.error('Error creating page:', error);
-    throw error;
   }
 }
