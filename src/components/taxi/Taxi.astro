@@ -1,5 +1,5 @@
 ---
-const { link, name, distance, journey } = Astro.props;
+const { link, name, phone } = Astro.props;
 
 const backClasses = [
   'bg-custom-green',
@@ -37,9 +37,6 @@ const frontClasses = [
 <a href={link} class={backClasses} target='_blank'>
   <div class={frontClasses}>
     <div class='font-bold mb-6'>{name}</div>
-    <div class='flex justify-between'>
-      <div>{distance}</div>
-      <div>{journey}</div>
-    </div>
+    <div class='flex'>{phone}</div>
   </div>
 </a>

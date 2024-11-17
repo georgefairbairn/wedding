@@ -10,7 +10,7 @@
       <mj-column>
         <mj-image
           width="162px"
-          src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/george_and_izzy_dhzfbl.png"
+          src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/george_and_izzy_dhzfbl.png"
         ></mj-image>
       </mj-column>
     </mj-section>
@@ -48,7 +48,7 @@
 
     <mj-section>
       <mj-column>
-        <mj-image width="150px" src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/name_cgckkv.png"></mj-image>
+        <mj-image width="150px" src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/name_cgckkv.png"></mj-image>
       </mj-column>
     </mj-section>
 
@@ -80,7 +80,7 @@
 
     <mj-section>
       <mj-column>
-        <mj-image width="162px" src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/spaghetti_huf79b.png"></mj-image>
+        <mj-image width="162px" src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/spaghetti_huf79b.png"></mj-image>
       </mj-column>
     </mj-section>
 
@@ -138,7 +138,7 @@
 
     <mj-section>
       <mj-column>
-        <mj-image width="130px" src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/microphone_u6gfga.png"></mj-image>
+        <mj-image width="130px" src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/microphone_u6gfga.png"></mj-image>
       </mj-column>
     </mj-section>
 
@@ -170,7 +170,7 @@
 
     <mj-section>
       <mj-column>
-        <mj-image width="130px" src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/sparkles_yoshgw.png"></mj-image>
+        <mj-image width="130px" src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/sparkles_yoshgw.png"></mj-image>
       </mj-column>
     </mj-section>
 
@@ -218,7 +218,7 @@
 
     <mj-section>
       <mj-column>
-        <mj-image border="8px solid white" src="https://res.cloudinary.com/neon-flights/image/upload/v1731793021/hawaii_wqqujl.jpg"></mj-image>
+        <mj-image border="8px solid white" src="https://res.cloudinary.com/neon-flights/image/upload/v1731793021/wedding/hawaii_wqqujl.jpg"></mj-image>
       </mj-column>
     </mj-section>
   </mj-body>
