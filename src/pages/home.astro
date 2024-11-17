@@ -12,9 +12,7 @@ import Champagne from '../components/sketches/Champagne.astro';
 ---
 
 <Layout title="George & Izzy's Wedding 2025" noHeader>
-  <main
-    class='min-[1330px]:p-20 min-[1330px]:pb-0 pb-0 px-10 overflow-x-clip'
-  >
+  <main class='min-[1330px]:p-20 min-[1330px]:pb-0 pb-0 px-10 overflow-x-clip'>
     <div class='flex w-full justify-center flex-col text-center relative'>
       <div class='flex'>
         <div class='w-full flex justify-center absolute md:-mt-20'>
@@ -35,12 +33,7 @@ import Champagne from '../components/sketches/Champagne.astro';
         <div class='absolute left-20 max-md:left-10 max-sm:hidden'>
           <PolaroidStrip
             classes='-rotate-[20deg] -translate-x-1/2 -translate-y-24 hidden md:block'
-            images={[
-              IMAGES.glastonbury,
-              IMAGES.harold,
-              IMAGES.glastonbury,
-              IMAGES.harold
-            ]}
+            images={[IMAGES.plane, IMAGES.olympics, IMAGES.arches, IMAGES.cave]}
           />
         </div>
         <div class='mt-12'>
@@ -62,26 +55,21 @@ import Champagne from '../components/sketches/Champagne.astro';
           <PolaroidStrip
             classes='rotate-[20deg] translate-x-1/2 hidden md:block'
             images={[
-              IMAGES.glastonbury,
-              IMAGES.harold,
-              IMAGES.glastonbury,
-              IMAGES.harold
+              IMAGES.panorama,
+              IMAGES.oslo,
+              IMAGES.surfing,
+              IMAGES.japan
             ]}
           />
         </div>
       </div>
       <div class='mt-24 md:hidden'>
         <PolaroidStrip
-          classes='rotate-[20deg] translate-x-1/2 md:hidden'
-          images={[
-            IMAGES.glastonbury,
-            IMAGES.harold,
-            IMAGES.glastonbury,
-            IMAGES.harold
-          ]}
+          classes='rotate-[20deg] translate-x-1/4 md:hidden'
+          images={[IMAGES.panorama, IMAGES.oslo, IMAGES.surfing, IMAGES.japan]}
         />
       </div>
-      <div class='left-10 hidden md:block'>
+      <div class='left-10 mt-80 hidden md:block'>
         <Champagne />
       </div>
     </div>
