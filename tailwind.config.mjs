@@ -41,10 +41,6 @@ export default {
             'animation-timing-function': 'cubic-bezier(0,0,0.2,1)'
           }
         },
-        spin: {
-          '0%': { transform: 'rotateY(0deg)' },
-          '50%': { transform: 'rotateY(180deg)' }
-        },
         wiggle: {
           '0%': { transform: 'translateX(-1rem)' },
           '50%': { transform: 'translateX(0)' },

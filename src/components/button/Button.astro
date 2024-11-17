@@ -1,5 +1,5 @@
 ---
-const { href, text, onClick, type } = Astro.props;
+const { id, href, text, onClick, type } = Astro.props;
 
 const backClasses = [
   'bg-custom-green',
@@ -28,18 +28,42 @@ const frontClasses = [
   'uppercase',
   'text-custom-green',
   'will-change-transform',
-  'transition-transform',
+  'transition-transform'
 ].join(' ');
 ---
 
 {
   href ? (
-    <a href={href} class={backClasses}>
+    <a id={id} href={href} class={backClasses}>
       <span class={frontClasses}>{text}</span>
     </a>
   ) : (
-    <button class={backClasses} onclick={onClick} type={type}>
-      <span class={frontClasses}>{text}</span>
+    <button id={id} class={backClasses} onclick={onClick} type={type}>
+      <span id='buttonText' class={`${frontClasses}`}>
+        {text}
+      </span>
+      <span id='spinner' class={`${frontClasses} hidden`}>
+        <svg
+          class='animate-spin -ml-1 mr-3 h-5 w-5 text-white'
+          xmlns='http://www.w3.org/2000/svg'
+          fill='none'
+          viewBox='0 0 24 24'
+        >
+          <circle
+            class='opacity-25'
+            cx='12'
+            cy='12'
+            r='10'
+            stroke='#005E4A'
+            stroke-width='4'
+          />
+          <path
+            class='opacity-75'
+            fill='#005E4A'
+            d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
+          />
+        </svg>
+      </span>
     </button>
   )
 }

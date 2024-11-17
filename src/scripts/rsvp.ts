@@ -24,4 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if (selectedComing && selectedComing.value === 'No') {
     additionalFields.style.display = 'none';
   }
+
+  const form = document.getElementById('rsvp') as HTMLFormElement;
+  const button = document.getElementById('submitButton') as HTMLButtonElement;
+  const buttonText = document.getElementById('buttonText') as HTMLSpanElement;
+  const spinner = document.getElementById('spinner') as HTMLElement;
+
+  form.addEventListener('submit', () => {
+    // Show the loading state
+    button.disabled = true;
+    buttonText.classList.add('hidden');
+    spinner.classList.remove('hidden');
+  });
 });

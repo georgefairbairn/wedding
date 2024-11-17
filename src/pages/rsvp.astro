@@ -81,7 +81,13 @@ if (Astro.request.method === 'POST') {
         </div>
         <Input id='name' name='name' label='YOUR NAME' required />
         <div class='flex flex-col w-full mt-20'>
-          <Input id='email' name='email' label='EMAIL ADDRESS' type='email' required />
+          <Input
+            id='email'
+            name='email'
+            label='EMAIL ADDRESS'
+            type='email'
+            required
+          />
         </div>
       </div>
 
@@ -172,7 +178,7 @@ if (Astro.request.method === 'POST') {
       </div>
 
       <div class='w-full flex justify-center mt-24 mb-20'>
-        <Button type='submit' text='RSVP' />
+        <Button id='submitButton' type='submit' text='RSVP' />
       </div>
     </form>
   </div>
