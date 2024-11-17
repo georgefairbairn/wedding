@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+import sgMail from '@sendgrid/mail';
 import mjml2html from 'mjml';
 import fs from 'fs';
 import { Client } from '@notionhq/client';
@@ -21,17 +21,7 @@ type Result = {
 };
 
 const notion = new Client({ auth: import.meta.env.NOTION_INTEGRATION_SECRET });
-
-const transporter = nodemailer.createTransport({
-  service: 'Gmail',
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: import.meta.env.EMAIL_USERNAME,
-    pass: import.meta.env.EMAIL_PASSWORD
-  }
-});
+sgMail.setApiKey(import.meta.env.SENDGRID_API_KEY);
 
 export async function getFaqs(): Promise<Result> {
   const page = await notion.pages.retrieve({
@@ -210,21 +200,11 @@ export async function submitRsvp({
       });
 
       // Send confirmation email
-      const mailOptions = {
-        from: process.env.EMAIL_USERNAME,
+      sgMail.send({
         to: email,
+        from: import.meta.env.EMAIL_USERNAME,
         subject: 'Thanks for RSVP’ing!',
         html: htmlContent
-      };
-
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          console.error('Error sending email:', error);
-          // Handle error accordingly
-        } else {
-          console.log('Email sent:', info.response);
-          // Handle success accordingly
-        }
       });
     }
 
