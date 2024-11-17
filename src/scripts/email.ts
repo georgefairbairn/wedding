@@ -1,7 +1,6 @@
 import sgMail from '@sendgrid/mail';
-import mjml2html from 'mjml';
-import fs from 'fs';
 import type { DietaryRequirement } from '../utilities/types';
+import { templates } from '../emails/templates';
 
 sgMail.setApiKey(import.meta.env.SENDGRID_API_KEY);
 
@@ -9,26 +8,19 @@ function compileEmailTemplate(
   templateName: string,
   variables: Record<string, string>
 ) {
-  const isDev = import.meta.env.MODE === 'development';
-  const basePath = isDev ? 'src/emails' : 'dist/emails';
-  const templatePath = `${basePath}/${templateName}.mjml`;
-  let template = fs.readFileSync(templatePath, 'utf8');
+  let template = templates[templateName];
 
-  // Replace placeholders with actual values
-  Object.keys(variables).forEach((key) => {
-    const regex = new RegExp(`{{${key}}}`, 'g');
-    template = template.replace(regex, variables[key]);
-  });
-
-  // Compile MJML to HTML
-  const { html, errors } = mjml2html(template);
-
-  if (errors && errors.length > 0) {
-    console.error('MJML compilation errors:', errors);
-    throw new Error('Failed to compile MJML template');
+  if (!template) {
+    throw new Error(`Template ${templateName} not found`);
   }
 
-  return html;
+  // Replace placeholders with actual values
+  for (const [key, value] of Object.entries(variables)) {
+    const regex = new RegExp(`{{${key}}}`, 'g');
+    template = template.replace(regex, value || '');
+  }
+
+  return template;
 }
 
 export async function sendEmail({
@@ -57,12 +49,13 @@ export async function sendEmail({
     });
 
     // Send confirmation email
-    await sgMail.send({
+    const res = await sgMail.send({
       to: email,
       from: import.meta.env.EMAIL_USERNAME,
       subject: 'Thanks for RSVP’ing!',
       html: htmlContent
     });
+    console.log({ res });
   } catch (error) {
     console.error(`Error sending email: ${error}`);
   }
