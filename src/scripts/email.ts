@@ -27,9 +27,9 @@ export async function sendEmail({
   name,
   email,
   dietaryRequirement,
-  allergies,
-  songChoice,
-  specialRequirements
+  allergies = 'None',
+  songChoice = 'None',
+  specialRequirements = 'None'
 }: {
   name: string;
   email: string;
