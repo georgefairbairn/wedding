@@ -6,9 +6,7 @@ const { id, name, type = 'text', label, description, required } = Astro.props;
   <div class='text-white font-bold text-base tracking-[0.25em]'>{label}</div>
   {
     description && (
-      <div class='text-white tracking-[0.25em] text-xs mt-2'>
-        {description}
-      </div>
+      <div class='text-white tracking-[0.25em] text-xs mt-2'>{description}</div>
     )
   }
   <input
@@ -16,6 +14,6 @@ const { id, name, type = 'text', label, description, required } = Astro.props;
     name={name}
     id={id}
     type={type}
-    class='mt-4 w-full text-lg font-bold text-custom-green px-3 py-2 rounded-lg border-2 border-custom-green shadow placeholder-custom-green focus:outline-none focus:border-custom-green focus:ring-2 focus:ring-custom-green focus:invalid:text-pink-600 focus:invalid:border-2 focus:invalid:border-pink-500 focus:invalid:ring-pink-500'
+    class='mt-4 w-full text-lg font-bold text-custom-green px-3 py-2 rounded-lg border-2 border-custom-green shadow placeholder-custom-green focus:outline-none focus:border-custom-green focus:ring-2 focus:ring-custom-green focus:[&:user-invalid]:text-pink-600 focus:[&:user-invalid]:border-2 focus:[&:user-invalid]:border-pink-500 focus:[&:user-invalid]:ring-pink-500'
   />
 </label>
