@@ -39,18 +39,23 @@ import Header from '../components/q/Header.astro';
           </Link>.
         </p>
         <p class='text-white mt-4'>
-          Gents: a suit or button-down shirt & chinos with a tie. Preferably no
-          shorts.
+          Gents: a suit or button-down shirt & chinos with a tie. No shorts
+          please!
         </p>
       </Q>
       <Q question='What time does the wedding finish?'>
         <p class='text-white mt-4'>
           Sadly the music will be wrapping at 11.30pm, with the venue closing at
           midnight. Uber/Lyft don’t operate in the area, so please make sure to
-          book a taxi in advance - we have suggested local taxi firms here.
+          book a taxi in advance - we have suggested local taxi firms <Link
+            href='/travel-and-accommodation/#taxis'
+            preventNewTab
+          >
+            here.
+          </Link>
         </p>
       </Q>
-      <Q question='What can I see the schedule for the day?'>
+      <Q question='Where can I see the schedule for the day?'>
         <p class='text-white mt-4'>
           You can find the full schedule <Link href='/schedule' preventNewTab>
             here
@@ -100,7 +105,7 @@ import Header from '../components/q/Header.astro';
       <Q question='Are there recommended hotels nearby?'>
         <p class='text-white mt-4'>
           Yes! We have a full list of recommended local hotels and b&bs <Link
-            href='/travel-and-accommodation'
+            href='/travel-and-accommodation/#stay'
             preventNewTab
           >
             here
@@ -110,8 +115,15 @@ import Header from '../components/q/Header.astro';
       </Q>
       <Q question='Is transportation provided to and from the venue?'>
         <p class='text-white mt-4'>
-          Unfortunately not - we recommend either driving or getting a taxi -
-          you can find a list of recommended local taxis here.
+          Unfortunately not - we recommend either <Link
+            href='/travel-and-accommodation/#driving'
+            preventNewTab
+          >
+            driving
+          </Link> or getting a taxi - you can find a list of recommended local
+          taxis <Link href='/travel-and-accommodation/#taxis' preventNewTab>
+            here.
+          </Link>
         </p>
       </Q>
       <Q question='Is there parking available at the venue?'>
@@ -125,7 +137,12 @@ import Header from '../components/q/Header.astro';
         <p class='text-white mt-4'>
           The nearest train station is Pulborough which is about a 15-minute
           drive from Bignor Park. We’d recommend booking a taxi in advance - you
-          can find some suggested local taxi ranks here.
+          can find some suggested local taxi ranks <Link
+            href='/travel-and-accommodation/#taxis'
+            preventNewTab
+          >
+            here.
+          </Link>
         </p>
       </Q>
 
@@ -144,7 +161,9 @@ import Header from '../components/q/Header.astro';
           <Link href='/gifts'>gift registry</Link> in the next couple of months.
         </p>
       </Q>
-      <Q question='Will there be any activities planned for the day before/after the wedding?'>
+      <Q
+        question='Will there be any activities planned for the day before/after the wedding?'
+      >
         <p class='text-white mt-4'>
           Yes, you can find details of the plans for the following day
           <Link href='/the-day-after'>here</Link>.
