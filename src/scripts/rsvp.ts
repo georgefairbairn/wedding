@@ -1,6 +1,4 @@
 const initializeRsvp = () => {
-  console.log('RSVP script initialized!');
-
   const comingRadios = document.querySelectorAll(
     'input[name="coming"]'
   ) as NodeListOf<HTMLInputElement>;
