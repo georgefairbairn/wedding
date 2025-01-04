@@ -1,39 +1,51 @@
-document.addEventListener('DOMContentLoaded', () => {
+const initializeRsvp = () => {
+  console.log('RSVP script initialized!');
+
   const comingRadios = document.querySelectorAll(
     'input[name="coming"]'
   ) as NodeListOf<HTMLInputElement>;
   const additionalFields = document.getElementById(
     'additionalFields'
-  ) as HTMLInputElement;
+  ) as HTMLElement | null;
 
-  comingRadios.forEach((radio) => {
-    radio.addEventListener('change', (event) => {
-      const eventTarget = event.target as HTMLInputElement;
-      if (eventTarget?.value === 'No') {
-        additionalFields.style.display = 'none';
-      } else {
-        additionalFields.style.display = 'block';
-      }
+  if (comingRadios && additionalFields) {
+    comingRadios.forEach((radio) => {
+      radio.addEventListener('change', (event) => {
+        const eventTarget = event.target as HTMLInputElement;
+        additionalFields.style.display =
+          eventTarget.value === 'No' ? 'none' : 'block';
+      });
     });
-  });
 
-  // Initial check for pre-selected values
-  const selectedComing = document.querySelector(
-    'input[name="coming"]:checked'
-  ) as HTMLInputElement;
-  if (selectedComing && selectedComing.value === 'No') {
-    additionalFields.style.display = 'none';
+    // Initial visibility check for pre-selected values
+    const selectedComing = document.querySelector(
+      'input[name="coming"]:checked'
+    ) as HTMLInputElement;
+    if (selectedComing?.value === 'No') {
+      additionalFields.style.display = 'none';
+    } else {
+      additionalFields.style.display = 'block';
+    }
   }
 
-  const form = document.getElementById('rsvp') as HTMLFormElement;
-  const button = document.getElementById('submitButton') as HTMLButtonElement;
-  const buttonText = document.getElementById('buttonText') as HTMLSpanElement;
-  const spinner = document.getElementById('spinner') as HTMLElement;
+  const form = document.getElementById('rsvp') as HTMLFormElement | null;
+  const button = document.getElementById(
+    'submitButton'
+  ) as HTMLButtonElement | null;
+  const buttonText = document.getElementById(
+    'buttonText'
+  ) as HTMLElement | null;
+  const spinner = document.getElementById('spinner') as HTMLElement | null;
 
-  form.addEventListener('submit', () => {
-    // Show the loading state
-    button.disabled = true;
-    buttonText.classList.add('hidden');
-    spinner.classList.remove('hidden');
-  });
-});
+  if (form && button && buttonText && spinner) {
+    form.addEventListener('submit', () => {
+      button.disabled = true;
+      buttonText?.classList.add('hidden');
+      spinner?.classList.remove('hidden');
+    });
+  }
+};
+
+// Run on both initial page load and after client-side navigation
+document.addEventListener('astro:after-swap', initializeRsvp);
+document.addEventListener('DOMContentLoaded', initializeRsvp);
