@@ -5,7 +5,7 @@ const { href, className, forceReload } = Astro.props;
 <a
   class={`font-montserrat uppercase text-white text-lg tracking-[0.25em] relative flex justify-start pl-5 items-center font-bold ${className}`}
   href={href}
-  {...(forceReload ? { 'data-astro-reload': '' } : {})}
+  {...forceReload ? { 'data-astro-reload': '' } : {}}
 >
   <slot />
 </a>
