@@ -4,7 +4,9 @@ import { Image } from 'astro:assets';
 const { src, text, isVideo } = Astro.props;
 ---
 
-<div class='flex flex-col shadow-2xl w-full justify-center items-center max-w-xl md:max-w-4xl'>
+<div
+  class='flex flex-col shadow-2xl w-full justify-center items-center max-w-xl md:max-w-4xl'
+>
   {
     isVideo ? (
       <video
@@ -21,9 +23,7 @@ const { src, text, isVideo } = Astro.props;
       </video>
     ) : (
       <Image
-        class={`w-full border-white border-8 ${
-          text ? 'border-b-0' : ''
-        }`}
+        class={`w-full border-white border-8 ${text ? 'border-b-0' : ''}`}
         src={src}
         alt=''
       />
