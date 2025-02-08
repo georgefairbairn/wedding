@@ -95,6 +95,17 @@ const { noNav, noHeader, title } = Astro.props;
       #__next {
         isolation: isolate;
       }
+
+      /* Hide number input arrows in all browsers */
+      input[type='number']::-webkit-inner-spin-button,
+      input[type='number']::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      input[type='number'] {
+        -moz-appearance: textfield; /* Firefox */
+      }
     </style>
   </body>
 </html>

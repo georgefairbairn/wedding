@@ -1,14 +1,76 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Title from '../components/title/Title.astro';
+import Button from '../components/button/Button.astro';
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
   <div class='flex flex-col mt-16 md:mt-24 font-montserrat px-8 items-center'>
     <Title text='gifts' />
     <p class='max-w-4xl text-center text-white'>
-      Your presence is more than enough, but if you would like to get a gift we
-      will share more details here soon!
+      Your presence is more than enough, but if you would like to get a gift
+      we’re accepting cash donations towards our honeymoon below!
     </p>
+    <form
+      id='donationForm'
+      class='w-full max-w-3xl'
+      method='POST'
+      action='/api/donation'
+    >
+      <div class='flex flex-col w-full'>
+        <div class='mb-8 mt-16 rounded inline-flex items-end justify-center'>
+          <div
+            class='flex items-end text-6xl font-balmy text-custom-green h-full pb-2 pr-1'
+          >
+            £
+          </div>
+          <input
+            id='donation'
+            class='bg-transparent text-white font-balmy text-8xl/6 min-h-fit w-[2ch] min-w-[2ch] border-b-2 border-white outline-none invalid:border-pink-500'
+            name='donation'
+            required
+            type='number'
+            value='50'
+            min='10'
+          />
+        </div>
+
+        <div class='w-full flex justify-center mt-8 mb-20'>
+          <Button id='submitButton' type='submit' text='DONATE' />
+        </div>
+      </div>
+    </form>
   </div>
 </Layout>
+
+<script>
+  function resizeInput() {
+    const input = document.getElementById('donation') as HTMLInputElement;
+    if (input) {
+      input.style.width = Math.max(input.value.length, 2) + 'ch';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('donation');
+    if (input) {
+      input.addEventListener('input', resizeInput);
+      resizeInput(); // Initialize width
+    }
+  });
+
+  const form = document.getElementById('donationForm') as HTMLFormElement;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    const res = await fetch('/api/donation', { method: 'POST', body: formData });
+    const data = await res.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert('Error: ' + data.error);
+    }
+  });
+</script>
