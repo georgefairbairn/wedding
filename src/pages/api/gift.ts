@@ -1,15 +1,14 @@
 import Stripe from 'stripe';
 import type { APIRoute } from 'astro';
-import { PRODUCTS } from '../../utilities/stripe';
 
 const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY);
 
 export const POST: APIRoute = async ({ request }) => {
   const formData = await request.formData();
-  const donation = Number(formData.get('donation'));
+  const priceId = formData.get('priceId');
 
-  if (!donation || donation <= 0) {
-    return new Response(JSON.stringify({ error: 'Invalid donation amount' }), {
+  if (!priceId) {
+    return new Response(JSON.stringify({ error: 'Invalid product' }), {
       status: 400
     });
   }
@@ -23,11 +22,7 @@ export const POST: APIRoute = async ({ request }) => {
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {
-          price_data: {
-            currency: 'gbp',
-            product: PRODUCTS.donation,
-            unit_amount: donation * 100 // Stripe expects amount in pennies
-          },
+          price: `${priceId}`,
           quantity: 1
         }
       ],

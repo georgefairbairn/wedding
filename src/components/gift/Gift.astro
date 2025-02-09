@@ -1,0 +1,65 @@
+---
+import Button from '../button/Button.astro';
+import Polaroid from '../polaroid/Polaroid.astro';
+
+const { formName, description, image, priceId, amount } = Astro.props;
+---
+
+<form
+  id={formName}
+  method='POST'
+  action={`/api/${formName}`}
+  data-name={formName}
+  data-priceId={priceId}
+>
+  <div class='max-w-md'>
+    <div class='relative'>
+      <Polaroid src={image} width={600} height={600} />
+      <div
+        class='absolute top-5 right-5 px-2 py-1 bg-custom-pink border-2 border-white font-balmy rounded'
+      >
+        <span class='text-xl text-custom-green'>£</span><span
+          class='text-3xl text-white'>{amount}</span
+        >
+      </div>
+    </div>
+  </div>
+  <p class='font-balmy text-2xl text-custom-green text-center mt-4'>
+    {description}
+  </p>
+  <input
+    id='priceId'
+    class='hidden'
+    name='priceId'
+    required
+    value={priceId}
+  />
+  <div class='w-full flex justify-center mt-8 mb-20'>
+    <Button id='submitButton' type='submit' text='BUY' />
+  </div>
+</form>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const forms = document.querySelectorAll('form[data-name]');
+
+    forms.forEach((form) => {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        const res = await fetch('/api/gift', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          alert('Error: ' + data.error);
+        }
+      });
+    });
+  });
+</script>

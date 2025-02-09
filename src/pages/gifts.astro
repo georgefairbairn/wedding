@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Title from '../components/title/Title.astro';
 import Button from '../components/button/Button.astro';
+import { IMAGES } from '../utilities/images';
+import Gift from '../components/gift/Gift.astro';
+import { PRICES } from '../utilities/stripe';
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
@@ -35,11 +38,81 @@ import Button from '../components/button/Button.astro';
           />
         </div>
 
-        <div class='w-full flex justify-center mt-8 mb-20'>
+        <div class='w-full flex justify-center mt-8'>
           <Button id='submitButton' type='submit' text='DONATE' />
         </div>
       </div>
     </form>
+
+    <div
+      class='uppercase tracking-[0.25em] text-white font-bold my-12 text-center'
+    >
+      OR
+    </div>
+
+    <Gift
+      formName='etosha'
+      description='1 day safari in etosha national park'
+      image={IMAGES.etosha}
+      priceId={PRICES.etosha}
+      amount='100'
+    />
+
+    <Gift
+      formName='drinks'
+      description='honeymoon departure drinks'
+      image={IMAGES.drinks}
+      priceId={PRICES.drinks}
+      amount='25'
+    />
+
+    <Gift
+      formName='photoAlbum'
+      description='custom embroidered wedding photo album'
+      image={IMAGES.plane}
+      priceId={PRICES.photoAlbum}
+      amount='250'
+    />
+
+    <Gift
+      formName='bingo'
+      description='mr bingo don’t forget to have fun art'
+      image={IMAGES.japan}
+      priceId={PRICES.bingo}
+      amount='90'
+    />
+
+    <Gift
+      formName='wineTasting'
+      description='wine tasting tour in the omaruru region'
+      image={IMAGES.olympics}
+      priceId={PRICES.wineTasting}
+      amount='75'
+    />
+
+    <Gift
+      formName='fourXFour'
+      description='sandwich harbour 4x4 tour'
+      image={IMAGES.surfing}
+      priceId={PRICES.fourXFour}
+      amount='100'
+    />
+
+    <Gift
+      formName='sossusvlei'
+      description='sossusvlei sundowners'
+      image={IMAGES.cave}
+      priceId={PRICES.sossusvlei}
+      amount='25'
+    />
+
+    <Gift
+      formName='kebi'
+      description='1 night stay kebi lodge'
+      image={IMAGES.hawaii}
+      priceId={PRICES.kebi}
+      amount='100'
+    />
   </div>
 </Layout>
 
@@ -64,7 +137,10 @@ import Button from '../components/button/Button.astro';
     e.preventDefault();
     const formData = new FormData(form);
 
-    const res = await fetch('/api/donation', { method: 'POST', body: formData });
+    const res = await fetch('/api/donation', {
+      method: 'POST',
+      body: formData
+    });
     const data = await res.json();
 
     if (data.url) {
