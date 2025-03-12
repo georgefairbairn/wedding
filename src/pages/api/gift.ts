@@ -26,7 +26,7 @@ export const POST: APIRoute = async ({ request }) => {
           quantity: 1,
           adjustable_quantity: {
             enabled: true,
-            maximum: 10,
+            maximum: 20,
             minimum: 1,
           },
         }
