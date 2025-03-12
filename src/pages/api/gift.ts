@@ -23,7 +23,12 @@ export const POST: APIRoute = async ({ request }) => {
       line_items: [
         {
           price: `${priceId}`,
-          quantity: 1
+          quantity: 1,
+          adjustable_quantity: {
+            enabled: true,
+            maximum: 10,
+            minimum: 1,
+          },
         }
       ],
       mode: 'payment',

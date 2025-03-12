@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 
-const { src, text, isVideo, width, height } = Astro.props;
+const { src, text, isVideo, width, height, imgClassNames = '' } = Astro.props;
 ---
 
 <div
@@ -23,7 +23,7 @@ const { src, text, isVideo, width, height } = Astro.props;
       </video>
     ) : (
       <Image
-        class={`w-full border-white border-8 ${text ? 'border-b-0' : ''}`}
+        class={`w-full border-white border-8 ${text ? 'border-b-0' : ''} ${imgClassNames}`}
         src={src}
         alt=''
         width={width}

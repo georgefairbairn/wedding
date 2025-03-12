@@ -14,7 +14,7 @@ const { formName, description, image, priceId, amount } = Astro.props;
 >
   <div class='max-w-md'>
     <div class='relative'>
-      <Polaroid src={image} width={600} height={600} />
+      <Polaroid src={image} imgClassNames="aspect-square object-cover" />
       <div
         class='absolute top-5 right-5 px-2 py-1 bg-custom-pink border-2 border-white font-balmy rounded'
       >
