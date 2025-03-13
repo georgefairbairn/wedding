@@ -6,19 +6,19 @@ const { noHeader } = Astro.props;
 
 <div
   id='overlay'
-  class='fixed inset-0 z-10 bg-gray-800 bg-opacity-75 pointer-events-none transition-opacity opacity-0'
+  class='fixed inset-0 z-10 bg-gray-800/75 pointer-events-none transition-opacity opacity-0'
 >
 </div>
 
 <div class='w-full relative flex justify-center'>
   <button
     id='hamburgerBtn'
-    class='fixed grid grid-cols-1 w-10 z-10 top-4 mt-8 left-6 md:top-8 md:left-16 bg-custom-pink p-2 rounded'
+    class='fixed grid grid-cols-1 w-10 z-10 top-4 mt-8 left-6 md:top-8 md:left-16 bg-custom-pink p-2 rounded-sm'
     type='button'
   >
-    <div class='h-1 w-full mb-1 bg-white rounded'></div>
-    <div class='h-1 w-full mb-1 bg-white rounded'></div>
-    <div class='h-1 w-full bg-white rounded'></div>
+    <div class='h-1 w-full mb-1 bg-white rounded-sm'></div>
+    <div class='h-1 w-full mb-1 bg-white rounded-sm'></div>
+    <div class='h-1 w-full bg-white rounded-sm'></div>
   </button>
   {
     !noHeader && (
@@ -43,7 +43,7 @@ const { noHeader } = Astro.props;
 
 <nav
   id='mobileNav'
-  class='fixed top-0 left-0 w-72 h-full pt-16 bg-custom-green z-20 -translate-x-72 transition-all duration-300'
+  class='fixed top-0 left-0 w-72 h-full py-16 bg-custom-green z-20 -translate-x-72 transition-all duration-300 overflow-y-auto'
 >
   <NavLink href='/' className='mt-12'>home</NavLink>
   <NavLink href='/rsvp' className='mt-12'>rsvp</NavLink>

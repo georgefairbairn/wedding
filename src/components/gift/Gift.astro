@@ -14,12 +14,12 @@ const { formName, description, image, priceId, amount } = Astro.props;
   class='flex flex-col max-w-md'
 >
   <div class='flex flex-col'>
-    <div class='bg-transparent perspective-midrange'>
+    <div class='bg-transparent'>
       <div>
         <div class='relative'>
           <Polaroid src={image} imgClassNames='aspect-square object-cover' />
           <div
-            class='absolute top-5 right-5 px-2 py-1 bg-custom-pink border-2 border-white font-balmy rounded'
+            class='absolute top-5 right-5 px-2 py-1 bg-custom-pink border-2 border-white font-balmy rounded-sm'
           >
             <span class='text-xl text-custom-green'>£</span><span
               class='text-3xl text-white'>{amount}</span
