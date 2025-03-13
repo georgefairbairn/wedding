@@ -1,6 +1,6 @@
 ---
-import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 interface Props {
   images: ImageMetadata[];
@@ -12,16 +12,16 @@ const { images, classes }: Props = Astro.props;
 
 <div
   class={`bg-white pt-1 px-1 md:px-2 pb-8 md:pb-12 shadow-2xl max-w-[16rem] ${
-    classes ? ` ${classes}` : ''
+    classes ? ` ${classes}` : ""
   }`}
 >
   {
     images.map((image) => {
       return (
         <div
-          class={`h-[200px] flex-none overflow-hidden box-border my-1 md:my-2`}
+          class={`my-1 box-border h-[200px] flex-none overflow-hidden md:my-2`}
         >
-          <Image class='w-full h-full object-cover' src={image} alt='' />
+          <Image class="h-full w-full object-cover" src={image} alt="" />
         </div>
       );
     })

@@ -1,151 +1,151 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Polaroid from '../components/polaroid/Polaroid.astro';
-import Divider from '../components/divider/Divider.astro';
-import Heading from '../components/heading/Heading.astro';
-import Address from '../components/address/Address.astro';
-import Title from '../components/title/Title.astro';
-import Accommodation from '../components/accommodation/Accommodation.astro';
-import Header from '../components/q/Header.astro';
-import Taxi from '../components/taxi/Taxi.astro';
-import Link from '../components/link/Link.astro';
+import Layout from "../layouts/Layout.astro";
+import Polaroid from "../components/polaroid/Polaroid.astro";
+import Divider from "../components/divider/Divider.astro";
+import Heading from "../components/heading/Heading.astro";
+import Address from "../components/address/Address.astro";
+import Title from "../components/title/Title.astro";
+import Accommodation from "../components/accommodation/Accommodation.astro";
+import Header from "../components/q/Header.astro";
+import Taxi from "../components/taxi/Taxi.astro";
+import Link from "../components/link/Link.astro";
 
 const hotels = [
   {
-    name: 'THE ANGEL',
-    distance: '5.7 MILES',
-    journey: '11 MINS',
-    link: 'https://angelinnpetworth.co.uk/'
+    name: "THE ANGEL",
+    distance: "5.7 MILES",
+    journey: "11 MINS",
+    link: "https://angelinnpetworth.co.uk/",
   },
   {
-    name: 'THE PIG SOUTH DOWNS',
-    distance: '5.9 MILES',
-    journey: '13 MINS',
-    link: 'https://www.thepighotel.com/in-the-south-downs'
+    name: "THE PIG SOUTH DOWNS",
+    distance: "5.9 MILES",
+    journey: "13 MINS",
+    link: "https://www.thepighotel.com/in-the-south-downs",
   },
   {
-    name: 'AMBERLEY CASTLE',
-    distance: '6.8 MILES',
-    journey: '14 MINS',
-    link: 'https://www.amberleycastle.co.uk/'
+    name: "AMBERLEY CASTLE",
+    distance: "6.8 MILES",
+    journey: "14 MINS",
+    link: "https://www.amberleycastle.co.uk/",
   },
   {
-    name: 'PREMIER INN',
-    distance: '8.4 MILES',
-    journey: '15 MINS',
-    link: 'https://www.premierinn.com/gb/en/hotels/england/west-sussex/arundel/arundel.html?cid=KNC_Brn%7C_G_UK_UK_Eng_Enc_Brand-Destinations_LO_West-Sussex_EX&mckv=sYX7iaMK1_dc%7Cpcrid%7C691664262865%7Ckword%7Cpremier%20inn%20arundel%7Cmatch%7Ce%7Cplid%7C%7Cpgrid%7C45371062739%7Cptaid%7Ckwd-353947522207%7C&s_kwcid=AL!9693!3!691664262865!e!!g!!premier%20inn%20arundel!902402837!45371062739&ef_id=CjwKCAiAxea5BhBeEiwAh4t5K10BxAVt9elPGmHzz3b_1sVXvTCJ_EGwCFpwUnOFTG71iFgAjY2d-RoCgeQQAvD_BwE:G:s&gad_source=1&gclid=CjwKCAiAxea5BhBeEiwAh4t5K10BxAVt9elPGmHzz3b_1sVXvTCJ_EGwCFpwUnOFTG71iFgAjY2d-RoCgeQQAvD_BwE&BRAND=PI'
+    name: "PREMIER INN",
+    distance: "8.4 MILES",
+    journey: "15 MINS",
+    link: "https://www.premierinn.com/gb/en/hotels/england/west-sussex/arundel/arundel.html?cid=KNC_Brn%7C_G_UK_UK_Eng_Enc_Brand-Destinations_LO_West-Sussex_EX&mckv=sYX7iaMK1_dc%7Cpcrid%7C691664262865%7Ckword%7Cpremier%20inn%20arundel%7Cmatch%7Ce%7Cplid%7C%7Cpgrid%7C45371062739%7Cptaid%7Ckwd-353947522207%7C&s_kwcid=AL!9693!3!691664262865!e!!g!!premier%20inn%20arundel!902402837!45371062739&ef_id=CjwKCAiAxea5BhBeEiwAh4t5K10BxAVt9elPGmHzz3b_1sVXvTCJ_EGwCFpwUnOFTG71iFgAjY2d-RoCgeQQAvD_BwE:G:s&gad_source=1&gclid=CjwKCAiAxea5BhBeEiwAh4t5K10BxAVt9elPGmHzz3b_1sVXvTCJ_EGwCFpwUnOFTG71iFgAjY2d-RoCgeQQAvD_BwE&BRAND=PI",
   },
   {
-    name: 'TRAVELODGE',
-    distance: '11 MILES',
-    journey: '20 MINS',
-    link: 'https://www.travelodge.co.uk/hotels/14/Arundel-Fontwell-hotel'
+    name: "TRAVELODGE",
+    distance: "11 MILES",
+    journey: "20 MINS",
+    link: "https://www.travelodge.co.uk/hotels/14/Arundel-Fontwell-hotel",
   },
   {
-    name: 'THE SPREAD EAGLE',
-    distance: '11.7 MILES',
-    journey: '21 MINS',
-    link: 'https://www.hshotels.co.uk/'
-  }
+    name: "THE SPREAD EAGLE",
+    distance: "11.7 MILES",
+    journey: "21 MINS",
+    link: "https://www.hshotels.co.uk/",
+  },
 ];
 
 const bAndBs = [
   {
-    name: 'THE WHITE HORSE INN',
-    distance: '3.7 MILES',
-    journey: '8 MINS',
-    link: 'https://www.whitehorseinn-sutton.co.uk/stay/'
+    name: "THE WHITE HORSE INN",
+    distance: "3.7 MILES",
+    journey: "8 MINS",
+    link: "https://www.whitehorseinn-sutton.co.uk/stay/",
   },
   {
-    name: 'THE OLD RAILWAY STATION',
-    distance: '4 MILES',
-    journey: '9 MINS',
-    link: 'https://www.old-station.co.uk/'
+    name: "THE OLD RAILWAY STATION",
+    distance: "4 MILES",
+    journey: "9 MINS",
+    link: "https://www.old-station.co.uk/",
   },
   {
-    name: 'THE WELLDIGGERS ARMS',
-    distance: '4.6 MILES',
-    journey: '10 MINS',
-    link: 'https://butcombe.com/the-welldiggers-arms-west-sussex/rooms/'
+    name: "THE WELLDIGGERS ARMS",
+    distance: "4.6 MILES",
+    journey: "10 MINS",
+    link: "https://butcombe.com/the-welldiggers-arms-west-sussex/rooms/",
   },
   {
-    name: 'THE HORSE GUARDS INN',
-    distance: '6.3 MILES',
-    journey: '13 MINS',
-    link: 'https://www.thehorseguardsinn.co.uk/'
+    name: "THE HORSE GUARDS INN",
+    distance: "6.3 MILES",
+    journey: "13 MINS",
+    link: "https://www.thehorseguardsinn.co.uk/",
   },
   {
-    name: 'NORFOLK ARMS HOTEL',
-    distance: '7.7 MILES',
-    journey: '14 MINS',
-    link: 'https://www.norfolkarmsarundel.com/'
+    name: "NORFOLK ARMS HOTEL",
+    distance: "7.7 MILES",
+    journey: "14 MINS",
+    link: "https://www.norfolkarmsarundel.com/",
   },
   {
-    name: 'THE HALFWAY BRIDGE PUB',
-    distance: '8.3 MILES',
-    journey: '16 MINS',
-    link: 'https://www.halfwaybridge.co.uk/'
-  }
+    name: "THE HALFWAY BRIDGE PUB",
+    distance: "8.3 MILES",
+    journey: "16 MINS",
+    link: "https://www.halfwaybridge.co.uk/",
+  },
 ];
 
 const taxis = [
   {
-    name: 'SOUTH DOWN TAXIS',
-    link: 'https://southdowntaxis.co.uk/',
-    phone: '01798 874111'
+    name: "SOUTH DOWN TAXIS",
+    link: "https://southdowntaxis.co.uk/",
+    phone: "01798 874111",
   },
   {
-    name: 'WEST CHILTINGTON CARS',
-    link: 'https://www.westchiltingtoncars.com/',
-    phone: '07836 553 743'
+    name: "WEST CHILTINGTON CARS",
+    link: "https://www.westchiltingtoncars.com/",
+    phone: "07836 553 743",
   },
   {
-    name: 'ROTHER VALLEY PRIVATE HIRE',
-    link: 'https://rothervalleyprivatehire.co.uk/',
-    phone: '07799 888480'
+    name: "ROTHER VALLEY PRIVATE HIRE",
+    link: "https://rothervalleyprivatehire.co.uk/",
+    phone: "07799 888480",
   },
   {
-    name: 'MONKMEAD PRIVATE HIRE',
-    link: 'https://monkmead.co.uk/',
-    phone: '07799 888480'
+    name: "MONKMEAD PRIVATE HIRE",
+    link: "https://monkmead.co.uk/",
+    phone: "07799 888480",
   },
   {
-    name: 'RICHARD’s PRIVATE HIRE',
-    link: 'https://richardsprivatehire.co.uk/',
-    phone: '01798 368 906'
+    name: "RICHARD’s PRIVATE HIRE",
+    link: "https://richardsprivatehire.co.uk/",
+    phone: "01798 368 906",
   },
   {
-    name: 'SUE’s PRIVATE HIRE',
-    link: 'https://www.suesprivatehire.co.uk/',
-    phone: '01798 874848'
-  }
+    name: "SUE’s PRIVATE HIRE",
+    link: "https://www.suesprivatehire.co.uk/",
+    phone: "01798 874848",
+  },
 ];
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
-  <div class='flex flex-col items-center mt-16 md:mt-24'>
-    <Title text='travel & accommodation' />
+  <div class="mt-16 flex flex-col items-center md:mt-24">
+    <Title text="travel & accommodation" />
     <div
-      class='flex flex-col md:flex-row gap-16 lg:gap-36 px-4 md:px-8 items-center'
+      class="flex flex-col items-center gap-16 px-4 md:flex-row md:px-8 lg:gap-36"
     >
-      <div class='px-3 md:mb-12 max-w-xl'>
+      <div class="max-w-xl px-3 md:mb-12">
         <Polaroid
           isVideo
-          src='https://res.cloudinary.com/neon-flights/video/upload/v1731853933/wedding/bignor_park_uoslvk.mp4'
+          src="https://res.cloudinary.com/neon-flights/video/upload/v1731853933/wedding/bignor_park_uoslvk.mp4"
         />
       </div>
-      <div class='flex flex-col'>
+      <div class="flex flex-col">
         <Address />
         <div
-          class='flex flex-col items-center font-montserrat text-white text-xl tracking-[0.25em] font-bold'
+          class="font-montserrat flex flex-col items-center text-xl font-bold tracking-[0.25em] text-white"
         >
-          <div class='w-1/2 mt-16'>
-            <Heading text='what3words' />
+          <div class="mt-16 w-1/2">
+            <Heading text="what3words" />
           </div>
           <a
-            href='https://what3words.com/diner.snapper.releasing'
-            target='_blank'
-            class='mt-4 text-3xl font-balmy text-custom-green tracking-[0.02em]'
+            href="https://what3words.com/diner.snapper.releasing"
+            target="_blank"
+            class="font-balmy text-custom-green mt-4 text-3xl tracking-[0.02em]"
             >///diner.snapper.releasing
           </a>
         </div>
@@ -153,28 +153,28 @@ const taxis = [
     </div>
   </div>
 
-  <div class='flex flex-col items-center px-3'>
-    <div class='px-8'>
+  <div class="flex flex-col items-center px-3">
+    <div class="px-8">
       <Divider />
     </div>
-    <section id='stay' class='text-center px-8'>
-      <Heading text='where to stay' />
+    <section id="stay" class="px-8 text-center">
+      <Heading text="where to stay" />
     </section>
     <div
-      class='flex flex-col items-start md:grid md:grid-cols-2 w-full font-montserrat mt-12 text-white gap-6 md:text-base px-4 md:px-8 max-w-5xl'
+      class="font-montserrat mt-12 flex w-full max-w-5xl flex-col items-start gap-6 px-4 text-white md:grid md:grid-cols-2 md:px-8 md:text-base"
     >
-      <div class='col-span-2'>
-        <Header classes='tracking-[0.02em]'>Hotels</Header>
+      <div class="col-span-2">
+        <Header classes="tracking-[0.02em]">Hotels</Header>
       </div>
-      <p class='col-span-2 font-montserrat text-white'>
+      <p class="font-montserrat col-span-2 text-white">
         Bignor Park has lots of accommodation options nearby within a 10-25
         minute drive. We’ve collated a list of local hotels and bed & breakfasts
         below, but if you’re staying in a group you can also check <Link
-          href='https://www.airbnb.co.uk/s/Bignor-Park--Bignor-Park-Road--Pulborough--UK/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&monthly_start_date=2024-12-01&monthly_length=3&monthly_end_date=2025-03-01&price_filter_input_type=0&channel=EXPLORE&date_picker_type=calendar&query=Bignor%20Park%2C%20Pulborough&place_id=ChIJC_h1lC23dUgRaW0Yqx77OXo&checkin=2025-06-21&checkout=2025-06-22&source=structured_search_input_header&search_type=filter_change&search_mode=regular_search&price_filter_num_nights=1&room_types%5B%5D=Entire%20home%2Fapt'
+          href="https://www.airbnb.co.uk/s/Bignor-Park--Bignor-Park-Road--Pulborough--UK/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&monthly_start_date=2024-12-01&monthly_length=3&monthly_end_date=2025-03-01&price_filter_input_type=0&channel=EXPLORE&date_picker_type=calendar&query=Bignor%20Park%2C%20Pulborough&place_id=ChIJC_h1lC23dUgRaW0Yqx77OXo&checkin=2025-06-21&checkout=2025-06-22&source=structured_search_input_header&search_type=filter_change&search_mode=regular_search&price_filter_num_nights=1&room_types%5B%5D=Entire%20home%2Fapt"
         >
           Airbnb
         </Link> & <Link
-          href='https://www.vrbo.com/en-gb/search?destination=Pulborough%2C%20England%2C%20United%20Kingdom&regionId=182618&latLong=50.957564%2C-0.509765&flexibility=0_DAY&d1=2025-06-21&startDate=2025-06-21&d2=2025-06-22&endDate=2025-06-22&adults=2&theme=&userIntent=&semdtl=&sort=RECOMMENDED'
+          href="https://www.vrbo.com/en-gb/search?destination=Pulborough%2C%20England%2C%20United%20Kingdom&regionId=182618&latLong=50.957564%2C-0.509765&flexibility=0_DAY&d1=2025-06-21&startDate=2025-06-21&d2=2025-06-22&endDate=2025-06-22&adults=2&theme=&userIntent=&semdtl=&sort=RECOMMENDED"
         >
           Vrbo.
         </Link>
@@ -191,10 +191,10 @@ const taxis = [
       }
     </div>
     <div
-      class='flex flex-col items-start md:grid md:grid-cols-2 w-full font-montserrat mt-6 md:mt-12 text-white gap-6 md:text-base px-4 md:px-8 max-w-5xl'
+      class="font-montserrat mt-6 flex w-full max-w-5xl flex-col items-start gap-6 px-4 text-white md:mt-12 md:grid md:grid-cols-2 md:px-8 md:text-base"
     >
-      <div class='col-span-2'>
-        <Header classes='tracking-[0.02em]'>B&B’s</Header>
+      <div class="col-span-2">
+        <Header classes="tracking-[0.02em]">B&B’s</Header>
       </div>
       {
         bAndBs.map(({ link, name, distance, journey }) => (
@@ -209,48 +209,48 @@ const taxis = [
     </div>
   </div>
 
-  <div class='flex flex-col items-center px-3'>
-    <div class='px-8'>
+  <div class="flex flex-col items-center px-3">
+    <div class="px-8">
       <Divider />
     </div>
-    <div class='text-center px-8'>
-      <Heading text='how to get there' />
+    <div class="px-8 text-center">
+      <Heading text="how to get there" />
     </div>
     <section
-      id='driving'
-      class='flex flex-col items-start md:grid md:grid-cols-2 w-full font-montserrat mt-6 md:mt-12 text-white gap-6 md:text-base px-4 md:px-8 max-w-5xl'
+      id="driving"
+      class="font-montserrat mt-6 flex w-full max-w-5xl flex-col items-start gap-6 px-4 text-white md:mt-12 md:grid md:grid-cols-2 md:px-8 md:text-base"
     >
-      <div class='col-span-2 w-full mt-16'>
-        <Header classes='tracking-[0.02em]'>By Car</Header>
-        <p class='font-montserrat text-white mt-4'>
+      <div class="col-span-2 mt-16 w-full">
+        <Header classes="tracking-[0.02em]">By Car</Header>
+        <p class="font-montserrat mt-4 text-white">
           Bignor Park Estate is easily accessible by car, with plenty of free
           parking available on-site.
         </p>
-        <p class='font-montserrat text-white mt-4'>
+        <p class="font-montserrat mt-4 text-white">
           Please note, all cars must be moved by 10am latest the following
           morning). Simply follow the signs to the car park upon arrival.
         </p>
       </div>
 
-      <div class='col-span-2 w-full mt-16'>
-        <Header classes='tracking-[0.02em]'>By Train</Header>
-        <p class='font-montserrat text-white mt-4'>
+      <div class="col-span-2 mt-16 w-full">
+        <Header classes="tracking-[0.02em]">By Train</Header>
+        <p class="font-montserrat mt-4 text-white">
           The closest train stations are Pulborough (~10 minutes by taxi) and
           Arundel (~20 minutes by taxi). Both stations have regular services
           from London Victoria and the surrounding areas.
         </p>
       </div>
 
-      <section id='taxis' class='col-span-2 w-full mt-16'>
-        <Header classes='tracking-[0.02em]'>By Taxi</Header>
-        <p class='font-montserrat text-white mt-4'>
+      <section id="taxis" class="col-span-2 mt-16 w-full">
+        <Header classes="tracking-[0.02em]">By Taxi</Header>
+        <p class="font-montserrat mt-4 text-white">
           For those arriving by train, or leaving cars at your accommodation
           first, we recommend pre-booking a local taxi to take you to the venue.
           You will also need to book a taxi for the end of the night. Here are a
           few recommended local taxi companies:
         </p>
         <div
-          class='flex flex-col items-start md:grid md:grid-cols-2 w-full font-montserrat mt-12 text-white gap-6 md:text-base'
+          class="font-montserrat mt-12 flex w-full flex-col items-start gap-6 text-white md:grid md:grid-cols-2 md:text-base"
         >
           {
             taxis.map(({ link, name, phone }) => (

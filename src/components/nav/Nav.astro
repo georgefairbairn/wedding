@@ -1,37 +1,37 @@
 ---
-import NavLink from '../nav-link/NavLink.astro';
+import NavLink from "../nav-link/NavLink.astro";
 
 const { noHeader } = Astro.props;
 ---
 
 <div
-  id='overlay'
-  class='fixed inset-0 z-10 bg-gray-800/75 pointer-events-none transition-opacity opacity-0'
+  id="overlay"
+  class="pointer-events-none fixed inset-0 z-10 bg-gray-800/75 opacity-0 transition-opacity"
 >
 </div>
 
-<div class='w-full relative flex justify-center'>
+<div class="relative flex w-full justify-center">
   <button
-    id='hamburgerBtn'
-    class='fixed grid grid-cols-1 w-10 z-10 top-4 mt-8 left-6 md:top-8 md:left-16 bg-custom-pink p-2 rounded-sm'
-    type='button'
+    id="hamburgerBtn"
+    class="bg-custom-pink fixed top-4 left-6 z-10 mt-8 grid w-10 grid-cols-1 rounded-sm p-2 md:top-8 md:left-16"
+    type="button"
   >
-    <div class='h-1 w-full mb-1 bg-white rounded-sm'></div>
-    <div class='h-1 w-full mb-1 bg-white rounded-sm'></div>
-    <div class='h-1 w-full bg-white rounded-sm'></div>
+    <div class="mb-1 h-1 w-full rounded-sm bg-white"></div>
+    <div class="mb-1 h-1 w-full rounded-sm bg-white"></div>
+    <div class="h-1 w-full rounded-sm bg-white"></div>
   </button>
   {
     !noHeader && (
-      <NavLink href='/'>
-        <div class='flex flex-col items-center font-normal mt-10'>
-          <div class='text-custom-green font-balmy text-7xl tracking-normal'>
+      <NavLink href="/">
+        <div class="mt-10 flex flex-col items-center font-normal">
+          <div class="text-custom-green font-balmy text-7xl tracking-normal">
             George
           </div>
-          <div class='flex items-start justify-end -m-2.5'>
-            <span class='font-white font-sacramento text-7xl mr-4 text-white'>
+          <div class="-m-2.5 flex items-start justify-end">
+            <span class="font-white font-sacramento mr-4 text-7xl text-white">
               &
             </span>
-            <span class='text-custom-green font-balmy text-7xl tracking-normal'>
+            <span class="text-custom-green font-balmy text-7xl tracking-normal">
               Izzy
             </span>
           </div>
@@ -42,40 +42,42 @@ const { noHeader } = Astro.props;
 </div>
 
 <nav
-  id='mobileNav'
-  class='fixed top-0 left-0 w-72 h-full py-16 bg-custom-green z-20 -translate-x-72 transition-all duration-300 overflow-y-auto'
+  id="mobileNav"
+  class="bg-custom-green fixed top-0 left-0 z-20 h-full w-72 -translate-x-72 overflow-y-auto py-16 transition-all duration-300"
 >
-  <NavLink href='/' className='mt-12'>home</NavLink>
-  <NavLink href='/rsvp' className='mt-12'>rsvp</NavLink>
-  <NavLink href='/travel-and-accommodation' className='mt-12' forceReload>
+  <NavLink href="/" className="mt-12">home</NavLink>
+  <NavLink href="/rsvp" className="mt-12">rsvp</NavLink>
+  <NavLink href="/travel-and-accommodation" className="mt-12" forceReload>
     travel and accommodation
   </NavLink>
-  <NavLink href='/schedule' className='mt-12'>schedule</NavLink>
-  <NavLink href='/the-day-after' className='mt-12' forceReload>the day after</NavLink>
-  <NavLink href='/gifts' className='mt-12' forceReload>gifts</NavLink>
-  <NavLink href='/faq' className='mt-12'>faq</NavLink>
+  <NavLink href="/schedule" className="mt-12">schedule</NavLink>
+  <NavLink href="/the-day-after" className="mt-12" forceReload>
+    the day after
+  </NavLink>
+  <NavLink href="/gifts" className="mt-12" forceReload>gifts</NavLink>
+  <NavLink href="/faq" className="mt-12">faq</NavLink>
   <button
-    id='closeBtn'
-    class='absolute top-3 right-5 text-white text-4xl'
-    type='button'>×</button
+    id="closeBtn"
+    class="absolute top-3 right-5 text-4xl text-white"
+    type="button">×</button
   >
 </nav>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    const mobileNav = document.getElementById('mobileNav');
-    const overlay = document.getElementById('overlay');
-    const closeBtn = document.getElementById('closeBtn');
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
+  document.addEventListener("astro:page-load", () => {
+    const mobileNav = document.getElementById("mobileNav");
+    const overlay = document.getElementById("overlay");
+    const closeBtn = document.getElementById("closeBtn");
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
 
     const toggleClasses = () => {
-      mobileNav?.classList.toggle('-translate-x-72');
-      overlay?.classList.toggle('opacity-0');
-      overlay?.classList.toggle('pointer-events-none');
+      mobileNav?.classList.toggle("-translate-x-72");
+      overlay?.classList.toggle("opacity-0");
+      overlay?.classList.toggle("pointer-events-none");
     };
 
-    hamburgerBtn?.addEventListener('click', toggleClasses);
-    closeBtn?.addEventListener('click', toggleClasses);
-    overlay?.addEventListener('click', toggleClasses);
+    hamburgerBtn?.addEventListener("click", toggleClasses);
+    closeBtn?.addEventListener("click", toggleClasses);
+    overlay?.addEventListener("click", toggleClasses);
   });
 </script>

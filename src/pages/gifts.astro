@@ -1,118 +1,118 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Title from '../components/title/Title.astro';
-import Button from '../components/button/Button.astro';
-import { IMAGES } from '../utilities/images';
-import Gift from '../components/gift/Gift.astro';
-import { PRICES } from '../utilities/stripe';
+import Layout from "../layouts/Layout.astro";
+import Title from "../components/title/Title.astro";
+import Button from "../components/button/Button.astro";
+import { IMAGES } from "../utilities/images";
+import Gift from "../components/gift/Gift.astro";
+import { PRICES } from "../utilities/stripe";
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
-  <div class='flex flex-col mt-16 md:mt-24 font-montserrat px-8 items-center'>
-    <Title text='gifts' />
-    <p class='max-w-4xl text-center text-white'>
+  <div class="font-montserrat mt-16 flex flex-col items-center px-8 md:mt-24">
+    <Title text="gifts" />
+    <p class="max-w-4xl text-center text-white">
       Your presence is more than enough, but if you would like to get a gift
       we’re accepting cash donations towards our honeymoon below!
     </p>
     <form
-      id='donationForm'
-      class='w-full max-w-3xl'
-      method='POST'
-      action='/api/donation'
+      id="donationForm"
+      class="w-full max-w-3xl"
+      method="POST"
+      action="/api/donation"
     >
-      <div class='flex flex-col w-full'>
-        <div class='mb-8 mt-16 rounded-sm inline-flex items-end justify-center'>
+      <div class="flex w-full flex-col">
+        <div class="mt-16 mb-8 inline-flex items-end justify-center rounded-sm">
           <div
-            class='flex items-end text-6xl font-balmy text-custom-green h-full pb-2 pr-1'
+            class="font-balmy text-custom-green flex h-full items-end pr-1 pb-2 text-6xl"
           >
             £
           </div>
           <input
-            id='donation'
-            class='bg-transparent text-white font-balmy text-8xl/6 min-h-fit w-[2ch] min-w-[2ch] border-b-2 border-white outline-hidden invalid:border-pink-500'
-            name='donation'
+            id="donation"
+            class="font-balmy min-h-fit w-[2ch] min-w-[2ch] border-b-2 border-white bg-transparent text-8xl/6 text-white outline-hidden invalid:border-pink-500"
+            name="donation"
             required
-            type='number'
-            value='50'
-            min='10'
+            type="number"
+            value="50"
+            min="10"
           />
         </div>
 
-        <div class='w-full flex justify-center mt-8'>
-          <Button id='submitButton' type='submit' text='DONATE' />
+        <div class="mt-8 flex w-full justify-center">
+          <Button id="submitButton" type="submit" text="DONATE" />
         </div>
       </div>
     </form>
 
     <div
-      class='uppercase tracking-[0.25em] text-white font-bold my-12 text-center'
+      class="my-12 text-center font-bold tracking-[0.25em] text-white uppercase"
     >
       OR
     </div>
 
-    <div class='flex flex-wrap justify-center gap-6'>
+    <div class="flex flex-wrap justify-center gap-6">
       <Gift
-        formName='etosha'
-        description='1 day safari in etosha national park'
+        formName="etosha"
+        description="1 day safari in etosha national park"
         image={IMAGES.etosha}
         priceId={PRICES.etosha}
-        amount='100'
+        amount="100"
       />
 
       <Gift
-        formName='drinks'
-        description='honeymoon departure drinks'
+        formName="drinks"
+        description="honeymoon departure drinks"
         image={IMAGES.drinks}
         priceId={PRICES.drinks}
-        amount='25'
+        amount="25"
       />
 
       <Gift
-        formName='photoAlbum'
-        description='custom embroidered wedding photo album'
+        formName="photoAlbum"
+        description="custom embroidered wedding photo album"
         image={IMAGES.plane}
         priceId={PRICES.photoAlbum}
-        amount='250'
+        amount="250"
       />
 
       <Gift
-        formName='bingo'
-        description='mr bingo don’t forget to have fun art'
+        formName="bingo"
+        description="mr bingo don’t forget to have fun art"
         image={IMAGES.japan}
         priceId={PRICES.bingo}
-        amount='90'
+        amount="90"
       />
 
       <Gift
-        formName='wineTasting'
-        description='wine tasting tour in the omaruru region'
+        formName="wineTasting"
+        description="wine tasting tour in the omaruru region"
         image={IMAGES.olympics}
         priceId={PRICES.wineTasting}
-        amount='75'
+        amount="75"
       />
 
       <Gift
-        formName='fourXFour'
-        description='sandwich harbour 4x4 tour'
+        formName="fourXFour"
+        description="sandwich harbour 4x4 tour"
         image={IMAGES.surfing}
         priceId={PRICES.fourXFour}
-        amount='100'
+        amount="100"
       />
 
       <Gift
-        formName='sossusvlei'
-        description='sossusvlei sundowners'
+        formName="sossusvlei"
+        description="sossusvlei sundowners"
         image={IMAGES.cave}
         priceId={PRICES.sossusvlei}
-        amount='25'
+        amount="25"
       />
 
       <Gift
-        formName='kebi'
-        description='1 night stay kebi lodge'
+        formName="kebi"
+        description="1 night stay kebi lodge"
         image={IMAGES.hawaii}
         priceId={PRICES.kebi}
-        amount='100'
+        amount="100"
       />
     </div>
   </div>
@@ -120,35 +120,35 @@ import { PRICES } from '../utilities/stripe';
 
 <script>
   function resizeInput() {
-    const input = document.getElementById('donation') as HTMLInputElement;
+    const input = document.getElementById("donation") as HTMLInputElement;
     if (input) {
-      input.style.width = Math.max(input.value.length, 2) + 'ch';
+      input.style.width = Math.max(input.value.length, 2) + "ch";
     }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const input = document.getElementById('donation');
+  document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("donation");
     if (input) {
-      input.addEventListener('input', resizeInput);
+      input.addEventListener("input", resizeInput);
       resizeInput(); // Initialize width
     }
   });
 
-  const form = document.getElementById('donationForm') as HTMLFormElement;
-  form.addEventListener('submit', async (e) => {
+  const form = document.getElementById("donationForm") as HTMLFormElement;
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
 
-    const res = await fetch('/api/donation', {
-      method: 'POST',
-      body: formData
+    const res = await fetch("/api/donation", {
+      method: "POST",
+      body: formData,
     });
     const data = await res.json();
 
     if (data.url) {
       window.location.href = data.url;
     } else {
-      alert('Error: ' + data.error);
+      alert("Error: " + data.error);
     }
   });
 </script>

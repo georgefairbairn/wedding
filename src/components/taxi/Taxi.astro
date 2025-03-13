@@ -2,41 +2,41 @@
 const { link, name, phone } = Astro.props;
 
 const backClasses = [
-  'bg-custom-green',
-  'rounded-sm',
-  'outline-offset-4',
-  'select-none',
-  'w-full',
-  'h-full'
-].join(' ');
+  "bg-custom-green",
+  "rounded-sm",
+  "outline-offset-4",
+  "select-none",
+  "w-full",
+  "h-full",
+].join(" ");
 
 const frontClasses = [
-  'flex',
-  'flex-col',
-  'justify-between',
-  'block',
-  'bg-white',
-  'p-5',
-  'rounded-sm',
-  '-translate-y-1',
-  '-translate-x-1',
-  'hover:-translate-y-2',
-  'hover:-translate-x-2',
-  'active:-translate-y-0',
-  'active:-translate-x-0',
-  'font-montserrat',
-  'tracking-[0.25em]',
-  'uppercase',
-  'text-custom-green',
-  'will-change-transform',
-  'transition-transform',
-  'h-full'
-].join(' ');
+  "flex",
+  "flex-col",
+  "justify-between",
+  "block",
+  "bg-white",
+  "p-5",
+  "rounded-sm",
+  "-translate-y-1",
+  "-translate-x-1",
+  "hover:-translate-y-2",
+  "hover:-translate-x-2",
+  "active:-translate-y-0",
+  "active:-translate-x-0",
+  "font-montserrat",
+  "tracking-[0.25em]",
+  "uppercase",
+  "text-custom-green",
+  "will-change-transform",
+  "transition-transform",
+  "h-full",
+].join(" ");
 ---
 
-<a href={link} class={backClasses} target='_blank'>
+<a href={link} class={backClasses} target="_blank">
   <div class={frontClasses}>
-    <div class='font-bold mb-6'>{name}</div>
-    <div class='flex'>{phone}</div>
+    <div class="mb-6 font-bold">{name}</div>
+    <div class="flex">{phone}</div>
   </div>
 </a>

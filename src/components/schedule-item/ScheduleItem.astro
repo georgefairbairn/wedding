@@ -2,12 +2,12 @@
 const { time, text } = Astro.props;
 ---
 
-<div class='flex flex-col font-montserrat text-white items-center'>
+<div class="font-montserrat flex flex-col items-center text-white">
   <div class={`max-w-[12rem]`}>
     <slot />
   </div>
-  <p class='text-xl tracking-[0.25em] font-bold mb-2 mt-0'>
+  <p class="mt-0 mb-2 text-xl font-bold tracking-[0.25em]">
     {time}
   </p>
-  <p class='font-balmy text-custom-green text-4xl'>{text}</p>
+  <p class="font-balmy text-custom-green text-4xl">{text}</p>
 </div>

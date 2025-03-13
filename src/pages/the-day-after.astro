@@ -1,59 +1,59 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Title from '../components/title/Title.astro';
-import Divider from '../components/divider/Divider.astro';
-import Address from '../components/address/Address.astro';
-import Heading from '../components/heading/Heading.astro';
-import Header from '../components/q/Header.astro';
-import Polaroid from '../components/polaroid/Polaroid.astro';
-import Link from '../components/link/Link.astro';
+import Layout from "../layouts/Layout.astro";
+import Title from "../components/title/Title.astro";
+import Divider from "../components/divider/Divider.astro";
+import Address from "../components/address/Address.astro";
+import Heading from "../components/heading/Heading.astro";
+import Header from "../components/q/Header.astro";
+import Polaroid from "../components/polaroid/Polaroid.astro";
+import Link from "../components/link/Link.astro";
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
-  <div class='flex flex-col items-center mt-16 md:mt-24'>
-    <Title text='the day after' />
+  <div class="mt-16 flex flex-col items-center md:mt-24">
+    <Title text="the day after" />
     <div
-      class='flex flex-col md:flex-row gap-16 lg:gap-36 px-4 md:px-8 items-center md:mb-12'
+      class="flex flex-col items-center gap-16 px-4 md:mb-12 md:flex-row md:px-8 lg:gap-36"
     >
-      <div class='px-3 max-w-xl'>
+      <div class="max-w-xl px-3">
         <Polaroid
           isVideo
-          src='https://res.cloudinary.com/neon-flights/video/upload/e_accelerate:-99,c_crop,w_ih,x_5,y_2/v1741717008/Screen_Recording_2025-03-11_at_18.14.58_fzv74j.mov'
+          src="https://res.cloudinary.com/neon-flights/video/upload/e_accelerate:-99,c_crop,w_ih,x_5,y_2/v1741717008/Screen_Recording_2025-03-11_at_18.14.58_fzv74j.mov"
         />
       </div>
-      <div class='flex flex-col'>
+      <div class="flex flex-col">
         <div
-          class='flex flex-col items-center font-montserrat text-white text-xl tracking-[0.25em] font-bold mb-16'
+          class="font-montserrat mb-16 flex flex-col items-center text-xl font-bold tracking-[0.25em] text-white"
         >
-          <div class='w-1/2'>
-            <Heading text='when' />
+          <div class="w-1/2">
+            <Heading text="when" />
           </div>
           <p
-            class='mt-4 text-3xl font-balmy text-custom-green tracking-[0.02em]'
+            class="font-balmy text-custom-green mt-4 text-3xl tracking-[0.02em]"
           >
             10.30am - 2pm
           </p>
           <p
-            class='mt-4 text-3xl font-balmy text-custom-green tracking-[0.02em]'
+            class="font-balmy text-custom-green mt-4 text-3xl tracking-[0.02em]"
           >
             22.06.2025
           </p>
         </div>
         <Address
-          addressLineOne='Kinsbrook Vineyard'
-          addressLineTwo='Pulborough'
-          addressLineThree='RH20 2RZ'
+          addressLineOne="Kinsbrook Vineyard"
+          addressLineTwo="Pulborough"
+          addressLineThree="RH20 2RZ"
         />
         <div
-          class='flex flex-col items-center font-montserrat text-white text-xl tracking-[0.25em] font-bold'
+          class="font-montserrat flex flex-col items-center text-xl font-bold tracking-[0.25em] text-white"
         >
-          <div class='w-1/2 mt-16'>
-            <Heading text='what3words' />
+          <div class="mt-16 w-1/2">
+            <Heading text="what3words" />
           </div>
           <a
-            href='https://what3words.com/widely.reacting.cubed'
-            target='_blank'
-            class='mt-4 text-3xl font-balmy text-custom-green tracking-[0.02em]'
+            href="https://what3words.com/widely.reacting.cubed"
+            target="_blank"
+            class="font-balmy text-custom-green mt-4 text-3xl tracking-[0.02em]"
             >///widely.reacting.cubed
           </a>
         </div>
@@ -61,48 +61,48 @@ import Link from '../components/link/Link.astro';
     </div>
   </div>
 
-  <div class='flex flex-col items-center px-3'>
-    <div class='px-8'>
+  <div class="flex flex-col items-center px-3">
+    <div class="px-8">
       <Divider />
     </div>
 
-    <section id='stay' class='text-center px-8'>
-      <Heading text='what’s the plan?' />
+    <section id="stay" class="px-8 text-center">
+      <Heading text="what’s the plan?" />
     </section>
     <div
-      class='flex flex-col items-start w-full font-montserrat mt-12 text-white md:text-base px-4 md:px-8 max-w-5xl'
+      class="font-montserrat mt-12 flex w-full max-w-5xl flex-col items-start px-4 text-white md:px-8 md:text-base"
     >
-      <p class='font-montserrat text-white mt-4'>
+      <p class="font-montserrat mt-4 text-white">
         If you’re staying the night locally we’d love to have a final casual
         catch up & goodbye the following day at <Link
-          href='https://www.kinsbrookvineyard.com/'
+          href="https://www.kinsbrookvineyard.com/"
         >
           Kinsbrook Vineyard!
         </Link>
       </p>
-      <p class='font-montserrat text-white mt-4'>
+      <p class="font-montserrat mt-4 text-white">
         We’ve hired an area on their outdoor patio and will be there from
         10.30am until the afternoon, so feel free to join & leave whenever suits
         you - you can grab coffee, breakfast or brunch before your journey home!
       </p>
-      <p class='font-montserrat text-white mt-4'>
+      <p class="font-montserrat mt-4 text-white">
         Kinsbrook Vineyard have an excellent deli which serves coffees, freshly
         baked pastries, bagels & more to enjoy on the patio. They also have an
         outdoor pizza truck serving wood-fired pizzas from 12pm. And if you’re
-        in need of a hair of the dog cure from the night before, they also have a
-        wide selection of their award-winning wines, craft beers and ciders.
+        in need of a hair of the dog cure from the night before, they also have
+        a wide selection of their award-winning wines, craft beers and ciders.
       </p>
-      <p class='font-montserrat text-white mt-4'>
+      <p class="font-montserrat mt-4 text-white">
         If you want to make a day of it, you can also make a later lunch
         reservation in their farmhouse restaurant <Link
-          href='https://www.kinsbrookvineyard.com/restaurant'
+          href="https://www.kinsbrookvineyard.com/restaurant"
         >
           here
         </Link> - their Sunday roasts are especially good!
       </p>
     </div>
 
-    <div class='px-8'>
+    <div class="px-8">
       <Divider />
     </div>
   </div>

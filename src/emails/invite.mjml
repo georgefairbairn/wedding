@@ -1,76 +1,196 @@
 <mjml>
   <mj-head>
-    <mj-font name="Montserrat" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sacramento&display=swap" />
+    <mj-font
+      name="Montserrat"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sacramento&display=swap"
+    />
   </mj-head>
   <mj-body background-color="#FFB5B1">
     <mj-section padding-top="0">
       <mj-column>
-        <mj-image padding-top="0" width="150px" src="https://res.cloudinary.com/neon-flights/image/upload/v1732221377/disco_kn0fbi.png"></mj-image>
+        <mj-image
+          padding-top="0"
+          width="150px"
+          src="https://res.cloudinary.com/neon-flights/image/upload/v1732221377/disco_kn0fbi.png"
+        ></mj-image>
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-image width="162px" src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/george_and_izzy_dhzfbl.png"></mj-image>
+        <mj-image
+          width="162px"
+          src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/george_and_izzy_dhzfbl.png"
+        ></mj-image>
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="18px" line-height="28px" color="#FFFFFF" font-family="Montserrat, Arial, sans-serif">Dear {{first_name}},</mj-text>
-        <mj-text align="center" font-size="18px" line-height="28px" color="#FFFFFF" font-family="Montserrat, Arial, sans-serif">We are so excited to invite you to our wedding and can’t wait to share our special day with you!</mj-text>
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          color="#FFFFFF"
+          font-family="Montserrat, Arial, sans-serif"
+          >Dear {{first_name}},</mj-text
+        >
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          color="#FFFFFF"
+          font-family="Montserrat, Arial, sans-serif"
+          >We are so excited to invite you to our wedding and can’t wait to
+          share our special day with you!</mj-text
+        >
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-image width="162px" src="https://res.cloudinary.com/neon-flights/image/upload/v1732221613/cake_qcreri.png"></mj-image>
+        <mj-image
+          width="162px"
+          src="https://res.cloudinary.com/neon-flights/image/upload/v1732221613/cake_qcreri.png"
+        ></mj-image>
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="20px" line-height="28px" text-transform="uppercase" letter-spacing="4px" font-weight="bold" color="#FFFFFF" font-family="Montserrat, Arial, sans-serif">WEDDING DETAILS</mj-text>
+        <mj-text
+          align="center"
+          font-size="20px"
+          line-height="28px"
+          text-transform="uppercase"
+          letter-spacing="4px"
+          font-weight="bold"
+          color="#FFFFFF"
+          font-family="Montserrat, Arial, sans-serif"
+          >WEDDING DETAILS</mj-text
+        >
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="20px" line-height="28px" text-transform="uppercase" letter-spacing="4px" font-weight="bold" color="#005E4A" font-family="Montserrat, Arial, sans-serif">DATE</mj-text>
-        <mj-text padding-top="0" align="center" font-size="18px" line-height="28px" color="#FFFFFF" font-family="Montserrat, Arial, sans-serif">21st June 2025</mj-text>
+        <mj-text
+          align="center"
+          font-size="20px"
+          line-height="28px"
+          text-transform="uppercase"
+          letter-spacing="4px"
+          font-weight="bold"
+          color="#005E4A"
+          font-family="Montserrat, Arial, sans-serif"
+          >DATE</mj-text
+        >
+        <mj-text
+          padding-top="0"
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          color="#FFFFFF"
+          font-family="Montserrat, Arial, sans-serif"
+          >21st June 2025</mj-text
+        >
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="20px" line-height="28px" text-transform="uppercase" letter-spacing="4px" font-weight="bold" color="#005E4A" font-family="Montserrat, Arial, sans-serif">LOCATION</mj-text>
-        <mj-text padding-top="0" align="center" font-size="18px" line-height="28px" color="#FFFFFF" font-family="Montserrat, Arial, sans-serif">Bignor Park, Pulborough, RH20 1HG</mj-text>
+        <mj-text
+          align="center"
+          font-size="20px"
+          line-height="28px"
+          text-transform="uppercase"
+          letter-spacing="4px"
+          font-weight="bold"
+          color="#005E4A"
+          font-family="Montserrat, Arial, sans-serif"
+          >LOCATION</mj-text
+        >
+        <mj-text
+          padding-top="0"
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          color="#FFFFFF"
+          font-family="Montserrat, Arial, sans-serif"
+          >Bignor Park, Pulborough, RH20 1HG</mj-text
+        >
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="20px" line-height="28px" text-transform="uppercase" letter-spacing="4px" font-weight="bold" color="#005E4A" font-family="Montserrat, Arial, sans-serif">TIME</mj-text>
-        <mj-text align="center" font-size="18px" line-height="28px" color="#FFFFFF" padding-top="0" font-family="Montserrat, Arial, sans-serif">Ceremony at 1pm</mj-text>
-        <mj-text align="center" font-size="18px" line-height="28px" color="#FFFFFF" padding-top="0" font-family="Montserrat, Arial, sans-serif">Celebrations continue until midnight</mj-text>
+        <mj-text
+          align="center"
+          font-size="20px"
+          line-height="28px"
+          text-transform="uppercase"
+          letter-spacing="4px"
+          font-weight="bold"
+          color="#005E4A"
+          font-family="Montserrat, Arial, sans-serif"
+          >TIME</mj-text
+        >
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          color="#FFFFFF"
+          padding-top="0"
+          font-family="Montserrat, Arial, sans-serif"
+          >Ceremony at 1pm</mj-text
+        >
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          color="#FFFFFF"
+          padding-top="0"
+          font-family="Montserrat, Arial, sans-serif"
+          >Celebrations continue until midnight</mj-text
+        >
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-image width="162px" src="https://res.cloudinary.com/neon-flights/image/upload/v1732222215/champagne_f5cppm.png"></mj-image>
+        <mj-image
+          width="162px"
+          src="https://res.cloudinary.com/neon-flights/image/upload/v1732222215/champagne_f5cppm.png"
+        ></mj-image>
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="18px" line-height="28px" color="#FFFFFF" font-family="Montserrat, Arial, sans-serif">To help us plan, please RSVP below:</mj-text>
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          color="#FFFFFF"
+          font-family="Montserrat, Arial, sans-serif"
+          >To help us plan, please RSVP below:</mj-text
+        >
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-button href="https://georgeandizzy.com/rsvp" background-color="#FFFFFF" color="#005E4A" font-size="36px" padding="10px" border-radius="5px" font-family="Montserrat, Arial, sans-serif" letter-spacing="4px" font-weight="bold">
+        <mj-button
+          href="https://georgeandizzy.com/rsvp"
+          background-color="#FFFFFF"
+          color="#005E4A"
+          font-size="36px"
+          padding="10px"
+          border-radius="5px"
+          font-family="Montserrat, Arial, sans-serif"
+          letter-spacing="4px"
+          font-weight="bold"
+        >
           RSVP
         </mj-button>
       </mj-column>
@@ -78,26 +198,58 @@
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="18px" line-height="28px" color="#FFFFFF" font-family="Montserrat, Arial, sans-serif">Our <a href="https://georgeandizzy.com" style="color: #FFFFFF">wedding website</a> has everything you need to know, including details on travel, accommodation, and the schedule for the day.</mj-text>
-        <mj-text align="center" font-size="18px" line-height="28px" color="#FFFFFF" font-family="Montserrat, Arial, sans-serif">Please note, we will not be sending paper invites so please keep this email for future reference.</mj-text>
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          color="#FFFFFF"
+          font-family="Montserrat, Arial, sans-serif"
+          >Our
+          <a href="https://georgeandizzy.com" style="color: #ffffff"
+            >wedding website</a
+          >
+          has everything you need to know, including details on travel,
+          accommodation, and the schedule for the day.</mj-text
+        >
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          color="#FFFFFF"
+          font-family="Montserrat, Arial, sans-serif"
+          >Please note, we will not be sending paper invites so please keep this
+          email for future reference.</mj-text
+        >
       </mj-column>
     </mj-section>
 
     <mj-section padding="20px">
       <mj-column background-color="#FFFFFF" padding="8px">
-        <mj-image fluid-on-mobile="true" padding="0" src="https://res.cloudinary.com/neon-flights/image/upload/v1731793021/wedding/hawaii_wqqujl.jpg"></mj-image>
+        <mj-image
+          fluid-on-mobile="true"
+          padding="0"
+          src="https://res.cloudinary.com/neon-flights/image/upload/v1731793021/wedding/hawaii_wqqujl.jpg"
+        ></mj-image>
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="20px" line-height="28px" text-transform="uppercase" letter-spacing="4px" font-weight="bold" color="#FFFFFF" font-family="Montserrat, Arial, sans-serif">LOOKING FORWARD TO SEEING YOU IN JUNE!</mj-text>
+        <mj-text
+          align="center"
+          font-size="20px"
+          line-height="28px"
+          text-transform="uppercase"
+          letter-spacing="4px"
+          font-weight="bold"
+          color="#FFFFFF"
+          font-family="Montserrat, Arial, sans-serif"
+          >LOOKING FORWARD TO SEEING YOU IN JUNE!</mj-text
+        >
       </mj-column>
     </mj-section>
 
-    <mj-section>
-    </mj-section>
-    <mj-section>
-    </mj-section>
+    <mj-section> </mj-section>
+    <mj-section> </mj-section>
   </mj-body>
 </mjml>

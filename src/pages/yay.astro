@@ -1,32 +1,32 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Polaroid from '../components/polaroid/Polaroid.astro';
-import Title from '../components/title/Title.astro';
-import { IMAGES } from '../utilities/images';
+import Layout from "../layouts/Layout.astro";
+import Polaroid from "../components/polaroid/Polaroid.astro";
+import Title from "../components/title/Title.astro";
+import { IMAGES } from "../utilities/images";
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
-  <div class='flex flex-col mt-16 font-montserrat px-8 items-center'>
-    <Title text='yay!' />
-    <div class='max-w-md'>
+  <div class="font-montserrat mt-16 flex flex-col items-center px-8">
+    <Title text="yay!" />
+    <div class="max-w-md">
       <Polaroid src={IMAGES.hawaii} />
     </div>
     <div
-      class='uppercase tracking-[0.25em] text-white font-bold mt-12 text-center'
+      class="mt-12 text-center font-bold tracking-[0.25em] text-white uppercase"
     >
       WE’RE SO HAPPY YOU’RE COMING
     </div>
-    <div class='font-montserrat text-xl text-white mt-8 max-w-2xl text-center'>
+    <div class="font-montserrat mt-8 max-w-2xl text-center text-xl text-white">
       Check your email for confirmation of your RSVP.
     </div>
-    <div class='font-montserrat text-xl text-white mt-2 max-w-2xl text-center'>
+    <div class="font-montserrat mt-2 max-w-2xl text-center text-xl text-white">
       We’ll be sending updates nearer the time via email!
     </div>
   </div>
 </Layout>
 
 <script>
-  import confetti from 'canvas-confetti';
+  import confetti from "canvas-confetti";
 
   var duration = 15 * 1000;
   var animationEnd = Date.now() + duration;
@@ -48,12 +48,12 @@ import { IMAGES } from '../utilities/images';
     confetti({
       ...defaults,
       particleCount,
-      origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+      origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
     });
     confetti({
       ...defaults,
       particleCount,
-      origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+      origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
     });
   }, 250);
 </script>
