@@ -132,6 +132,15 @@ import { PRICES } from "../utilities/stripe";
       input.addEventListener("input", resizeInput);
       resizeInput(); // Initialize width
     }
+
+    const photos = document.querySelectorAll(".photo");
+      photos.forEach((photo) => {
+        const description = photo.querySelector(".description");
+        photo.addEventListener("click", () => {
+          description?.classList.toggle("opacity-0");
+          description?.classList.toggle("opacity-100");
+        });
+      });
   });
 
   const form = document.getElementById("donationForm") as HTMLFormElement;

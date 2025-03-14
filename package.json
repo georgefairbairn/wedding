@@ -16,7 +16,7 @@
     "@notionhq/client": "^2.2.15",
     "@sendgrid/mail": "^8.1.4",
     "@tailwindcss/vite": "^4.0.13",
-    "astro": "^5.4.3",
+    "astro": "^5.5.2",
     "canvas-confetti": "^1.9.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
