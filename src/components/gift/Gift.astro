@@ -2,7 +2,7 @@
 import Button from "../button/Button.astro";
 import Polaroid from "../polaroid/Polaroid.astro";
 
-const { formName, description, image, priceId, amount } = Astro.props;
+const { formName, description, image, priceId, amount, title } = Astro.props;
 ---
 
 <form
@@ -24,10 +24,10 @@ const { formName, description, image, priceId, amount } = Astro.props;
         >
       </div>
       <div
-        class="description bg-custom-green absolute inset-0 m-2 opacity-0 transition-opacity duration-500"
+        class="description bg-custom-green absolute inset-0 m-2 opacity-0 transition-opacity duration-700"
       >
-        <div class="flex h-full w-full items-center justify-center text-white">
-          A test description
+        <div class="flex h-full w-full items-center justify-center text-white text-center p-6">
+          <slot />
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@ const { formName, description, image, priceId, amount } = Astro.props;
 
   <div class="z-10 mt-4 flex-1">
     <p class="text-center font-bold tracking-[0.25em] text-white uppercase">
-      {description}
+      {title}
     </p>
   </div>
 

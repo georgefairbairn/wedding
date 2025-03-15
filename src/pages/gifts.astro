@@ -53,67 +53,169 @@ import { PRICES } from "../utilities/stripe";
     <div class="flex flex-wrap justify-center gap-6">
       <Gift
         formName="etosha"
-        description="1 day safari in etosha national park"
+        title="1 day safari in etosha national park"
         image={IMAGES.etosha}
         priceId={PRICES.etosha}
         amount="100"
-      />
+      >
+        <div>
+          <p class="mb-4">
+            An unforgettable safari experience in Namibia’s most famous national
+            park.
+          </p>
+          <p>
+            This gift offers the chance to spot incredible wildlife, from
+            elephants and lions to rhinos and giraffes, while exploring Etosha’s
+            vast landscapes.
+          </p>
+        </div>
+      </Gift>
 
       <Gift
         formName="drinks"
-        description="honeymoon departure drinks"
+        title="honeymoon departure drinks"
         image={IMAGES.drinks}
         priceId={PRICES.drinks}
         amount="25"
-      />
+      >
+        <div>
+          <p class="mb-4">
+            A perfect way to celebrate the start of a honeymoon.
+          </p>
+          <p>
+            Whether enjoyed at the airport lounge or at the first destination,
+            this gift provides a toast to new adventures together.
+          </p>
+        </div>
+      </Gift>
 
       <Gift
         formName="photoAlbum"
-        description="custom embroidered wedding photo album"
+        title="custom embroidered wedding photo album"
         image={IMAGES.plane}
         priceId={PRICES.photoAlbum}
         amount="250"
-      />
+      >
+        <div>
+          <p class="mb-4">
+            A beautiful hand-crafted personal photo album designed to preserve
+            wedding memories for years to come.
+          </p>
+          <p>
+            Featuring custom embroidery, this keepsake is perfect for holding
+            treasured photographs from the big day.
+          </p>
+        </div>
+      </Gift>
 
       <Gift
         formName="bingo"
-        description="mr bingo don’t forget to have fun art"
+        title="mr bingo don’t forget to have fun art"
         image={IMAGES.japan}
         priceId={PRICES.bingo}
         amount="90"
-      />
+      >
+        <div>
+          <p class="mb-4">
+            Mr Bingo is a London-based artist known for his irreverent & dark
+            humour.
+          </p>
+          <p>
+            We are big fans of his work & have some pieces already - this one
+            feels like a fitting advice-inspired piece to add to the collection.
+          </p>
+        </div>
+      </Gift>
 
       <Gift
         formName="wineTasting"
-        description="wine tasting tour in the omaruru region"
+        title="wine tasting tour in the omaruru region"
+        description="An opportunity to discover Namibia’s growing wine scene. This experience includes tastings of locally produced wines, paired with stunning vineyard views and warm hospitality."
         image={IMAGES.olympics}
         priceId={PRICES.wineTasting}
         amount="75"
-      />
+      >
+        <div>
+          <p class="mb-4">
+            An opportunity to discover Namibia’s growing wine scene.
+          </p>
+          <p>
+            This experience includes tastings of locally produced wines, paired
+            with stunning vineyard views and warm hospitality.
+          </p>
+        </div>
+      </Gift>
 
       <Gift
         formName="fourXFour"
-        description="sandwich harbour 4x4 tour"
+        title="sandwich harbour 4x4 tour"
         image={IMAGES.surfing}
         priceId={PRICES.fourXFour}
         amount="100"
-      />
+      >
+        <div>
+          <p class="mb-4">
+            A thrilling off-road adventure through Namibia’s iconic coastal
+            dunes.
+          </p>
+          <p>
+            This experience includes breathtaking scenery where the desert meets
+            the ocean, with opportunities to spot wildlife along the way.
+          </p>
+        </div>
+      </Gift>
 
       <Gift
         formName="sossusvlei"
-        description="sossusvlei sundowners"
+        title="sossusvlei sundowners"
         image={IMAGES.cave}
         priceId={PRICES.sossusvlei}
         amount="25"
-      />
+      >
+        <div>
+          <p class="mb-4"></p>
+        </div>
+      </Gift>
 
       <Gift
         formName="kebi"
-        description="1 night stay kebi lodge"
+        title="1 night stay kebi lodge"
         image={IMAGES.hawaii}
         priceId={PRICES.kebi}
         amount="100"
-      />
+      >
+        <div>
+          <p class="mb-4">
+            A rejuvenating spa experience set against the stunning Namibian
+            wilderness.
+          </p>
+          <p>
+            This gift offers the chance to unwind with a soothing treatment,
+            combining natural ingredients and expert care for the ultimate
+            relaxation.
+          </p>
+        </div>
+      </Gift>
+
+      <Gift
+        formName="weinburg"
+        title="fine dining at am weinburg restaurant"
+        image={IMAGES.japan}
+        priceId={PRICES.kebi}
+        amount="75"
+      >
+        <div>
+          <p class="mb-4">
+            A sophisticated dining experience at one of Namibia’s most elegant
+            restaurants.
+          </p>
+          <p>
+            Set within a beautifully restored wine estate, Am Weinberg offers
+            expertly crafted dishes, fine wines, and a refined atmosphere for an
+            indulgent culinary treat.
+          </p>
+        </div>
+      </Gift>
     </div>
   </div>
 </Layout>
@@ -134,13 +236,13 @@ import { PRICES } from "../utilities/stripe";
     }
 
     const photos = document.querySelectorAll(".photo");
-      photos.forEach((photo) => {
-        const description = photo.querySelector(".description");
-        photo.addEventListener("click", () => {
-          description?.classList.toggle("opacity-0");
-          description?.classList.toggle("opacity-100");
-        });
+    photos.forEach((photo) => {
+      const description = photo.querySelector(".description");
+      photo.addEventListener("click", () => {
+        description?.classList.toggle("opacity-0");
+        description?.classList.toggle("opacity-100");
       });
+    });
   });
 
   const form = document.getElementById("donationForm") as HTMLFormElement;
