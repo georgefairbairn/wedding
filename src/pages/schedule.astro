@@ -74,21 +74,19 @@ const scheduleItems: {
 <Layout title="George & Izzy's Wedding 2025">
   <div class="mt-16 mb-24 flex flex-col items-center">
     <Title text="schedule" className="mb-24" />
-    <>
-      {
-        scheduleItems.map(({ time, text, sketch: Sketch, width, props }, i) => (
-          <>
-            <ScheduleItem time={time} text={text} width={width}>
-              <Sketch {...props} />
-            </ScheduleItem>
-            {i !== scheduleItems.length - 1 && (
-              <div class="p-8">
-                <Divider />
-              </div>
-            )}
-          </>
-        ))
-      }
-    </>
+    {
+      scheduleItems.map(({ time, text, sketch: Sketch, width, props }, i) => (
+        <>
+          <ScheduleItem time={time} text={text} width={width}>
+            <Sketch {...props} />
+          </ScheduleItem>
+          {i !== scheduleItems.length - 1 && (
+            <div class="p-8">
+              <Divider />
+            </div>
+          )}
+        </>
+      ))
+    }
   </div>
 </Layout>

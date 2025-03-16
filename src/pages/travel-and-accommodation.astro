@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Polaroid from "../components/polaroid/Polaroid.astro";
 import Divider from "../components/divider/Divider.astro";
 import Heading from "../components/heading/Heading.astro";
 import Address from "../components/address/Address.astro";
@@ -9,6 +8,7 @@ import Accommodation from "../components/accommodation/Accommodation.astro";
 import Header from "../components/q/Header.astro";
 import Taxi from "../components/taxi/Taxi.astro";
 import Link from "../components/link/Link.astro";
+import Video from "../components/video/Video.astro";
 
 const hotels = [
   {
@@ -129,10 +129,7 @@ const taxis = [
       class="flex flex-col items-center gap-16 px-4 md:flex-row md:px-8 lg:gap-36"
     >
       <div class="max-w-xl px-3 md:mb-12">
-        <Polaroid
-          isVideo
-          src="https://res.cloudinary.com/neon-flights/video/upload/v1731853933/wedding/bignor_park_uoslvk.mp4"
-        />
+        <Video src="bignor_park_uoslvk" width={552} height={317} />
       </div>
       <div class="flex flex-col">
         <Address />

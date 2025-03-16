@@ -2,14 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import Polaroid from "../components/polaroid/Polaroid.astro";
 import Title from "../components/title/Title.astro";
-import { IMAGES } from "../utilities/images";
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
   <div class="font-montserrat mt-16 flex flex-col items-center px-8">
     <Title text="WELL, WELL, WELL" />
     <div class="max-w-md">
-      <Polaroid src={IMAGES.boo} />
+      <Polaroid src="boo_omympi" width={580} height={435} />
     </div>
     <div
       class="mt-12 text-center font-bold tracking-[0.25em] text-white uppercase"

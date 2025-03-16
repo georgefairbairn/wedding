@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/title/Title.astro";
 import Button from "../components/button/Button.astro";
-import { IMAGES } from "../utilities/images";
 import Gift from "../components/gift/Gift.astro";
 import { PRICES } from "../utilities/stripe";
 ---
@@ -54,7 +53,7 @@ import { PRICES } from "../utilities/stripe";
       <Gift
         formName="etosha"
         title="1 day safari in etosha national park"
-        image={IMAGES.etosha}
+        image="etosha_iyuj7m"
         priceId={PRICES.etosha}
         amount="100"
       >
@@ -74,7 +73,7 @@ import { PRICES } from "../utilities/stripe";
       <Gift
         formName="drinks"
         title="honeymoon departure drinks"
-        image="https://res.cloudinary.com/neon-flights/image/upload/v1742122108/champagne_snftuo.webp"
+        image="champagne_snftuo"
         priceId={PRICES.drinks}
         amount="25"
       >
@@ -92,7 +91,7 @@ import { PRICES } from "../utilities/stripe";
       <Gift
         formName="photoAlbum"
         title="custom embroidered wedding photo album"
-        image="https://res.cloudinary.com/neon-flights/image/upload/v1742034128/wedding_photo_album_hehtpa.jpg"
+        image="wedding_photo_album_hehtpa"
         priceId={PRICES.photoAlbum}
         amount="250"
       >
@@ -111,7 +110,7 @@ import { PRICES } from "../utilities/stripe";
       <Gift
         formName="bingo"
         title="mr bingo don’t forget to have fun art"
-        image="https://res.cloudinary.com/neon-flights/image/upload/v1742033947/have_fun_plf5lc.jpg"
+        image="have_fun_plf5lc"
         priceId={PRICES.bingo}
         amount="90"
       >
@@ -131,7 +130,7 @@ import { PRICES } from "../utilities/stripe";
         formName="wineTasting"
         title="wine tasting tour in the omaruru region"
         description="An opportunity to discover Namibia’s growing wine scene. This experience includes tastings of locally produced wines, paired with stunning vineyard views and warm hospitality."
-        image="https://res.cloudinary.com/neon-flights/image/upload/v1742121303/wine_tasting_jc5gav.webp"
+        image="wine_tasting_jc5gav"
         priceId={PRICES.wineTasting}
         amount="75"
       >
@@ -149,7 +148,7 @@ import { PRICES } from "../utilities/stripe";
       <Gift
         formName="fourXFour"
         title="sandwich harbour 4x4 tour"
-        image="https://res.cloudinary.com/neon-flights/image/upload/v1742121426/145_fmcd5b.jpg"
+        image="145_fmcd5b"
         priceId={PRICES.fourXFour}
         amount="100"
       >
@@ -168,7 +167,7 @@ import { PRICES } from "../utilities/stripe";
       <Gift
         formName="sossusvlei"
         title="sossusvlei sundowners"
-        image="https://res.cloudinary.com/neon-flights/image/upload/v1742121580/sossusvlei-dune_enyccr.jpg"
+        image="sossusvlei-dune_enyccr"
         priceId={PRICES.sossusvlei}
         amount="25"
       >
@@ -180,7 +179,7 @@ import { PRICES } from "../utilities/stripe";
       <Gift
         formName="kebi"
         title="1 night stay kebi lodge"
-        image="https://res.cloudinary.com/neon-flights/image/upload/v1742121673/kebi_lodge_tkwhm0.jpg"
+        image="kebi_lodge_tkwhm0"
         priceId={PRICES.kebi}
         amount="100"
       >
@@ -200,8 +199,8 @@ import { PRICES } from "../utilities/stripe";
       <Gift
         formName="weinburg"
         title="fine dining at am weinburg restaurant"
-        image="https://res.cloudinary.com/neon-flights/image/upload/v1742121801/weinburg_rgamjp.jpg"
-        priceId={PRICES.kebi}
+        image="weinburg_rgamjp"
+        priceId={PRICES.weinburg}
         amount="75"
       >
         <div>

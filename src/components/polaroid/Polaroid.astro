@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../image/Image.astro";
 
 const { src, text, isVideo, width, height, imgClassNames = "" } = Astro.props;
 ---
@@ -23,12 +23,10 @@ const { src, text, isVideo, width, height, imgClassNames = "" } = Astro.props;
       </video>
     ) : (
       <Image
-        class={`w-full border-8 border-white ${text ? "border-b-0" : ""} ${imgClassNames}`}
+        classes={`w-full border-8 border-white ${text ? "border-b-0" : ""} ${imgClassNames}`}
         src={src}
-        alt=""
         width={width}
         height={height}
-        inferSize={true}
       />
     )
   }

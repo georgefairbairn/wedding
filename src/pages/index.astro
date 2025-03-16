@@ -5,7 +5,6 @@ import Date from "../components/date/Date.astro";
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/button/Button.astro";
 import PolaroidStrip from "../components/polaroid/PolaroidStrip.astro";
-import { IMAGES } from "../utilities/images";
 import DiscoBall from "../components/sketches/DiscoBall.astro";
 import Cake from "../components/sketches/Cake.astro";
 import Champagne from "../components/sketches/Champagne.astro";
@@ -33,7 +32,12 @@ import Champagne from "../components/sketches/Champagne.astro";
         <div class="absolute left-20 max-md:left-10 max-sm:hidden">
           <PolaroidStrip
             classes="-rotate-[20deg] -translate-x-1/2 -translate-y-24 hidden md:block"
-            images={[IMAGES.plane, IMAGES.olympics, IMAGES.arches, IMAGES.cave]}
+            images={[
+              "plane_wev9ff",
+              "olympics_wqceit",
+              "arches_n2minf",
+              "cave_dilxfa",
+            ]}
           />
         </div>
         <div class="mt-12">
@@ -55,10 +59,10 @@ import Champagne from "../components/sketches/Champagne.astro";
           <PolaroidStrip
             classes="rotate-[20deg] translate-x-1/2 hidden md:block"
             images={[
-              IMAGES.panorama,
-              IMAGES.oslo,
-              IMAGES.surfing,
-              IMAGES.japan,
+              "panorama_iakln7",
+              "oslo_zs8crf",
+              "surfing_pbfb6w",
+              "japan_faknwp",
             ]}
           />
         </div>
@@ -66,7 +70,12 @@ import Champagne from "../components/sketches/Champagne.astro";
       <div class="mt-24 md:hidden">
         <PolaroidStrip
           classes="rotate-[20deg] translate-x-1/4 md:hidden"
-          images={[IMAGES.panorama, IMAGES.oslo, IMAGES.surfing, IMAGES.japan]}
+          images={[
+            "panorama_iakln7",
+            "oslo_zs8crf",
+            "surfing_pbfb6w",
+            "japan_faknwp",
+          ]}
         />
       </div>
       <div class="left-10 mt-80 hidden md:block">

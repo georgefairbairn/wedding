@@ -4,9 +4,8 @@ import Title from "../components/title/Title.astro";
 import Divider from "../components/divider/Divider.astro";
 import Address from "../components/address/Address.astro";
 import Heading from "../components/heading/Heading.astro";
-import Header from "../components/q/Header.astro";
-import Polaroid from "../components/polaroid/Polaroid.astro";
 import Link from "../components/link/Link.astro";
+import Video from "../components/video/Video.astro";
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
@@ -16,9 +15,13 @@ import Link from "../components/link/Link.astro";
       class="flex flex-col items-center gap-16 px-4 md:mb-12 md:flex-row md:px-8 lg:gap-36"
     >
       <div class="max-w-xl px-3">
-        <Polaroid
-          isVideo
-          src="https://res.cloudinary.com/neon-flights/video/upload/e_accelerate:-99,c_crop,w_ih,x_5,y_2/v1741717008/Screen_Recording_2025-03-11_at_18.14.58_fzv74j.mov"
+        <Video
+          src="kinsbrook_fheklx"
+          width={500}
+          height={500}
+          transformation={[
+            { effect: "accelerate:-99", crop: "crop", x: 5, y: 2, width: "ih" },
+          ]}
         />
       </div>
       <div class="flex flex-col">
@@ -82,15 +85,17 @@ import Link from "../components/link/Link.astro";
       </p>
       <p class="font-montserrat mt-4 text-white">
         We’ve hired an area on their outdoor patio and will be there from
-        10.30am until the afternoon, so feel free to join & leave whenever suits
-        you - you can grab coffee, breakfast or brunch before your journey home!
+        <strong>10.30am until the afternoon</strong>, so feel free to join &
+        leave whenever suits you - you can grab coffee, breakfast or brunch
+        before your journey home!
       </p>
       <p class="font-montserrat mt-4 text-white">
-        Kinsbrook Vineyard have an excellent deli which serves coffees, freshly
-        baked pastries, bagels & more to enjoy on the patio. They also have an
-        outdoor pizza truck serving wood-fired pizzas from 12pm. And if you’re
-        in need of a hair of the dog cure from the night before, they also have
-        a wide selection of their award-winning wines, craft beers and ciders.
+        Kinsbrook Vineyard have an excellent deli which serves <strong
+          >coffees, freshly baked pastries, bagels & more</strong
+        > to enjoy on the patio. They also have an outdoor pizza truck serving
+        wood-fired pizzas from 12pm. And if you’re in need of a hair of the dog
+        cure from the night before, they also have a wide selection of their
+        award-winning wines, craft beers and ciders.
       </p>
       <p class="font-montserrat mt-4 text-white">
         If you want to make a day of it, you can also make a later lunch

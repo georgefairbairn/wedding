@@ -28,6 +28,9 @@ export const PRICES: Record<string, string> = {
   kebi: isProduction
     ? "price_1Qqf9XHxPgMNNpLshZvI1vZt"
     : "price_1Qqf9JHxPgMNNpLsHMQISVYf",
+  weinburg: isProduction
+    ? "price_1R2rLdHxPgMNNpLsAlDUAg98"
+    : "price_1R2rLBHxPgMNNpLsGY1c9zH6",
 };
 
 export const PRODUCTS: Record<string, string> = {
@@ -40,4 +43,5 @@ export const PRODUCTS: Record<string, string> = {
   fourXFour: isProduction ? "prod_Rk9OfHgYfOdRz2" : "prod_Rk9O2475H7EsOb",
   sossusvlei: isProduction ? "prod_Rk9QAFtSCYHRvE" : "prod_Rk9Qozde12nyFW",
   kebi: isProduction ? "prod_Rk9SjgMODsL93m" : "prod_Rk9Sf7iR8dt3o6",
+  weinburg: isProduction ? "prod_RwkroNQexue9MR" : "prod_RwkqAtZyzlsi1F",
 };
