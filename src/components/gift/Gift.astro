@@ -2,7 +2,7 @@
 import Button from "../button/Button.astro";
 import Polaroid from "../polaroid/Polaroid.astro";
 
-const { formName, description, image, priceId, amount, title } = Astro.props;
+const { formName, image, priceId, amount, title, transformation } = Astro.props;
 ---
 
 <form
@@ -15,7 +15,11 @@ const { formName, description, image, priceId, amount, title } = Astro.props;
 >
   <div class="flex flex-col">
     <div class="photo relative cursor-pointer">
-      <Polaroid src={image} imgClassNames="aspect-square object-cover" />
+      <Polaroid
+        src={image}
+        imgClassNames={`aspect-square object-cover ${formName === 'kebi' ? 'object-left' : ''}`}
+        transformation={transformation}
+      />
       <div
         class="bg-custom-pink font-balmy absolute top-5 right-5 rounded-sm border-2 border-white px-2 py-1"
       >
@@ -26,7 +30,9 @@ const { formName, description, image, priceId, amount, title } = Astro.props;
       <div
         class="description bg-custom-green absolute inset-0 m-2 opacity-0 transition-opacity duration-700"
       >
-        <div class="flex h-full w-full items-center justify-center text-white text-center p-6">
+        <div
+          class="flex h-full w-full items-center justify-center p-6 text-center text-white"
+        >
           <slot />
         </div>
       </div>

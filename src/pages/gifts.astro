@@ -53,7 +53,7 @@ import { PRICES } from "../utilities/stripe";
       <Gift
         formName="etosha"
         title="1 day safari in etosha national park"
-        image="etosha_iyuj7m"
+        image="etosha_sb6xdv"
         priceId={PRICES.etosha}
         amount="100"
       >
@@ -89,48 +89,10 @@ import { PRICES } from "../utilities/stripe";
       </Gift>
 
       <Gift
-        formName="photoAlbum"
-        title="custom embroidered wedding photo album"
-        image="wedding_photo_album_hehtpa"
-        priceId={PRICES.photoAlbum}
-        amount="250"
-      >
-        <div>
-          <p class="mb-4">
-            A beautiful hand-crafted personal photo album designed to preserve
-            wedding memories for years to come.
-          </p>
-          <p>
-            Featuring custom embroidery, this keepsake is perfect for holding
-            treasured photographs from the big day.
-          </p>
-        </div>
-      </Gift>
-
-      <Gift
-        formName="bingo"
-        title="mr bingo don’t forget to have fun art"
-        image="have_fun_plf5lc"
-        priceId={PRICES.bingo}
-        amount="90"
-      >
-        <div>
-          <p class="mb-4">
-            Mr Bingo is a London-based artist known for his irreverent & dark
-            humour.
-          </p>
-          <p>
-            We are big fans of his work & have some pieces already - this one
-            feels like a fitting advice-inspired piece to add to the collection.
-          </p>
-        </div>
-      </Gift>
-
-      <Gift
         formName="wineTasting"
         title="wine tasting tour in the omaruru region"
         description="An opportunity to discover Namibia’s growing wine scene. This experience includes tastings of locally produced wines, paired with stunning vineyard views and warm hospitality."
-        image="wine_tasting_jc5gav"
+        image="wine_tasting_zbb7ok"
         priceId={PRICES.wineTasting}
         amount="75"
       >
@@ -167,7 +129,7 @@ import { PRICES } from "../utilities/stripe";
       <Gift
         formName="sossusvlei"
         title="sossusvlei sundowners"
-        image="sossusvlei-dune_enyccr"
+        image="sundowners_u8yiin"
         priceId={PRICES.sossusvlei}
         amount="25"
       >
@@ -199,7 +161,7 @@ import { PRICES } from "../utilities/stripe";
       <Gift
         formName="weinburg"
         title="fine dining at am weinburg restaurant"
-        image="weinburg_rgamjp"
+        image="weinburg_penged"
         priceId={PRICES.weinburg}
         amount="75"
       >
@@ -212,6 +174,64 @@ import { PRICES } from "../utilities/stripe";
             Set within a beautifully restored wine estate, Am Weinberg offers
             expertly crafted dishes, fine wines, and a refined atmosphere for an
             indulgent culinary treat.
+          </p>
+        </div>
+      </Gift>
+
+      <Gift
+        formName="habitas"
+        title="wellness escape at our habitas namibia"
+        image="habitas_xjauun"
+        priceId={PRICES.habitas}
+        amount="150"
+      >
+        <div>
+          <p class="mb-4">
+            A rejuvenating spa experience set against the stunning Namibian
+            wilderness.
+          </p>
+          <p>
+            This gift offers the chance to unwind with a soothing treatment,
+            combining natural ingredients and expert care for the ultimate
+            relaxation.
+          </p>
+        </div>
+      </Gift>
+
+      <Gift
+        formName="bingo"
+        title="mr bingo don’t forget to have fun art"
+        image="have_fun_plf5lc"
+        priceId={PRICES.bingo}
+        amount="90"
+      >
+        <div>
+          <p class="mb-4">
+            Mr Bingo is a London-based artist known for his irreverent & dark
+            humour.
+          </p>
+          <p>
+            We are big fans of his work & have some pieces already - this one
+            feels like a fitting advice-inspired piece to add to the collection.
+          </p>
+        </div>
+      </Gift>
+
+      <Gift
+        formName="photoAlbum"
+        title="custom embroidered wedding photo album"
+        image="wedding_photo_album_hehtpa"
+        priceId={PRICES.photoAlbum}
+        amount="250"
+      >
+        <div>
+          <p class="mb-4">
+            A beautiful hand-crafted personal photo album designed to preserve
+            wedding memories for years to come.
+          </p>
+          <p>
+            Featuring custom embroidery, this keepsake is perfect for holding
+            treasured photographs from the big day.
           </p>
         </div>
       </Gift>
@@ -239,7 +259,7 @@ import { PRICES } from "../utilities/stripe";
       const description = photo.querySelector(".description");
       photo.addEventListener("click", () => {
         description?.classList.toggle("opacity-0");
-        description?.classList.toggle("opacity-100");
+        description?.classList.toggle("opacity-85");
       });
     });
   });

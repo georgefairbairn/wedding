@@ -1,7 +1,15 @@
 ---
 import Image from "../image/Image.astro";
 
-const { src, text, isVideo, width, height, imgClassNames = "" } = Astro.props;
+const {
+  src,
+  text,
+  isVideo,
+  width,
+  height,
+  imgClassNames = "",
+  transformation,
+} = Astro.props;
 ---
 
 <div
@@ -27,6 +35,7 @@ const { src, text, isVideo, width, height, imgClassNames = "" } = Astro.props;
         src={src}
         width={width}
         height={height}
+        transformation={transformation}
       />
     )
   }

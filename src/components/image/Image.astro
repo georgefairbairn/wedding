@@ -7,16 +7,17 @@ interface Props {
   height: number;
   src: string;
   width: number;
+  transformation?: any;
 }
 
-const { classes, height, src, width }: Props = Astro.props;
+const { classes, height, src, width, transformation }: Props = Astro.props;
 
 cloudinary.config({
   cloud_name: import.meta.env.CLOUDINARY_CLOUD_NAME,
 });
 
 const cdnImg = cloudinary.url(`wedding/${src}`, {
-  transformation: { quality: "auto", format: "auto" },
+  transformation: { quality: "auto", format: "auto", ...transformation },
 });
 ---
 
