@@ -11,13 +11,13 @@ const { formName, image, priceId, amount, title, transformation } = Astro.props;
   action={`/api/${formName}`}
   data-name={formName}
   data-priceId={priceId}
-  class="flex max-w-md flex-col"
+  class="flex flex-col max-w-[350px]"
 >
   <div class="flex flex-col">
     <div class="photo relative cursor-pointer">
       <Polaroid
         src={image}
-        imgClassNames={`aspect-square object-cover ${formName === 'kebi' ? 'object-left' : ''}`}
+        imgClassNames={`aspect-square object-cover max- ${formName === 'kebi' ? 'object-left' : ''}`}
         transformation={transformation}
       />
       <div

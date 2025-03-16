@@ -20,7 +20,12 @@ import { PRICES } from "../utilities/stripe";
       action="/api/donation"
     >
       <div class="flex w-full flex-col">
-        <div class="mt-16 mb-8 inline-flex items-end justify-center rounded-sm">
+        <p
+          class="mt-16 mb-8 text-center text-xl font-bold tracking-[0.25em] text-white uppercase"
+        >
+          HONEYMOON FUND
+        </p>
+        <div class="mb-8 inline-flex items-end justify-center rounded-sm">
           <div
             class="font-balmy text-custom-green flex h-full items-end pr-1 pb-2 text-6xl"
           >
@@ -34,11 +39,12 @@ import { PRICES } from "../utilities/stripe";
             type="number"
             value="50"
             min="10"
+            autofocus
           />
         </div>
 
         <div class="mt-8 flex w-full justify-center">
-          <Button id="submitButton" type="submit" text="DONATE" />
+          <Button id="submitButton" type="submit" text="CONTRIBUTE" />
         </div>
       </div>
     </form>
@@ -134,7 +140,15 @@ import { PRICES } from "../utilities/stripe";
         amount="25"
       >
         <div>
-          <p class="mb-4"></p>
+          <p class="mb-4">
+            A breathtaking end to the day in one of Namibia’s most iconic
+            landscapes.
+          </p>
+          <p>
+            This experience includes a scenic drive to the towering Sossusvlei
+            dunes, where drinks are enjoyed as the sun sets, painting the desert
+            in stunning shades of red and gold.
+          </p>
         </div>
       </Gift>
 
@@ -147,13 +161,12 @@ import { PRICES } from "../utilities/stripe";
       >
         <div>
           <p class="mb-4">
-            A rejuvenating spa experience set against the stunning Namibian
-            wilderness.
+            A peaceful retreat in the heart of Namibia’s wilderness.
           </p>
           <p>
-            This gift offers the chance to unwind with a soothing treatment,
-            combining natural ingredients and expert care for the ultimate
-            relaxation.
+            This overnight stay at Kebi Lodge offers a blend of comfort and
+            nature, with cozy chalets, stunning desert views, and warm
+            hospitality—perfect for a relaxing escape under the stars.
           </p>
         </div>
       </Gift>
@@ -248,7 +261,7 @@ import { PRICES } from "../utilities/stripe";
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    const input = document.getElementById("donation");
+    const input = document.getElementById("donation") as HTMLInputElement;
     if (input) {
       input.addEventListener("input", resizeInput);
       resizeInput(); // Initialize width
