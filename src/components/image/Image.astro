@@ -21,4 +21,14 @@ const cdnImg = cloudinary.url(`wedding/${src}`, {
 });
 ---
 
-<UnpicImage class={classes} src={cdnImg} alt="" width={width} height={height} />
+{
+  cdnImg ? (
+    <UnpicImage
+      class={classes}
+      src={cdnImg}
+      alt=""
+      width={width}
+      height={height}
+    />
+  ) : null
+}

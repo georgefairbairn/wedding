@@ -145,4 +145,27 @@ const products = await db.select().from(Stock);
       alert("Error: " + data.error);
     }
   });
+
+  document.body.addEventListener("submit", async (e) => {
+    const target = e.target as HTMLElement;
+
+    if (target && target.matches("form[data-name]")) {
+      e.preventDefault();
+      const form = target as HTMLFormElement;
+      const formData = new FormData(form);
+
+      const res = await fetch("/api/gift", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert("Error: " + data.error);
+      }
+    }
+  });
 </script>

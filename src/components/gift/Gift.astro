@@ -67,28 +67,3 @@ const { formName, image, priceId, amount, title, transformation, count } =
     {count !== 0 && <Button id="submitButton" type="submit" text="BUY" />}
   </div>
 </form>
-
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const forms = document.querySelectorAll("form[data-name]");
-
-    forms.forEach((form) => {
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-
-        const res = await fetch("/api/gift", {
-          method: "POST",
-          body: formData,
-        });
-        const data = await res.json();
-
-        if (data.url) {
-          window.location.href = data.url;
-        } else {
-          alert("Error: " + data.error);
-        }
-      });
-    });
-  });
-</script>
