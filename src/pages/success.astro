@@ -2,24 +2,29 @@
 import Layout from "../layouts/Layout.astro";
 import Polaroid from "../components/polaroid/Polaroid.astro";
 import Title from "../components/title/Title.astro";
+import { db, Stock, eq, sql, and, gt } from "astro:db";
+
+const url = new URL(Astro.request.url);
+const price_id = url.searchParams.get("price_id");
+
+if (price_id) {
+  await db
+    .update(Stock)
+    .set({ count: sql`${Stock.count} - 1` })
+    .where(and(eq(Stock.price_id, price_id), gt(Stock.count, 0)));
+}
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
   <div class="font-montserrat mt-16 flex flex-col items-center px-8">
-    <Title text="yay!" />
+    <Title text="OMG THANKS!!!" />
     <div class="max-w-md">
       <Polaroid src="hawaii_v7hft1" width={580} height={435} />
     </div>
     <div
       class="mt-12 text-center font-bold tracking-[0.25em] text-white uppercase"
     >
-      WE’RE SO HAPPY YOU’RE COMING
-    </div>
-    <div class="font-montserrat mt-8 max-w-2xl text-center text-xl text-white">
-      Check your email for confirmation of your RSVP.
-    </div>
-    <div class="font-montserrat mt-2 max-w-2xl text-center text-xl text-white">
-      We’ll be sending updates nearer the time via email!
+      That's so kind of you 😍
     </div>
   </div>
 </Layout>

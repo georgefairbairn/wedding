@@ -1,5 +1,5 @@
-import { Client } from '@notionhq/client';
-import type { Coming, DietaryRequirement } from '../utilities/types';
+import { Client } from "@notionhq/client";
+import type { Coming, DietaryRequirement } from "../utilities/types";
 
 interface A {
   content: string;
@@ -11,7 +11,7 @@ interface QA {
   answer: A[];
 }
 
-type FAQ = { type: 'answer'; text: A[] } | { type: string; text: string };
+type FAQ = { type: "answer"; text: A[] } | { type: string; text: string };
 
 type Result = {
   [key: string]: QA[];
@@ -21,39 +21,39 @@ const notion = new Client({ auth: import.meta.env.NOTION_INTEGRATION_SECRET });
 
 export async function getFaqs(): Promise<Result> {
   const page = await notion.pages.retrieve({
-    page_id: import.meta.env.NOTION_FAQ_PAGE_ID
+    page_id: import.meta.env.NOTION_FAQ_PAGE_ID,
   });
   const blocks = await notion.blocks.children.list({
-    block_id: page.id
+    block_id: page.id,
   });
 
   let faq: FAQ[] = blocks.results.reduce((acc: any, curr: any) => {
     // category
-    if (curr?.type === 'heading_2') {
+    if (curr?.type === "heading_2") {
       acc.push({
-        type: 'category',
-        text: curr.heading_2.rich_text[0].plain_text
+        type: "category",
+        text: curr.heading_2.rich_text[0].plain_text,
       });
       // question
-    } else if (curr?.type === 'heading_3') {
+    } else if (curr?.type === "heading_3") {
       acc.push({
-        type: 'question',
-        text: curr.heading_3.rich_text[0].plain_text
+        type: "question",
+        text: curr.heading_3.rich_text[0].plain_text,
       });
       // answer
     } else if (
-      curr?.type === 'paragraph' &&
+      curr?.type === "paragraph" &&
       !!curr.paragraph?.rich_text.length
     ) {
       const textItems = curr.paragraph?.rich_text.map((item: any) => {
         return {
           content: item.plain_text,
-          href: item.href
+          href: item.href,
         };
       });
       acc.push({
-        type: 'answer',
-        text: textItems
+        type: "answer",
+        text: textItems,
       });
     }
 
@@ -61,19 +61,19 @@ export async function getFaqs(): Promise<Result> {
   }, []);
 
   const result: Result = {};
-  let currentCategory = '';
+  let currentCategory = "";
   let lastQuestion: QA | null = null;
 
   faq.forEach((item) => {
-    if (item.type === 'category') {
+    if (item.type === "category") {
       currentCategory = item.text as string;
       result[currentCategory] = [];
-    } else if (item.type === 'question') {
+    } else if (item.type === "question") {
       lastQuestion = { question: item.text as string, answer: [] };
       if (currentCategory) {
         result[currentCategory].push(lastQuestion);
       }
-    } else if (item.type === 'answer' && lastQuestion) {
+    } else if (item.type === "answer" && lastQuestion) {
       if (Array.isArray(item.text)) {
         lastQuestion.answer = lastQuestion.answer.concat(item.text);
       }
@@ -90,7 +90,7 @@ export async function submitRsvp({
   dietaryRequirement,
   allergies,
   songChoice,
-  specialRequirements
+  specialRequirements,
 }: {
   name: string;
   email: string;
@@ -108,61 +108,61 @@ export async function submitRsvp({
           title: [
             {
               text: {
-                content: name
-              }
-            }
-          ]
+                content: name,
+              },
+            },
+          ],
         },
-        ['Email Address']: {
-          email: email
+        ["Email Address"]: {
+          email: email,
         },
         Coming: {
           select: {
-            name: coming
-          }
+            name: coming,
+          },
         },
-        ['Dietary Requirement']: {
+        ["Dietary Requirement"]: {
           select: {
-            name: dietaryRequirement
-          }
+            name: dietaryRequirement,
+          },
         },
         Allergies: {
           rich_text: [
             {
               text: {
-                content: allergies
-              }
-            }
-          ]
+                content: allergies,
+              },
+            },
+          ],
         },
-        ['Song Choice']: {
+        ["Song Choice"]: {
           rich_text: [
             {
               text: {
-                content: songChoice
-              }
-            }
-          ]
+                content: songChoice,
+              },
+            },
+          ],
         },
-        ['Special Requirements']: {
+        ["Special Requirements"]: {
           rich_text: [
             {
               text: {
-                content: specialRequirements
-              }
-            }
-          ]
+                content: specialRequirements,
+              },
+            },
+          ],
         },
         Created: {
           date: {
-            start: new Date().toISOString()
-          }
-        }
-      }
+            start: new Date().toISOString(),
+          },
+        },
+      },
     });
 
     return response;
   } catch (error) {
-    console.error('Error creating page:', error);
+    console.error("Error creating page:", error);
   }
 }

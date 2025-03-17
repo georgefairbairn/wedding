@@ -1,111 +1,113 @@
 ---
-import Title from '../components/title/Title.astro';
-import Q from '../components/q/Q.astro';
-import Layout from '../layouts/Layout.astro';
-import Link from '../components/link/Link.astro';
-import Header from '../components/q/Header.astro';
+import Title from "../components/title/Title.astro";
+import Q from "../components/q/Q.astro";
+import Layout from "../layouts/Layout.astro";
+import Link from "../components/link/Link.astro";
+import Header from "../components/q/Header.astro";
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
-  <div class='flex flex-col mt-16 md:mt-24 font-montserrat px-8 items-center'>
-    <Title text='faq' />
-    <div class='max-w-3xl w-full'>
-      <Header>Day-Of Details</Header>
-      <Q question='What is the date and time of the wedding?'>
-        <p class='text-white mt-4'>
+  <div class="font-montserrat mt-16 flex flex-col items-center px-8 md:mt-24">
+    <Title text="faq" />
+    <div class="w-full max-w-3xl">
+      <Header classes="tracking-[0.02em]">Day-Of Details</Header>
+      <Q question="What is the date and time of the wedding?">
+        <p class="mt-4 text-white">
           Saturday 21st June, 2025. The ceremony starts at 1pm, so please arrive
           between 12.15pm-12.45pm.
         </p>
       </Q>
-      <Q question='Will the ceremony/reception be indoors or outdoors?'>
-        <p class='text-white mt-4'>
+      <Q question="Will the ceremony/reception be indoors or outdoors?">
+        <p class="mt-4 text-white">
           We’re hoping to spend as much time outside for the wedding, so both
           the ceremony, reception and dinner will all be outside. If it rains we
           have covered options, but will still be outside for most of the day so
           please dress according to the weather that day!
         </p>
       </Q>
-      <Q question='What is the dress code?'>
-        <p class='text-white mt-4'>
+      <Q question="What is the dress code?">
+        <p class="mt-4 text-white">
           English summer garden party vibes - we’d love to see lots of colour!
         </p>
-        <p class='text-white mt-4'>
+        <p class="mt-4 text-white">
           Ladies: think summer dresses, two pieces, jumpsuits. We’ll be on the
           lawn for the drinks reception so think carefully about heels! If
           you’re set on stilettos, consider these <Link
-            href='https://www.amazon.co.uk/Stiletto-Protectors-URAQT-Stoppers-Occasions/dp/B076BMTYVL/ref=sxin_15_pa_sp_search_thematic_sspa?content-id=amzn1.sym.f991572b-56c7-43f6-87a4-10edf85d3442%3Aamzn1.sym.f991572b-56c7-43f6-87a4-10edf85d3442&cv_ct_cx=heel+stoppers&dib=eyJ2IjoiMSJ9.-_ITLUF0ZTTy5Vhg7yCd4b7v_iDXuSAKYimn1ac2dew42eG9jXWzP0ZOOiMnQ-UwPR78kSXXR9G09F47e-reAg.KY7DZQ41FW_HPGlPGHp_ImQyJLpGnnMO4i6HVaOUw5g&dib_tag=se&keywords=heel+stoppers&pd_rd_i=B076BMTYVL&pd_rd_r=dfc0ccdc-bef6-4b3c-924a-18c69e0349af&pd_rd_w=MBLvW&pd_rd_wg=mI1dG&pf_rd_p=f991572b-56c7-43f6-87a4-10edf85d3442&pf_rd_r=R4CVR01ABT4QVVRK4TSZ&qid=1730027078&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=1-1-76163601-3bc5-4bd6-b454-ded14c50366a-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&psc=1'
+            href="https://www.amazon.co.uk/Stiletto-Protectors-URAQT-Stoppers-Occasions/dp/B076BMTYVL/ref=sxin_15_pa_sp_search_thematic_sspa?content-id=amzn1.sym.f991572b-56c7-43f6-87a4-10edf85d3442%3Aamzn1.sym.f991572b-56c7-43f6-87a4-10edf85d3442&cv_ct_cx=heel+stoppers&dib=eyJ2IjoiMSJ9.-_ITLUF0ZTTy5Vhg7yCd4b7v_iDXuSAKYimn1ac2dew42eG9jXWzP0ZOOiMnQ-UwPR78kSXXR9G09F47e-reAg.KY7DZQ41FW_HPGlPGHp_ImQyJLpGnnMO4i6HVaOUw5g&dib_tag=se&keywords=heel+stoppers&pd_rd_i=B076BMTYVL&pd_rd_r=dfc0ccdc-bef6-4b3c-924a-18c69e0349af&pd_rd_w=MBLvW&pd_rd_wg=mI1dG&pf_rd_p=f991572b-56c7-43f6-87a4-10edf85d3442&pf_rd_r=R4CVR01ABT4QVVRK4TSZ&qid=1730027078&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=1-1-76163601-3bc5-4bd6-b454-ded14c50366a-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&psc=1"
           >
             heel stoppers
           </Link>.
         </p>
-        <p class='text-white mt-4'>
+        <p class="mt-4 text-white">
           Gents: a suit or button-down shirt & chinos with a tie. No shorts
           please!
         </p>
       </Q>
-      <Q question='What time does the wedding finish?'>
-        <p class='text-white mt-4'>
+      <Q question="What time does the wedding finish?">
+        <p class="mt-4 text-white">
           Sadly the music will be wrapping at 11.30pm, with the venue closing at
           midnight. Uber/Lyft don’t operate in the area, so please make sure to
           book a taxi in advance - we have suggested local taxi firms <Link
-            href='/travel-and-accommodation/#taxis'
+            href="/travel-and-accommodation/#taxis"
             preventNewTab
           >
             here.
           </Link>
         </p>
       </Q>
-      <Q question='Where can I see the schedule for the day?'>
-        <p class='text-white mt-4'>
-          You can find the full schedule <Link href='/schedule' preventNewTab>
+      <Q question="Where can I see the schedule for the day?">
+        <p class="mt-4 text-white">
+          You can find the full schedule <Link href="/schedule" preventNewTab>
             here
           </Link>!
         </p>
       </Q>
 
-      <Header classes='mt-20'>RSVP and Attendance</Header>
-      <Q question='How do I RSVP & when is the deadline?'>
-        <p class='text-white mt-4'>
-          You can RSVP <Link href='/rsvp' preventNewTab>here</Link>! Please let
+      <Header classes="mt-20 tracking-[0.02em]">RSVP and Attendance</Header>
+      <Q question="How do I RSVP & when is the deadline?">
+        <p class="mt-4 text-white">
+          You can RSVP <Link href="/rsvp" preventNewTab>here</Link>! Please let
           us know if you can attend by Sunday 20th April, 2025.
         </p>
       </Q>
-      <Q question='What should I do if I need to change my RSVP?'>
-        <p class='text-white mt-4'>
-          Please re-submit the <Link href='/rsvp' preventNewTab>RSVP form</Link>
+      <Q question="What should I do if I need to change my RSVP?">
+        <p class="mt-4 text-white">
+          Please re-submit the <Link href="/rsvp" preventNewTab>RSVP form</Link>
            - your previous response will be updated with your new response. If
           you need to change it after Sunday 20th April, please let George and
           Izzy know as soon as possible after.
         </p>
       </Q>
-      <Q question='What should I do if I have dietary restrictions?'>
-        <p class='text-white mt-4'>
+      <Q question="What should I do if I have dietary restrictions?">
+        <p class="mt-4 text-white">
           We’ve added options for all dietary restrictions on the RSVP form so
           please let us know if you have any requirements/preferences or
           allergies there. If you want to double check anything, please get in
           touch with George or Izzy.
         </p>
       </Q>
-      <Q question='Can I bring a plus-one?'>
-        <p class='text-white mt-4'>
+      <Q question="Can I bring a plus-one?">
+        <p class="mt-4 text-white">
           Unfortunately we do have a restriction on numbers so we’ve had to
           reserve invites for close friends and family only. Please only RSVP
           for the named guest on your email invite(s).
         </p>
       </Q>
-      <Q question='Are children allowed at the wedding?'>
-        <p class='text-white mt-4'>
+      <Q question="Are children allowed at the wedding?">
+        <p class="mt-4 text-white">
           As much as we love your children, for everyone to fully enjoy the day
           we’ve decided on an adults-only celebration. We hope this gives you a
           chance to also relax and have fun!
         </p>
       </Q>
 
-      <Header classes='mt-20'>Travel and Accommodation</Header>
-      <Q question='Are there recommended hotels nearby?'>
-        <p class='text-white mt-4'>
+      <Header classes="mt-20 tracking-[0.02em]">
+        Travel and Accommodation
+      </Header>
+      <Q question="Are there recommended hotels nearby?">
+        <p class="mt-4 text-white">
           Yes! We have a full list of recommended local hotels and b&bs <Link
-            href='/travel-and-accommodation/#stay'
+            href="/travel-and-accommodation/#stay"
             preventNewTab
           >
             here
@@ -113,32 +115,32 @@ import Header from '../components/q/Header.astro';
           show you options closest to the venue.
         </p>
       </Q>
-      <Q question='Is transportation provided to and from the venue?'>
-        <p class='text-white mt-4'>
+      <Q question="Is transportation provided to and from the venue?">
+        <p class="mt-4 text-white">
           Unfortunately not - we recommend either <Link
-            href='/travel-and-accommodation/#driving'
+            href="/travel-and-accommodation/#driving"
             preventNewTab
           >
             driving
           </Link> or getting a taxi - you can find a list of recommended local
-          taxis <Link href='/travel-and-accommodation/#taxis' preventNewTab>
+          taxis <Link href="/travel-and-accommodation/#taxis" preventNewTab>
             here.
           </Link>
         </p>
       </Q>
-      <Q question='Is there parking available at the venue?'>
-        <p class='text-white mt-4'>
+      <Q question="Is there parking available at the venue?">
+        <p class="mt-4 text-white">
           Yes! You can park your car for free outside the venue - there will be
           signage on the day. Cars can be left overnight but will need to be
           collected by 10am latest the following day.
         </p>
       </Q>
-      <Q question='What is the nearest train station?'>
-        <p class='text-white mt-4'>
+      <Q question="What is the nearest train station?">
+        <p class="mt-4 text-white">
           The nearest train station is Pulborough which is about a 15-minute
           drive from Bignor Park. We’d recommend booking a taxi in advance - you
           can find some suggested local taxi ranks <Link
-            href='/travel-and-accommodation/#taxis'
+            href="/travel-and-accommodation/#taxis"
             preventNewTab
           >
             here.
@@ -146,33 +148,33 @@ import Header from '../components/q/Header.astro';
         </p>
       </Q>
 
-      <Header classes='mt-20'>Miscellaneous</Header>
-      <Q question='Can I take photos during the ceremony?'>
-        <p class='text-white mt-4'>
+      <Header classes="mt-20 tracking-[0.02em]">Miscellaneous</Header>
+      <Q question="Can I take photos during the ceremony?">
+        <p class="mt-4 text-white">
           We want to see your lovely faces during the ceremony, so please keep
           your phones and cameras tucked away - our photographer will be on it!
           Photos throughout the rest of the day are highly encouraged though.
         </p>
       </Q>
-      <Q question='Do you have a gift registry?'>
-        <p class='text-white mt-4'>
+      <Q question="Do you have a gift registry?">
+        <p class="mt-4 text-white">
           We really mean it when we say your presence is more than enough! If
           you do want to gift something, we will be putting together a small
-          <Link href='/gifts'>gift registry</Link> in the next couple of months.
+          <Link href="/gifts">gift registry</Link> in the next couple of months.
         </p>
       </Q>
       <Q
-        question='Will there be any activities planned for the day before/after the wedding?'
+        question="Will there be any activities planned for the day before/after the wedding?"
       >
-        <p class='text-white mt-4'>
+        <p class="mt-4 text-white">
           Yes, you can find details of the plans for the following day
-          <Link href='/the-day-after'>here</Link>.
+          <Link href="/the-day-after">here</Link>.
         </p>
       </Q>
-      <Q question='Who should I contact if I have more questions?'>
-        <p class='text-white mt-4'>
+      <Q question="Who should I contact if I have more questions?">
+        <p class="mt-4 text-white">
           George & Izzy - call/whatsapp or email them <Link
-            href='mailto:georgexizzy@gmail.com'
+            href="mailto:georgexizzy@gmail.com"
           >
             here
           </Link>! If you have questions on the day though, please contact

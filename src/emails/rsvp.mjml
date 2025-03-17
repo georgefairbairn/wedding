@@ -1,94 +1,226 @@
 <mjml>
   <mj-head>
-    <mj-font name="Montserrat" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sacramento&display=swap" />
+    <mj-font
+      name="Montserrat"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sacramento&display=swap"
+    />
   </mj-head>
   <mj-body background-color="#FFB5B1">
     <mj-section>
       <mj-column>
-        <mj-image width="162px" src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/george_and_izzy_dhzfbl.png"></mj-image>
+        <mj-image
+          width="162px"
+          src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/george_and_izzy_dhzfbl.png"
+        ></mj-image>
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="20px" line-height="28px" text-transform="uppercase" letter-spacing="4px" font-weight="bold" color="#FFFFFF" font-family="Montserrat">HOORAY YOU’RE COMING!</mj-text>
+        <mj-text
+          align="center"
+          font-size="20px"
+          line-height="28px"
+          text-transform="uppercase"
+          letter-spacing="4px"
+          font-weight="bold"
+          color="#FFFFFF"
+          font-family="Montserrat"
+          >HOORAY YOU’RE COMING!</mj-text
+        >
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="18px" line-height="28px" color="#FFFFFF" font-family="Montserrat">Below is confirmation of your RSVP responses:</mj-text>
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          color="#FFFFFF"
+          font-family="Montserrat"
+          >Below is confirmation of your RSVP responses:</mj-text
+        >
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-image width="150px" src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/name_cgckkv.png"></mj-image>
+        <mj-image
+          width="150px"
+          src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/name_cgckkv.png"
+        ></mj-image>
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="18px" line-height="28px" text-transform="uppercase" letter-spacing="4px" font-weight="bold" color="#FFFFFF" font-family="Montserrat">NAME</mj-text>
-        <mj-text align="center" font-size="18px" line-height="28px" color="#FFFFFF" font-family="Montserrat">{{name}}</mj-text>
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          text-transform="uppercase"
+          letter-spacing="4px"
+          font-weight="bold"
+          color="#FFFFFF"
+          font-family="Montserrat"
+          >NAME</mj-text
+        >
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          color="#FFFFFF"
+          font-family="Montserrat"
+          >{{name}}</mj-text
+        >
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-image width="162px" src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/spaghetti_huf79b.png"></mj-image>
+        <mj-image
+          width="162px"
+          src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/spaghetti_huf79b.png"
+        ></mj-image>
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="18px" line-height="28px" text-transform="uppercase" letter-spacing="4px" font-weight="bold" color="#FFFFFF" font-family="Montserrat">DIETARY REQUIREMENT</mj-text>
-        <mj-text align="center" font-size="18px" line-height="28px" color="#FFFFFF" font-family="Montserrat">{{dietaryRequirement}}</mj-text>
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          text-transform="uppercase"
+          letter-spacing="4px"
+          font-weight="bold"
+          color="#FFFFFF"
+          font-family="Montserrat"
+          >DIETARY REQUIREMENT</mj-text
+        >
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          color="#FFFFFF"
+          font-family="Montserrat"
+          >{{dietaryRequirement}}</mj-text
+        >
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="18px" line-height="28px" text-transform="uppercase" letter-spacing="4px" font-weight="bold" color="#FFFFFF" font-family="Montserrat">ALLERGIES</mj-text>
-        <mj-text align="center" font-size="18px" line-height="28px" color="#FFFFFF" font-family="Montserrat">{{allergies}}</mj-text>
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          text-transform="uppercase"
+          letter-spacing="4px"
+          font-weight="bold"
+          color="#FFFFFF"
+          font-family="Montserrat"
+          >ALLERGIES</mj-text
+        >
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          color="#FFFFFF"
+          font-family="Montserrat"
+          >{{allergies}}</mj-text
+        >
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-image width="130px" src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/microphone_u6gfga.png"></mj-image>
+        <mj-image
+          width="130px"
+          src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/microphone_u6gfga.png"
+        ></mj-image>
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="18px" line-height="28px" text-transform="uppercase" letter-spacing="4px" font-weight="bold" color="#FFFFFF" font-family="Montserrat">SONG CHOICE</mj-text>
-        <mj-text align="center" font-size="18px" line-height="28px" color="#FFFFFF" font-family="Montserrat">{{songChoice}}</mj-text>
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          text-transform="uppercase"
+          letter-spacing="4px"
+          font-weight="bold"
+          color="#FFFFFF"
+          font-family="Montserrat"
+          >SONG CHOICE</mj-text
+        >
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          color="#FFFFFF"
+          font-family="Montserrat"
+          >{{songChoice}}</mj-text
+        >
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-image width="130px" src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/sparkles_yoshgw.png"></mj-image>
+        <mj-image
+          width="130px"
+          src="https://res.cloudinary.com/neon-flights/image/upload/v1731792888/wedding/sparkles_yoshgw.png"
+        ></mj-image>
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="18px" line-height="28px" font-weight="bold" color="#FFFFFF" font-family="Montserrat">SPECIAL REQUIREMENTS</mj-text>
-        <mj-text align="center" font-size="18px" line-height="28px" color="#FFFFFF" font-family="Montserrat">{{specialRequirements}}</mj-text>
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          font-weight="bold"
+          color="#FFFFFF"
+          font-family="Montserrat"
+          >SPECIAL REQUIREMENTS</mj-text
+        >
+        <mj-text
+          align="center"
+          font-size="18px"
+          line-height="28px"
+          color="#FFFFFF"
+          font-family="Montserrat"
+          >{{specialRequirements}}</mj-text
+        >
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-text align="center" font-size="20px" line-height="28px" text-transform="uppercase" letter-spacing="4px" font-weight="bold" color="#FFFFFF" font-family="Montserrat">LOOKING FORWARD TO SEEING YOU IN JUNE!</mj-text>
+        <mj-text
+          align="center"
+          font-size="20px"
+          line-height="28px"
+          text-transform="uppercase"
+          letter-spacing="4px"
+          font-weight="bold"
+          color="#FFFFFF"
+          font-family="Montserrat"
+          >LOOKING FORWARD TO SEEING YOU IN JUNE!</mj-text
+        >
       </mj-column>
     </mj-section>
 
     <mj-section>
       <mj-column>
-        <mj-image padding="0" border="8px solid white" src="https://res.cloudinary.com/neon-flights/image/upload/v1731793021/wedding/hawaii_wqqujl.jpg"></mj-image>
+        <mj-image
+          padding="0"
+          border="8px solid white"
+          src="https://res.cloudinary.com/neon-flights/image/upload/v1731793021/wedding/hawaii_wqqujl.jpg"
+        ></mj-image>
       </mj-column>
     </mj-section>
   </mj-body>

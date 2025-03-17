@@ -1,12 +1,12 @@
 ---
-const { id, name, type = 'text', label, description, required } = Astro.props;
+const { id, name, type = "text", label, description, required } = Astro.props;
 ---
 
-<label for={id} class='flex flex-col'>
-  <div class='text-white font-bold text-base tracking-[0.25em]'>{label}</div>
+<label for={id} class="flex flex-col">
+  <div class="text-base font-bold tracking-[0.25em] text-white">{label}</div>
   {
     description && (
-      <div class='text-white tracking-[0.25em] text-xs mt-2'>{description}</div>
+      <div class="mt-2 text-xs tracking-[0.25em] text-white">{description}</div>
     )
   }
   <input
@@ -14,6 +14,6 @@ const { id, name, type = 'text', label, description, required } = Astro.props;
     name={name}
     id={id}
     type={type}
-    class='mt-4 w-full text-lg font-bold text-custom-green px-3 py-2 rounded-lg border-2 border-custom-green shadow placeholder-custom-green focus:outline-none focus:border-custom-green focus:ring-2 focus:ring-custom-green focus:[&:user-invalid]:text-pink-600 focus:[&:user-invalid]:border-2 focus:[&:user-invalid]:border-pink-500 focus:[&:user-invalid]:ring-pink-500'
+    class="text-custom-green bg-white border-custom-green placeholder-custom-green focus:border-custom-green focus:ring-custom-green mt-4 w-full rounded-lg border-2 px-3 py-2 text-lg font-bold shadow-sm focus:ring-2 focus:outline-hidden focus:[&:user-invalid]:border-2 focus:[&:user-invalid]:border-pink-500 focus:[&:user-invalid]:text-pink-600 focus:[&:user-invalid]:ring-pink-500"
   />
 </label>

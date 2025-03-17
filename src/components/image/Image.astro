@@ -1,0 +1,24 @@
+---
+import { v2 as cloudinary } from "cloudinary";
+import { Image as UnpicImage } from "@unpic/astro";
+
+interface Props {
+  classes: string;
+  height: number;
+  src: string;
+  width: number;
+  transformation?: any;
+}
+
+const { classes, height, src, width, transformation }: Props = Astro.props;
+
+cloudinary.config({
+  cloud_name: import.meta.env.CLOUDINARY_CLOUD_NAME,
+});
+
+const cdnImg = cloudinary.url(`wedding/${src}`, {
+  transformation: { quality: "auto", format: "auto", ...transformation },
+});
+---
+
+<UnpicImage class={classes} src={cdnImg} alt="" width={width} height={height} />

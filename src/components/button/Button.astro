@@ -1,35 +1,36 @@
 ---
-const { id, href, text, onClick, type } = Astro.props;
+const { id, href, text, onClick, type, disabled = false } = Astro.props;
 
 const backClasses = [
-  'bg-custom-green',
-  'rounded',
-  'w-fit',
-  'outline-offset-4',
-  'select-none'
-].join(' ');
+  "bg-custom-green",
+  "rounded-sm",
+  "w-fit",
+  "outline-offset-4",
+  "select-none",
+  "cursor-pointer",
+].join(" ");
 
 const frontClasses = [
-  'block',
-  'bg-white',
-  'py-3',
-  'px-16',
-  'rounded',
-  '-translate-y-1',
-  '-translate-x-1',
-  'hover:-translate-y-2',
-  'hover:-translate-x-2',
-  'active:-translate-y-0',
-  'active:-translate-x-0',
-  'font-montserrat',
-  'font-bold',
-  'text-3xl',
-  'tracking-[0.14em]',
-  'uppercase',
-  'text-custom-green',
-  'will-change-transform',
-  'transition-transform'
-].join(' ');
+  "block",
+  "bg-white",
+  "py-3",
+  "px-16",
+  "rounded-sm",
+  "-translate-y-1",
+  "-translate-x-1",
+  "hover:-translate-y-2",
+  "hover:-translate-x-2",
+  "active:-translate-y-0",
+  "active:-translate-x-0",
+  "font-montserrat",
+  "font-bold",
+  "text-3xl",
+  "tracking-[0.14em]",
+  "uppercase",
+  "text-custom-green",
+  "will-change-transform",
+  "transition-transform",
+].join(" ");
 ---
 
 {
@@ -38,29 +39,35 @@ const frontClasses = [
       <span class={frontClasses}>{text}</span>
     </a>
   ) : (
-    <button id={id} class={backClasses} onclick={onClick} type={type}>
-      <span id='buttonText' class={`${frontClasses}`}>
+    <button
+      id={id}
+      class={backClasses}
+      onclick={onClick}
+      type={type}
+      disabled={disabled}
+    >
+      <span id="buttonText" class={`${frontClasses}`}>
         {text}
       </span>
-      <span id='spinner' class={`${frontClasses} hidden`}>
+      <span id="spinner" class={`${frontClasses} hidden`}>
         <svg
-          class='animate-spin -ml-1 mr-3 h-5 w-5 text-white'
-          xmlns='http://www.w3.org/2000/svg'
-          fill='none'
-          viewBox='0 0 24 24'
+          class="mr-3 -ml-1 h-5 w-5 animate-spin text-white"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
         >
           <circle
-            class='opacity-25'
-            cx='12'
-            cy='12'
-            r='10'
-            stroke='#005E4A'
-            stroke-width='4'
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="#005E4A"
+            stroke-width="4"
           />
           <path
-            class='opacity-75'
-            fill='#005E4A'
-            d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
+            class="opacity-75"
+            fill="#005E4A"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
           />
         </svg>
       </span>

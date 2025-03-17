@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@layer base {
+  @font-face {
+    font-family: "Balmymorningblock";
+    src: url("/src/fonts/Balmymorningblock.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Balmymorningscript";
+    src: url("/src/fonts/Balmymorningscript.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    background-color: #ffb5b1;
+    padding-bottom: 10vh;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+
+  /* Hide number input arrows in all browsers */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+  }
+}
+
+@theme {
+  --color-custom-pink: #ffb0b0;
+  --color-custom-green: #005e4a;
+  --color-custom-red: #ff0000;
+  --color-custom-bg-pink: #ffb5b1;
+
+  --font-montserrat: Montserrat, sans-serif;
+  --font-sacramento: Sacramento, sans-serif;
+  --font-balmy: Balmymorningblock, sans-serif;
+  --font-balmyScript: Balmymorningscript, sans-serif;
+
+  --animate-sparkle-spin: spinning 2000ms linear;
+  --animate-sparkle-come-in-out: comeInOut 1400ms forwards;
+
+  @keyframes spinning {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(180deg);
+    }
+  }
+
+  @keyframes comeInOut {
+    0%,
+    100% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1);
+    }
+  }
+}

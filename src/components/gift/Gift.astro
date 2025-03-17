@@ -1,0 +1,97 @@
+---
+import Button from "../button/Button.astro";
+import Polaroid from "../polaroid/Polaroid.astro";
+
+const { formName, image, priceId, amount, title, transformation, count } =
+  Astro.props;
+---
+
+<form
+  id={formName}
+  method="POST"
+  action={`/api/${formName}`}
+  data-name={formName}
+  data-priceId={priceId}
+  class="flex max-w-[350px] flex-col"
+>
+  <div class="flex flex-col">
+    <div class="photo relative cursor-pointer">
+      <Polaroid
+        src={image}
+        imgClassNames={`aspect-square object-cover max- ${formName === "kebi" ? "object-left" : ""}`}
+        transformation={transformation}
+      />
+      <div
+        class="bg-custom-pink font-balmy absolute top-5 right-5 rounded-sm border-2 border-white px-2 py-1"
+      >
+        <span class="text-custom-green text-xl">£</span><span
+          class="text-3xl text-white">{amount}</span
+        >
+      </div>
+      {
+        count === 0 ? (
+          <div class="bg-custom-pink/85 absolute inset-0 m-2 cursor-default">
+            <div class="flex h-full w-full items-center justify-center">
+              <div class="flex w-fit rounded bg-white">
+                <p class="font-balmy text-custom-green px-8 py-2 text-6xl">
+                  SOLD OUT
+                </p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div class="description bg-custom-green absolute inset-0 m-2 opacity-0 transition-opacity duration-700">
+            <div class="flex h-full w-full items-center justify-center p-6 text-center text-white">
+              <slot />
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </div>
+
+  <div class="z-10 mt-4 flex-1">
+    <p class="text-center font-bold tracking-[0.25em] text-white uppercase">
+      {title}
+    </p>
+  </div>
+
+  <input id="priceId" class="hidden" name="priceId" required value={priceId} />
+
+  <div class="mt-8 mb-20 flex w-full justify-center">
+    {
+      count !== 0 && (
+        <Button
+          id="submitButton"
+          type="submit"
+          text="BUY"
+        />
+      )
+    }
+  </div>
+</form>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const forms = document.querySelectorAll("form[data-name]");
+
+    forms.forEach((form) => {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        const res = await fetch("/api/gift", {
+          method: "POST",
+          body: formData,
+        });
+        const data = await res.json();
+
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          alert("Error: " + data.error);
+        }
+      });
+    });
+  });
+</script>

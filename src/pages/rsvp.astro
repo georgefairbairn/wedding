@@ -1,20 +1,20 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Title from '../components/title/Title.astro';
-import Button from '../components/button/Button.astro';
-import { submitRsvp } from '../scripts/notion';
-import type { Coming, DietaryRequirement } from '../utilities/types';
-import Name from '../components/sketches/Name.astro';
-import Input from '../components/input/Input.astro';
-import Radio from '../components/input/Radio.astro';
-import Spaghetti from '../components/sketches/Spaghetti.astro';
-import Microphone from '../components/sketches/Microphone.astro';
-import SOS from '../components/sketches/SOS.astro';
-import { sendEmail } from '../scripts/email';
+import Layout from "../layouts/Layout.astro";
+import Title from "../components/title/Title.astro";
+import Button from "../components/button/Button.astro";
+import { submitRsvp } from "../scripts/notion";
+import type { Coming, DietaryRequirement } from "../utilities/types";
+import Name from "../components/sketches/Name.astro";
+import Input from "../components/input/Input.astro";
+import Radio from "../components/input/Radio.astro";
+import Spaghetti from "../components/sketches/Spaghetti.astro";
+import Microphone from "../components/sketches/Microphone.astro";
+import SOS from "../components/sketches/SOS.astro";
+import { sendEmail } from "../scripts/email";
 
-let errors = { name: '', email: '', coming: '', dietary: '' };
+let errors = { name: "", email: "", coming: "", dietary: "" };
 
-if (Astro.request.method === 'POST') {
+if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
     const formData = Object.fromEntries(data);
@@ -28,22 +28,22 @@ if (Astro.request.method === 'POST') {
 
     if (
       !formData.name ||
-      typeof formData.name !== 'string' ||
-      formData.name.trim() === ''
+      typeof formData.name !== "string" ||
+      formData.name.trim() === ""
     ) {
-      errors.name = 'Please enter your name.';
+      errors.name = "Please enter your name.";
     }
 
     if (!formData.email) {
-      errors.email = 'Please enter your email address.';
+      errors.email = "Please enter your email address.";
     }
 
     if (!formData.coming) {
-      errors.coming = 'Please select if you can make it.';
+      errors.coming = "Please select if you can make it.";
     }
 
     if (!formData.dietary) {
-      errors.dietary = 'Please select your dietary requirements.';
+      errors.dietary = "Please select your dietary requirements.";
     }
 
     // If no errors, save the response in Notion
@@ -55,10 +55,10 @@ if (Astro.request.method === 'POST') {
         dietaryRequirement,
         allergies,
         songChoice,
-        specialRequirements
+        specialRequirements,
       });
 
-      if (res && res.id && coming === 'Yes') {
+      if (res && res.id && coming === "Yes") {
         // Send email confirming RSVP details
         await sendEmail({
           name,
@@ -66,11 +66,11 @@ if (Astro.request.method === 'POST') {
           dietaryRequirement,
           allergies,
           songChoice,
-          specialRequirements
+          specialRequirements,
         });
       }
 
-      return Astro.redirect(coming === 'Yes' ? '/yay' : '/boo');
+      return Astro.redirect(coming === "Yes" ? "/yay" : "/boo");
     }
   } catch (error) {
     if (error instanceof Error) {
@@ -81,116 +81,116 @@ if (Astro.request.method === 'POST') {
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
-  <div class='flex flex-col mt-16 md:mt-24 font-montserrat px-8 items-center'>
-    <Title text='RSVP' />
-    <form id='rsvp' class='w-full max-w-3xl' method='POST' data-netlify='true'>
-      <div class='flex flex-col w-full'>
-        <div class='w-full flex justify-center mb-16 h-16'>
+  <div class="font-montserrat mt-16 flex flex-col items-center px-8 md:mt-24">
+    <Title text="RSVP" />
+    <form id="rsvp" class="w-full max-w-3xl" method="POST" data-netlify="true">
+      <div class="flex w-full flex-col">
+        <div class="mb-16 flex h-16 w-full justify-center">
           <Name />
         </div>
-        <Input id='name' name='name' label='YOUR NAME' required />
-        <div class='flex flex-col w-full mt-20'>
+        <Input id="name" name="name" label="YOUR NAME" required />
+        <div class="mt-20 flex w-full flex-col">
           <Input
-            id='email'
-            name='email'
-            label='EMAIL ADDRESS'
-            type='email'
+            id="email"
+            name="email"
+            label="EMAIL ADDRESS"
+            type="email"
             required
           />
         </div>
       </div>
 
-      <div class='flex flex-col mt-20'>
+      <div class="mt-20 flex flex-col">
         <fieldset>
-          <legend class='text-white font-bold text-base tracking-[0.25em]'
+          <legend class="text-base font-bold tracking-[0.25em] text-white"
             >CAN YOU MAKE IT?</legend
           >
-          <div class='grid grid-cols-2 gap-4'>
+          <div class="grid grid-cols-2 gap-4">
             <Radio
-              id='optionYes'
-              name='coming'
-              value='Yes'
-              label='YES'
+              id="optionYes"
+              name="coming"
+              value="Yes"
+              label="YES"
               checked
             />
-            <Radio id='optionNo' name='coming' value='No' label='NO' />
+            <Radio id="optionNo" name="coming" value="No" label="NO" />
           </div>
         </fieldset>
       </div>
 
-      <div id='additionalFields'>
-        <div class='flex flex-col w-full mt-24'>
-          <div class='w-full flex justify-center mb-16 h-36'>
+      <div id="additionalFields">
+        <div class="mt-24 flex w-full flex-col">
+          <div class="mb-16 flex h-36 w-full justify-center">
             <Spaghetti />
           </div>
           <fieldset>
-            <legend class='text-white font-bold text-base tracking-[0.25em]'
+            <legend class="text-base font-bold tracking-[0.25em] text-white"
               >DIETARY REQUIREMENTS</legend
             >
-            <div class='grid grid-cols-3 gap-4'>
+            <div class="grid grid-cols-3 gap-4">
               <Radio
-                id='optionNone'
-                name='dietary'
-                value='None'
-                label='NONE'
+                id="optionNone"
+                name="dietary"
+                value="None"
+                label="NONE"
                 required
                 checked
               />
               <Radio
-                id='optionVegetarian'
-                name='dietary'
-                value='Vegetarian'
-                label='VEGGIE'
+                id="optionVegetarian"
+                name="dietary"
+                value="Vegetarian"
+                label="VEGGIE"
               />
               <Radio
-                id='optionVegan'
-                name='dietary'
-                value='Vegan'
-                label='VEGAN'
+                id="optionVegan"
+                name="dietary"
+                value="Vegan"
+                label="VEGAN"
               />
             </div>
           </fieldset>
         </div>
 
-        <div class='flex flex-col w-full mt-20'>
+        <div class="mt-20 flex w-full flex-col">
           <Input
-            id='allergies'
-            name='allergies'
-            label='ALLERGIES'
-            description='ENTER ANY FOOD ALLERGIES YOU HAVE BELOW'
+            id="allergies"
+            name="allergies"
+            label="ALLERGIES"
+            description="ENTER ANY FOOD ALLERGIES YOU HAVE BELOW"
           />
         </div>
 
-        <div class='flex flex-col w-full mt-24'>
-          <div class='w-full flex justify-center mb-16 h-36'>
+        <div class="mt-24 flex w-full flex-col">
+          <div class="mb-16 flex h-36 w-full justify-center">
             <Microphone />
           </div>
           <Input
-            id='song'
-            name='song'
-            label='SONG CHOICE'
-            description='WHAT’S A SONG YOU’D LOVE TO HEAR ON THE DANCEFLOOR?'
+            id="song"
+            name="song"
+            label="SONG CHOICE"
+            description="WHAT’S A SONG YOU’D LOVE TO HEAR ON THE DANCEFLOOR?"
           />
         </div>
 
-        <div class='flex flex-col w-full mt-24'>
-          <div class='w-full flex justify-center mb-16 h-36'>
+        <div class="mt-24 flex w-full flex-col">
+          <div class="mb-16 flex h-36 w-full justify-center">
             <SOS />
           </div>
           <Input
-            id='sos'
-            name='sos'
-            label='SPECIAL REQUIREMENTS'
-            description='ANYTHING YOU’D LIKE US TO BE AWARE OF ON THE DAY?'
+            id="sos"
+            name="sos"
+            label="SPECIAL REQUIREMENTS"
+            description="ANYTHING YOU’D LIKE US TO BE AWARE OF ON THE DAY?"
           />
         </div>
       </div>
 
-      <div class='w-full flex justify-center mt-24 mb-20'>
-        <Button id='submitButton' type='submit' text='RSVP' />
+      <div class="mt-24 mb-20 flex w-full justify-center">
+        <Button id="submitButton" type="submit" text="RSVP" />
       </div>
     </form>
   </div>
 </Layout>
 
-<script src='../scripts/rsvp.ts'></script>
+<script src="../scripts/rsvp.ts"></script>

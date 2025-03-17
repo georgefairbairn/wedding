@@ -1,11 +1,19 @@
 ---
-import { Image } from 'astro:assets';
+import Image from "../image/Image.astro";
 
-const { src, text, isVideo } = Astro.props;
+const {
+  src,
+  text,
+  isVideo,
+  width,
+  height,
+  imgClassNames = "",
+  transformation,
+} = Astro.props;
 ---
 
 <div
-  class='flex flex-col shadow-2xl w-full justify-center items-center max-w-xl md:max-w-4xl'
+  class="flex w-full max-w-xl flex-col items-center justify-center shadow-2xl md:max-w-4xl"
 >
   {
     isVideo ? (
@@ -13,27 +21,29 @@ const { src, text, isVideo } = Astro.props;
         autoplay
         loop
         muted
-        preload='auto'
+        preload="auto"
         playsinline
-        class={`w-full border-white border-4 md:border-8 filter grayscale ${
-          text ? 'border-b-0' : ''
+        class={`w-full border-4 border-white grayscale filter md:border-8 ${
+          text ? "border-b-0" : ""
         }`}
       >
-        <source src={src} type='video/mp4' />
+        <source src={src} type="video/mp4" />
       </video>
     ) : (
       <Image
-        class={`w-full border-white border-8 ${text ? 'border-b-0' : ''}`}
+        classes={`w-full border-8 border-white ${text ? "border-b-0" : ""} ${imgClassNames}`}
         src={src}
-        alt=''
+        width={width}
+        height={height}
+        transformation={transformation}
       />
     )
   }
   {
     text && (
       <div
-        class={`flex justify-center items-center bg-white w-full py-6 font-balmy text-2xl ${
-          text ? 'h-8' : ''
+        class={`font-balmy flex w-full items-center justify-center bg-white py-6 text-2xl ${
+          text ? "h-8" : ""
         }`}
       >
         {text}

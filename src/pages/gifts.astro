@@ -1,14 +1,124 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Title from '../components/title/Title.astro';
+import Layout from "../layouts/Layout.astro";
+import Title from "../components/title/Title.astro";
+import Button from "../components/button/Button.astro";
+import Gift from "../components/gift/Gift.astro";
+import { db, Stock } from "astro:db";
+
+const products = await db.select().from(Stock);
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
-  <div class='flex flex-col mt-16 md:mt-24 font-montserrat px-8 items-center'>
-    <Title text='gifts' />
-    <p class='max-w-4xl text-center text-white'>
-      Your presence is more than enough, but if you would like to get a gift we
-      will share more details here soon!
+  <div class="font-montserrat mt-16 flex flex-col items-center px-8 md:mt-24">
+    <Title text="gifts" />
+    <p class="max-w-4xl text-center text-white">
+      Your presence is more than enough, but if you would like to get a gift
+      we’re accepting cash donations towards our honeymoon below!
     </p>
+    <form
+      id="donationForm"
+      class="w-full max-w-3xl"
+      method="POST"
+      action="/api/donation"
+    >
+      <div class="flex w-full flex-col">
+        <p
+          class="mt-16 mb-8 text-center text-xl font-bold tracking-[0.25em] text-white uppercase"
+        >
+          HONEYMOON FUND
+        </p>
+        <div class="mb-8 inline-flex items-end justify-center rounded-sm">
+          <div
+            class="font-balmy text-custom-green flex h-full items-end pr-1 pb-2 text-6xl"
+          >
+            £
+          </div>
+          <input
+            id="donation"
+            class="font-balmy min-h-fit w-[2ch] min-w-[2ch] border-b-2 border-white bg-transparent text-8xl/6 text-white outline-hidden invalid:border-pink-500"
+            name="donation"
+            required
+            type="number"
+            value="50"
+            min="10"
+            autofocus
+          />
+        </div>
+
+        <div class="mt-8 flex w-full justify-center">
+          <Button id="submitButton" type="submit" text="CONTRIBUTE" />
+        </div>
+      </div>
+    </form>
+
+    <div
+      class="my-12 text-center font-bold tracking-[0.25em] text-white uppercase"
+    >
+      OR
+    </div>
+
+    <div class="flex flex-wrap justify-around gap-6">
+      {
+        products.map((product) => (
+          <Gift
+            formName={product.name}
+            title={product.title}
+            image={product.image}
+            priceId={product.price_id}
+            amount={product.price}
+            count={product.count}
+          >
+            <div>
+              <p class="mb-4">{product.description1}</p>
+              <p>{product.description2}</p>
+            </div>
+          </Gift>
+        ))
+      }
+    </div>
   </div>
 </Layout>
+
+<script>
+  function resizeInput() {
+    const input = document.getElementById("donation") as HTMLInputElement;
+    if (input) {
+      input.style.width = Math.max(input.value.length, 2) + "ch";
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("donation") as HTMLInputElement;
+    if (input) {
+      input.addEventListener("input", resizeInput);
+      resizeInput(); // Initialize width
+    }
+
+    const photos = document.querySelectorAll(".photo");
+    photos.forEach((photo) => {
+      const description = photo.querySelector(".description");
+      photo.addEventListener("click", () => {
+        description?.classList.toggle("opacity-0");
+        description?.classList.toggle("opacity-85");
+      });
+    });
+  });
+
+  const form = document.getElementById("donationForm") as HTMLFormElement;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    const res = await fetch("/api/donation", {
+      method: "POST",
+      body: formData,
+    });
+    const data = await res.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert("Error: " + data.error);
+    }
+  });
+</script>
