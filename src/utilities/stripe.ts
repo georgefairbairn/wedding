@@ -133,10 +133,10 @@ export const PRODUCTS: Record<
       : "price_1Qqf9JHxPgMNNpLsHMQISVYf",
     count: 4,
     price: 100,
-    title: "1 night stay kebi lodge",
+    title: "1 night stay desert lodge",
     description1: "A peaceful retreat in the heart of Namibia’s wilderness.",
     description2:
-      "This overnight stay at Kebi Lodge offers a blend of comfort and nature, with cozy chalets, stunning desert views, and warm hospitality—perfect for a relaxing escape under the stars.",
+      "This overnight stay at a Desert Lodge offers a blend of comfort and nature, with cozy chalets, stunning desert views, and warm hospitality—perfect for a relaxing escape under the stars.",
     image: "kebi_lodge_tkwhm0",
   },
   weinburg: {
