@@ -17,47 +17,46 @@ if (price_id) {
 
 <Layout title="George & Izzy's Wedding 2025">
   <div class="font-montserrat mt-16 flex flex-col items-center px-8">
-    <Title text="OMG THANKS!!!" />
+    <Title text="THANK YOU! 🤍" />
     <div class="max-w-md">
       <Polaroid src="hawaii_v7hft1" width={580} height={435} />
     </div>
-    <div
-      class="mt-12 text-center font-bold tracking-[0.25em] text-white uppercase"
-    >
-      That's so kind of you 😍
+    <div class="font-montserrat mt-8 max-w-2xl text-center text-xl text-white">
+      Thank you so much for your lovely gift! We really appreciate your kindness
+      and generosity, and we can't wait to celebrate with you in June!
     </div>
   </div>
-</Layout>
 
-<script>
-  import confetti from "canvas-confetti";
+  <script>
+    import confetti from "canvas-confetti";
 
-  var duration = 15 * 1000;
-  var animationEnd = Date.now() + duration;
-  var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+    var duration = 15 * 1000;
+    var animationEnd = Date.now() + duration;
+    var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
-  function randomInRange(min: number, max: number) {
-    return Math.random() * (max - min) + min;
-  }
-
-  var interval: NodeJS.Timeout = setInterval(function () {
-    var timeLeft = animationEnd - Date.now();
-
-    if (timeLeft <= 0) {
-      return clearInterval(interval);
+    function randomInRange(min: number, max: number) {
+      return Math.random() * (max - min) + min;
     }
 
-    var particleCount = 50 * (timeLeft / duration);
-    // since particles fall down, start a bit higher than random
-    confetti({
-      ...defaults,
-      particleCount,
-      origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-    });
-    confetti({
-      ...defaults,
-      particleCount,
-      origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-    });
-  }, 250);
-</script>
+    var interval: NodeJS.Timeout = setInterval(function () {
+      var timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      var particleCount = 50 * (timeLeft / duration);
+      // since particles fall down, start a bit higher than random
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+      });
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+      });
+    }, 250);
+  </script>
+</Layout>
