@@ -1,5 +1,5 @@
 ---
-const { id, href, text, onClick, type } = Astro.props;
+const { id, href, text, onClick, type, disabled = false } = Astro.props;
 
 const backClasses = [
   "bg-custom-green",
@@ -39,7 +39,13 @@ const frontClasses = [
       <span class={frontClasses}>{text}</span>
     </a>
   ) : (
-    <button id={id} class={backClasses} onclick={onClick} type={type}>
+    <button
+      id={id}
+      class={backClasses}
+      onclick={onClick}
+      type={type}
+      disabled={disabled}
+    >
       <span id="buttonText" class={`${frontClasses}`}>
         {text}
       </span>

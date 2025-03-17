@@ -32,7 +32,7 @@ export const POST: APIRoute = async ({ request }) => {
         },
       ],
       mode: "payment",
-      success_url: `${baseUrl}/success`,
+      success_url: `${baseUrl}/success?price_id=${priceId}`,
       cancel_url: `${baseUrl}/gifts`,
     });
 

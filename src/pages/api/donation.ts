@@ -1,6 +1,6 @@
 import Stripe from "stripe";
 import type { APIRoute } from "astro";
-import { PRODUCTS } from "../../utilities/stripe";
+import { DONATION, PRODUCTS } from "../../utilities/stripe";
 
 const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY);
 
@@ -25,7 +25,7 @@ export const POST: APIRoute = async ({ request }) => {
         {
           price_data: {
             currency: "gbp",
-            product: PRODUCTS.donation,
+            product: DONATION.product_id,
             unit_amount: donation * 100, // Stripe expects amount in pennies
           },
           quantity: 1,

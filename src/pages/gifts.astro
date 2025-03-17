@@ -3,7 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Title from "../components/title/Title.astro";
 import Button from "../components/button/Button.astro";
 import Gift from "../components/gift/Gift.astro";
-import { PRICES } from "../utilities/stripe";
+import { db, Stock } from "astro:db";
+
+const products = await db.select().from(Stock);
 ---
 
 <Layout title="George & Izzy's Wedding 2025">
@@ -56,198 +58,23 @@ import { PRICES } from "../utilities/stripe";
     </div>
 
     <div class="flex flex-wrap justify-around gap-6">
-      <Gift
-        formName="etosha"
-        title="1 day safari in etosha national park"
-        image="etosha_sb6xdv"
-        priceId={PRICES.etosha}
-        amount="100"
-      >
-        <div>
-          <p class="mb-4">
-            An unforgettable safari experience in Namibia’s most famous national
-            park.
-          </p>
-          <p>
-            This gift offers the chance to spot incredible wildlife, from
-            elephants and lions to rhinos and giraffes, while exploring Etosha’s
-            vast landscapes.
-          </p>
-        </div>
-      </Gift>
-
-      <Gift
-        formName="drinks"
-        title="honeymoon departure drinks"
-        image="champagne_snftuo"
-        priceId={PRICES.drinks}
-        amount="25"
-      >
-        <div>
-          <p class="mb-4">
-            A perfect way to celebrate the start of a honeymoon.
-          </p>
-          <p>
-            Whether enjoyed at the airport lounge or at the first destination,
-            this gift provides a toast to new adventures together.
-          </p>
-        </div>
-      </Gift>
-
-      <Gift
-        formName="wineTasting"
-        title="wine tasting tour in the omaruru region"
-        description="An opportunity to discover Namibia’s growing wine scene. This experience includes tastings of locally produced wines, paired with stunning vineyard views and warm hospitality."
-        image="wine_tasting_zbb7ok"
-        priceId={PRICES.wineTasting}
-        amount="75"
-      >
-        <div>
-          <p class="mb-4">
-            An opportunity to discover Namibia’s growing wine scene.
-          </p>
-          <p>
-            This experience includes tastings of locally produced wines, paired
-            with stunning vineyard views and warm hospitality.
-          </p>
-        </div>
-      </Gift>
-
-      <Gift
-        formName="fourXFour"
-        title="sandwich harbour 4x4 tour"
-        image="145_fmcd5b"
-        priceId={PRICES.fourXFour}
-        amount="100"
-      >
-        <div>
-          <p class="mb-4">
-            A thrilling off-road adventure through Namibia’s iconic coastal
-            dunes.
-          </p>
-          <p>
-            This experience includes breathtaking scenery where the desert meets
-            the ocean, with opportunities to spot wildlife along the way.
-          </p>
-        </div>
-      </Gift>
-
-      <Gift
-        formName="sossusvlei"
-        title="sossusvlei sundowners"
-        image="sundowners_u8yiin"
-        priceId={PRICES.sossusvlei}
-        amount="25"
-      >
-        <div>
-          <p class="mb-4">
-            A breathtaking end to the day in one of Namibia’s most iconic
-            landscapes.
-          </p>
-          <p>
-            This experience includes a scenic drive to the towering Sossusvlei
-            dunes, where drinks are enjoyed as the sun sets, painting the desert
-            in stunning shades of red and gold.
-          </p>
-        </div>
-      </Gift>
-
-      <Gift
-        formName="kebi"
-        title="1 night stay kebi lodge"
-        image="kebi_lodge_tkwhm0"
-        priceId={PRICES.kebi}
-        amount="100"
-      >
-        <div>
-          <p class="mb-4">
-            A peaceful retreat in the heart of Namibia’s wilderness.
-          </p>
-          <p>
-            This overnight stay at Kebi Lodge offers a blend of comfort and
-            nature, with cozy chalets, stunning desert views, and warm
-            hospitality—perfect for a relaxing escape under the stars.
-          </p>
-        </div>
-      </Gift>
-
-      <Gift
-        formName="weinburg"
-        title="fine dining at am weinburg restaurant"
-        image="weinburg_penged"
-        priceId={PRICES.weinburg}
-        amount="75"
-      >
-        <div>
-          <p class="mb-4">
-            A sophisticated dining experience at one of Namibia’s most elegant
-            restaurants.
-          </p>
-          <p>
-            Set within a beautifully restored wine estate, Am Weinberg offers
-            expertly crafted dishes, fine wines, and a refined atmosphere for an
-            indulgent culinary treat.
-          </p>
-        </div>
-      </Gift>
-
-      <Gift
-        formName="habitas"
-        title="wellness escape at our habitas namibia"
-        image="habitas_xjauun"
-        priceId={PRICES.habitas}
-        amount="150"
-      >
-        <div>
-          <p class="mb-4">
-            A rejuvenating spa experience set against the stunning Namibian
-            wilderness.
-          </p>
-          <p>
-            This gift offers the chance to unwind with a soothing treatment,
-            combining natural ingredients and expert care for the ultimate
-            relaxation.
-          </p>
-        </div>
-      </Gift>
-
-      <Gift
-        formName="bingo"
-        title="mr bingo don’t forget to have fun art"
-        image="have_fun_plf5lc"
-        priceId={PRICES.bingo}
-        amount="90"
-      >
-        <div>
-          <p class="mb-4">
-            Mr Bingo is a London-based artist known for his irreverent & dark
-            humour.
-          </p>
-          <p>
-            We are big fans of his work & have some pieces already - this one
-            feels like a fitting advice-inspired piece to add to the collection.
-          </p>
-        </div>
-      </Gift>
-
-      <Gift
-        formName="photoAlbum"
-        title="custom embroidered wedding photo album"
-        image="wedding_photo_album_hehtpa"
-        priceId={PRICES.photoAlbum}
-        amount="250"
-      >
-        <div>
-          <p class="mb-4">
-            A beautiful hand-crafted personal photo album designed to preserve
-            wedding memories for years to come.
-          </p>
-          <p>
-            Featuring custom embroidery, this keepsake is perfect for holding
-            treasured photographs from the big day.
-          </p>
-        </div>
-      </Gift>
+      {
+        products.map((product) => (
+          <Gift
+            formName={product.name}
+            title={product.title}
+            image={product.image}
+            priceId={product.price_id}
+            amount={product.price}
+            count={product.count}
+          >
+            <div>
+              <p class="mb-4">{product.description1}</p>
+              <p>{product.description2}</p>
+            </div>
+          </Gift>
+        ))
+      }
     </div>
   </div>
 </Layout>
