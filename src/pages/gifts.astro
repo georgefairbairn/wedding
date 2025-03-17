@@ -11,10 +11,18 @@ const products = await db.select().from(Stock);
 <Layout title="George & Izzy's Wedding 2025">
   <div class="font-montserrat mt-16 flex flex-col items-center px-8 md:mt-24">
     <Title text="gifts" />
-    <p class="max-w-4xl text-center text-white">
-      Your presence is more than enough, but if you would like to get a gift
-      we’re accepting cash donations towards our honeymoon below!
-    </p>
+    <div class="max-w-4xl text-center text-white">
+      <p>
+        Your presence at our wedding is more than enough, but if you'd like to
+        give something, we’ve put together a gift registry with a selection of
+        honeymoon experiences and a couple of memorable items below.
+      </p>
+      <p class="mt-4">
+        We've also included the option to contribute any amount of your choosing
+        to our honeymoon fund for our trip to <strong>Namibia</strong>. We’re so
+        grateful to have you celebrating with us!
+      </p>
+    </div>
     <form
       id="donationForm"
       class="w-full max-w-3xl"

@@ -1,5 +1,13 @@
 const isProduction = import.meta.env.MODE === "production";
 
+export const CARD_FEE = {
+  name: "donation",
+  product_id: isProduction ? "prod_RxhBmh5ToEcATc" : "prod_Rxh6mJsbs3uAKc",
+  price_id: isProduction
+    ? "price_1R3lmfHxPgMNNpLsAidGtoZH"
+    : "price_1R3liEHxPgMNNpLsSadvFfBj",
+};
+
 export const DONATION = {
   name: "donation",
   product_id: isProduction ? "prod_Rk8X35IP6pduSH" : "prod_Rk89K2hgnLT7Dp",
