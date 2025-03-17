@@ -41,8 +41,8 @@ export const PRODUCTS: Record<
     name: "drinks",
     product_id: isProduction ? "prod_Rk8wT4Bzq5fLg8" : "prod_Rk8wkIoH7PXYiv",
     price_id: isProduction
-      ? "price_1QqeejHxPgMNNpLsXiQe0n54"
-      : "price_1QqeeRHxPgMNNpLsTvIOLT3t",
+      ? "price_1R3cbqHxPgMNNpLs25rXq7CL"
+      : "price_1R3cQbHxPgMNNpLs3LBCl3hd",
     count: 4,
     price: 25,
     title: "honeymoon departure drinks",
