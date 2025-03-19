@@ -1,5 +1,13 @@
 ---
-const { id, href, text, onClick, type, disabled = false } = Astro.props;
+const {
+  id,
+  href,
+  text,
+  onClick,
+  type,
+  disabled = false,
+  isRedirect,
+} = Astro.props;
 
 const backClasses = [
   "bg-custom-green",
@@ -35,7 +43,12 @@ const frontClasses = [
 
 {
   href ? (
-    <a id={id} href={href} class={backClasses}>
+    <a
+      id={id}
+      href={href}
+      class={backClasses}
+      target={isRedirect ? "_blank" : "_self"}
+    >
       <span class={frontClasses}>{text}</span>
     </a>
   ) : (

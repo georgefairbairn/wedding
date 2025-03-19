@@ -4,6 +4,7 @@ import Title from "../components/title/Title.astro";
 import Button from "../components/button/Button.astro";
 import Gift from "../components/gift/Gift.astro";
 import { db, Stock } from "astro:db";
+import { PREZOLA_LINK } from "../utilities/consts";
 
 const products = await db.select().from(Stock);
 ---
@@ -35,26 +36,15 @@ const products = await db.select().from(Stock);
         >
           HONEYMOON FUND
         </p>
-        <div class="mb-8 inline-flex items-end justify-center rounded-sm">
-          <div
-            class="font-balmy text-custom-green flex h-full items-end pr-1 pb-2 text-6xl"
-          >
-            £
-          </div>
-          <input
-            id="donation"
-            class="font-balmy min-h-fit w-[2ch] min-w-[2ch] border-b-2 border-white bg-transparent text-8xl/6 text-white outline-hidden invalid:border-pink-500"
-            name="donation"
-            required
-            type="number"
-            value="50"
-            min="10"
-            autofocus
-          />
-        </div>
 
         <div class="mt-8 flex w-full justify-center">
-          <Button id="submitButton" type="submit" text="CONTRIBUTE" />
+          <Button
+            id="submitButton"
+            type="submit"
+            text="CONTRIBUTE"
+            href={PREZOLA_LINK}
+            isRedirect
+          />
         </div>
       </div>
     </form>
